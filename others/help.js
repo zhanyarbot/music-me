@@ -18,6 +18,7 @@ module.exports = {
     .setThumbnail(``)
     .setTitle(`Help Menu`)
     .setDescription(`
+-play | -loop | -lyrics | -nowplaying | -pause | -queue | -remove | -resume | -search | -shuffle | -skip | -skipto | -stop | -volume | -filters
 
 -lock | -unlock | -slowmode | -embed
 -invite | -ping | -uptime | -server | -about | -status | -se | -invites | -prefix | -support
