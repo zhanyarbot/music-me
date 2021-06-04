@@ -16,13 +16,17 @@ module.exports = {
 
     let helpEmbed = new MessageEmbed()
     .setThumbnail(``)
-    .setTitle(`Help Menu`)
+    .setTitle(`Help Commands`)
     .setDescription(`
--play | -loop | -lyrics | -nowplaying | -pause | -queue | -remove | -resume | -search | -shuffle | -skip | -skipto | -stop | -volume | -filters
+**Info commands**
+> \`invite ,ping ,uptime ,server ,about ,status ,se ,invites ,prefix ,support\`
+**Music commands**
+> \`play ,loop ,lyrics ,nowplaying ,pause ,queue ,remove ,resume ,search ,shuffle ,skip ,skipto ,stop ,volume ,filters\`
+**Fun commands**
+> \`impostor ,simp ,rate ,icon ,avatar\`
+**Admin commands**
+> \`lock ,unlock ,slowmode ,embed\`
 
--lock | -unlock | -slowmode | -embed
--invite | -ping | -uptime | -server | -about | -status | -se | -invites | -prefix | -support
--impostor | -simp | -rate | -icon | -avatar
 `)
 
    .setFooter(`${message.author.username}#${message.author.discriminator}`, message.member.user.displayAvatarURL({ dynamic: true }))
