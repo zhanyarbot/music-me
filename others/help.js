@@ -19,7 +19,7 @@ module.exports = {
     .setTitle(`Help Menu`)
     .setDescription(`
 
-
+-lock | -unlock | -slowmode | -embed
 -invite | -ping | -uptime | -server | -about | -status | -se | -invites | -prefix | -support
 -impostor | -simp | -rate | -icon | -avatar
 `)
