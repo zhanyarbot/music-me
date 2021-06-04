@@ -20,7 +20,7 @@ module.exports = {
     .setDescription(`
 
 
-
+-invite | -ping | -uptime | -server | -about | -status | -se | -invites | -prefix | -support
 -impostor | -simp | -rate | -icon | -avatar
 `)
 
