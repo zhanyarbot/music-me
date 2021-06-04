@@ -6,7 +6,7 @@ const db = require('quick.db');
 const { TOKEN, PREFIX, AVATARURL, BOTNAME, } = require(`./config.json`);
 const figlet = require("figlet");
 const client = new Client({ disableMentions: `` , partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
-client.login('ODIxNzkzNDQxMjkzMTM5OTY4.YFI4yA.l9NZ_xlX1ou1iouBSgMrh2XIaIo');
+client.login('');
 client.commands = new Collection();
 client.setMaxListeners(0);
 client.prefix = PREFIX;
@@ -37,7 +37,7 @@ client.on(`ready`, () => {
       });
       
 
-    client.user.setActivity(`Type: ${PREFIX}help | Verified`, { type: "LISTENING"});
+    client.user.setActivity(`Type: ${PREFIX}help`, { type: "LISTENING"});
     client.user.setActivity(`Type: GuIdis ${client.guilds.cache.size},Users ${client.guilds.cache.reduce((a, g) => a + g.memberCount, 0)},`, { type: "LISTENING"});
       }, (5000));
       ////////////////////////////////
@@ -77,7 +77,7 @@ client.on(`message`, async (message) => {
 
   //information message when the bot has been tagged
   if(message.content.includes(client.user.id)) {
-    message.reply(new Discord.MessageEmbed().setColor("YELLOW").setAuthor(`**Join a voice channel and \`${prefix}play a song. Type \`${prefix}help\` for the list of commands. | Support Server - [Click here](https://discord.gg/sRc9SteRyE) | Bot Link - [Click here](https://discord.com/api/oauth2/authorize?client_id=821793441293139968&permissions=4294967287&scope=bot) | Bot Vote - [Click here](https://10.discordbbtlist.repl.co/bots/821793441293139968)**`, ({dynamic:true})));
+    message.reply(new Discord.MessageEmbed().setColor("YELLOW").setAuthor(`**Join a voice channel and \`${prefix}play a song. Type \`${prefix}help\` for the list of commands. **`, ({dynamic:true})));
   } 
 
 
@@ -93,7 +93,6 @@ client.on(`message`, async (message) => {
     .setFooter(message.author.username, message.author.displayAvatarURL)
     .setTimestamp()
     .setDescription(`
-[Invite](https://discord.com/api/oauth2/authorize?client_id=821793441293139968&permissions=4294967287&scope=bot) - [Support](https://discord.gg/F8ng6crDU4)
 
 **__Server Name__**
 ${message.guild.name}
@@ -130,16 +129,15 @@ ${message.guild.premiumSubscriptionCount}
  //////
 
 //An tag bot announcement for everyone but no one knows so fine ^w^
-  if(message.content.startsWith(`<@821793441293139968>`)){
+  if(message.content.startsWith(`<@>`)){
     //define saymsg
     const saymsg = message.content.slice(Number(prefix.length) + 5)
     //define embed
     const embed = new Discord.MessageEmbed()
     .setColor("YELLOW")
     .setAuthor("", "")
-    .setThumbnail(`https://cdn.discordapp.com/attachments/822586742929490012/840421371439874058/20210508_053224.png`)
+    .setThumbnail(``)
     .setDescription(`
-[Invite](https://discord.com/api/oauth2/authorize?client_id=821793441293139968&permissions=4294967287&scope=bot) - [Support](https://discord.gg/F8ng6crDU4)
 
 **\`${prefix}play\` a song.**
 **Type \`${prefix}help\` for the list of commands.**
@@ -167,7 +165,6 @@ ${message.guild.premiumSubscriptionCount}
     .setFooter(message.author.username, message.author.displayAvatarURL)
     .setTimestamp()
     .setDescription(`
-[Invite](https://discord.com/api/oauth2/authorize?client_id=821793441293139968&permissions=4294967287&scope=bot) - [Support](https://discord.gg/F8ng6crDU4)
 
 **__Guilds__**
 ${client.guilds.cache.size}
@@ -204,10 +201,8 @@ ${client.commands.size}
     .setTimestamp()
     .setDescription(`
 
-[Invite](https://discord.com/api/oauth2/authorize?client_id=821793441293139968&permissions=4294967287&scope=bot) - [Support](https://discord.gg/F8ng6crDU4)
-
 **__Developers Bot__**
-<@839133910079635489>
+<@>
 **__Ping Bot__**
 ${client.ws.ping}
 **__ID Bot__**
