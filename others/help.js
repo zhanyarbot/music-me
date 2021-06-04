@@ -15,17 +15,13 @@ module.exports = {
     let commands = message.client.commands.array();
 
     let helpEmbed = new MessageEmbed()
-    .setThumbnail(`https://cdn.discordapp.com/attachments/822586742929490012/840421371439874058/20210508_053224.png`)
+    .setThumbnail(``)
     .setTitle(`Help Menu`)
     .setDescription(`
-Invite Nakano to your server by [click here](https://discord.com/api/oauth2/authorize?client_id=821793441293139968&permissions=4294967287&scope=bot)
-
-__To see each part of the commands__
-
-**-info | -music | -fun | -mod**
 
 
-Need more help? Come join our [server](https://discord.gg/sRc9SteRyE)
+
+-impostor | -simp | -rate | -icon | -avatar
 `)
 
    .setFooter(`${message.author.username}#${message.author.discriminator}`, message.member.user.displayAvatarURL({ dynamic: true }))
