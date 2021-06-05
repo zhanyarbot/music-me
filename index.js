@@ -296,21 +296,3 @@ function delay(delayInms) {
    }, delayInms);
  });
 }
-
-
-//////
-
-
-
-client.on('guildCreate', guild => {
-client.channels.get("850779924352466984").send(`:white_check_mark: **${client.user.tag} ئادی سێرڤەرێکی تر کرا 
-Server name: __${guild.name}__
-Server owner: __${guild.owner}__
-Server id: __${guild.id}__ 
-Server Count: __${guild.memberCount}__**`)
-}); 
-client.on('guildDelete', guild => {
-  client.channels.get("850779924352466984").send(`❎ **${client.user.tag} ڕۆشت لە سێرڤەر 
-Server name: __${guild.name}__
-Server owner: __${guild.owner}__
-Server id: __${guild.id}__
