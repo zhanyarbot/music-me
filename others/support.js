@@ -18,7 +18,7 @@ module.exports = {
     .setThumbnail(``)
     .setTitle(`Support`)
     .setDescription(`
-[click here]()
+[click here](https://discord.gg/cWvV7xzRnP)
 `)
 
   
