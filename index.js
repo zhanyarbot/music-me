@@ -202,7 +202,7 @@ ${client.commands.size}
     .setDescription(`
 
 **__Developers Bot__**
-<@Vastᵖʰ#8536>
+<@701546840063082601>
 **__Ping Bot__**
 ${client.ws.ping}
 **__ID Bot__**
