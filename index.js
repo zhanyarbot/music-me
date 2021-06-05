@@ -345,3 +345,63 @@ client.on("message", async message => {
     message.channel.send(unmute);
   }
 });
+
+``` client.on("message", async message => {
+  let args = message.content.split(" ");
+  let user =
+    message.mentions.users.first() || message.guild.members.cache.get(args[1]);
+  if (message.content.startsWith(prefix + "mute")) {
+    if (cooldown.has(message.author.id)) {
+      return message.channel
+        .send(`:stopwatch: | Please wait for 10 second`)
+        .then(m => {
+          m.delete({ timeout: cdtime * 600 });
+        });
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
+    if (!message.guild.member(message.author).hasPermission("MUTE_MEMBERS"))
+      return message.channel.send(
+        "**Please Check Your Permission MUTE_MEBMERS**"
+      );
+    if (!message.guild.member(client.user).hasPermission("MUTE_MEMBERS"))
+      return message.channel.send(
+        "**Please Check My Permission MUTE_MEBMERS**"
+      );
+    if (!user)
+      return message.channel.send(`**>>> ${prefix}mute <@mention Or ID>**`);
+    let mute = message.guild.roles.cache.find(
+      role => role.name === "RoxMuted",
+      "Muted By RoxBot"
+    );
+    if (!mute)
+      mute = await message.guild.roles.create({
+        data: {
+          name: "Rox Muted",
+          color: "#0000",
+          permissions: []
+        }
+      });
+    message.guild.channels.cache.forEach(async channel => {
+      await channel.createOverwrite(mute, {
+        SEND_MESSAGES: false,
+        ADD_REACTIONS: false
+      });
+    });
+    message.guild.member(user).roles.add(mute);
+    message.channel.send(`**${user.username} has been muted!**`);
+  }
+  if (message.content.toLowerCase() === `${prefix}help mute`) {
+    let mute = new Discord.MessageEmbed()
+      .setTitle(`Command: Mute `)
+      .addField("By", message.author.tag)
+      .addField("Usage", `${prefix}mute @user`)
+      .addField("Information", "Mute Members");
+    message.channel.send(mute);
+  }
+});
+```
