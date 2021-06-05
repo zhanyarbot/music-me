@@ -249,7 +249,29 @@ ${process.version}
 ///////
 
 
-
+  let args = message.content.split(" ").slice(1).join(" ");
+  let role = message.guild.roles.find('name',args) || message.guild.roles.get(args);
+ 
+ 
+  if(message.content.startsWith(prefix + "irole")) {
+    if(!args) return message.reply('please write role name');
+    if(!role) return message.reply('this role not found');
+    let iQp = new Discord.RichEmbed()
+    .setAuthor(message.author.tag,message.author.avatarURL)
+    .setTitle(message.guild.name)
+    .setThumbnail(message.guild.iconURL)
+    .addField('- Name Role',role.name,true)
+    .addField('- Role Id',role.id,true)
+    .addField('- Time Create',role.createdAt.toLocaleString(),true)
+    .addField('- Color Role',role.hexColor,true)
+    .addField('- The number of members who have the same Role',role.members.size,true)
+    .addField('- Position Role',role.position - message.guild.roles.size,true)
+    .addField('- Role Permission',role.permissions,true)
+    .setFooter(message.author.tag,message.author.avatarURL);
+ 
+    message.channel.send(iQp);
+  }
+}); 
 
 //command Handler DO NOT TOUCH
  const prefixRegex = new RegExp(`^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`);
