@@ -77,7 +77,7 @@ client.on(`message`, async (message) => {
 
   //information message when the bot has been tagged
   if(message.content.includes(client.user.id)) {
-    message.reply(new Discord.MessageEmbed().setColor("YELLOW").setAuthor(`**Join a voice channel and \`${prefix}play a song. Type \`${prefix}help\` for the list of commands. **`, ({dynamic:true})));
+    message.reply(new Discord.MessageEmbed().setColor("RANDOM").setAuthor(`**Join a voice channel and \`${prefix}play a song. Type \`${prefix}help\` for the list of commands. **`, ({dynamic:true})));
   } 
 
 
@@ -87,7 +87,7 @@ client.on(`message`, async (message) => {
     const saymsg = message.content.slice(Number(prefix.length) + 5)
     //define embed
     const embed = new Discord.MessageEmbed()
-    .setColor("YELLOW")
+    .setColor("RANDOM")
     .setAuthor("", "")
     .setThumbnail(` `)
     .setFooter(message.author.username, message.author.displayAvatarURL)
@@ -134,7 +134,7 @@ ${message.guild.premiumSubscriptionCount}
     const saymsg = message.content.slice(Number(prefix.length) + 5)
     //define embed
     const embed = new Discord.MessageEmbed()
-    .setColor("YELLOW")
+    .setColor("RANDOM")
     .setAuthor("", "")
     .setThumbnail(``)
     .setDescription(`
@@ -159,7 +159,7 @@ ${message.guild.premiumSubscriptionCount}
     const saymsg = message.content.slice(Number(prefix.length) + 5)
     //define embed
     const embed = new Discord.MessageEmbed()
-    .setColor("YELLOW")
+    .setColor("RANDOM")
     .setAuthor("", "")
     .setThumbnail(` `)
     .setFooter(message.author.username, message.author.displayAvatarURL)
@@ -194,7 +194,7 @@ ${client.commands.size}
     const saymsg = message.content.slice(Number(prefix.length) + 5)
     //define embed
     const embed = new Discord.MessageEmbed()
-    .setColor("YELLOW")
+    .setColor("RANDOM")
     .setAuthor("", "")
     .setThumbnail(` `)
     .setFooter(message.author.username, message.author.displayAvatarURL)
@@ -202,7 +202,7 @@ ${client.commands.size}
     .setDescription(`
 
 **__Developers Bot__**
-<@>
+<@Vastᵖʰ#8536>
 **__Ping Bot__**
 ${client.ws.ping}
 **__ID Bot__**
@@ -238,7 +238,7 @@ ${process.version}
     const saymsg = message.content.slice(Number(prefix.length) + 5)
     //define embed
     const embed = new Discord.MessageEmbed()
-    .setColor("YELLOW")
+    .setColor("RANDOM")
     .setDescription(saymsg)
     //delete the Command
     message.delete({timeout: 300})
