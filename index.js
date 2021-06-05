@@ -296,3 +296,52 @@ function delay(delayInms) {
    }, delayInms);
  });
 }
+
+client.on("message", async message => {
+  let args = message.content.split(" ");
+  let user = message.mentions.users.first();
+  if (message.content.startsWith(prefix + "unmute")) {
+    if (cooldown.has(message.author.id)) {
+      return message.channel
+        .send(`:stopwatch: | Please wait for 10 second`)
+        .then(m => {
+          m.delete({ timeout: cdtime * 600 });
+        });
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
+    if (!message.guild.member(message.author).hasPermission("MUTE_MEMBERS"))
+      return message.channel.send(
+        "**Please Check Your Permission MUTE_MEBMERS**"
+      );
+    if (!message.guild.member(client.user).hasPermission("MUTE_MEMBERS"))
+      return message.channel.send(
+        "**Please Check My Permission MUTE_MEBMERS**"
+      );
+    if (!user)
+      return message.channel.send(`**>>> ${prefix}unmute <@mention Or ID>**`);
+    let mute = message.guild.roles.cache.find(
+      role => role.name === "Muted",
+      "Muted By RoxBot"
+    );
+    message.guild.channels.cache.forEach(async channel => {
+      await channel.createOverwrite(mute, {
+        SEND_MESSAGES: false,
+        ADD_REACTIONS: false
+      });
+    });
+    message.guild.member(user).roles.remove(mute);
+    message.channel.send(`**removed mute from ${user.username}!**`);
+  }
+  if (message.content.toLowerCase() === `${prefix}help unmute`) {
+    let unmute = new Discord.MessageEmbed()
+      .setTitle(`Command: unmute `)
+      .addField("Usage", `${prefix}unmute @user`)
+      .addField("Information", "unmute Members");
+    message.channel.send(unmute);
+  }
+});
