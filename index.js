@@ -94,16 +94,16 @@ client.on(`message`, async (message) => {
     .setTimestamp()
     .setDescription(`
 
-**__Server Name__**
+** <a:emoji_24:850633169978916864>__Server Name__**
 ${message.guild.name}
 
-**__Server ID__**
+** <a:emoji_23:850626724513185802>__Server ID__**
 ${message.guild.id}
 
-**__Server Owner__**
+** <a:emoji_17:850611627321327617>__Server Owner__**
 ${message.guild.owner}
 
-**__Server Members__**
+** <a:emoji_13:850610633618489344>__Server Members__**
 ${message.guild.memberCount}
 
 **__Server Roles__**
