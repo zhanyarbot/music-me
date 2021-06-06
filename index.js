@@ -219,7 +219,19 @@ client.on("message", message => {
   }
 });
 
-   
+   client.on("guildCreate", guild => {
+  let channel = client.channels.cache.get("851018016887144468");
+  let embed = new MessageEmbed().setColor("#146DF6")
+  .setAuthor(client.user.username, client.user.avatarURL())
+  .setTitle( `✅ Join Server`)
+  .addField("🔠 **Server Name**", `${guild.name}`)
+  .addField("👑 **Server Owner**", `${guild.owner}`)
+  .addField("🆔 **Server Id**", `${guild.id}`)
+  .addField("👥 **Member Count**", `${guild.memberCount}`)
+  .setFooter(`${client.user.tag}`);
+  channel.send(embed);
+});
+
  //////
 
 //An about announcement for everyone but no one knows so fine ^https://discord.com/api/oauth2/authorize?client_id=821793441293139968&permissions=4294967287&scope=botw^
