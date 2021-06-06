@@ -229,36 +229,34 @@ client.on("guildDelete", guild => {
 
 ** <a:s_:849928845750698004> Developers Bot**
  <@743887896481628190>
-** <a:emoji_31:851033224293384203>ping bot*
+
+** <a:emoji_31:851033224293384203>ping bot**
 ${client.ws.ping}
 
-** <a:emoji_21:850626696754233364> ID Bot**
+**<a:emoji_21:850626696754233364>ID Bot**
 ${client.user.id}
 
-** <a:emoji_30:850655693937967144> Name Bot**
+**<a:emoji_30:850655693937967144> Name Bot**
 ${client.user.tag}
 
-** <a:emoji_22:850626710352166923> Prefix Bot** :
+**<a:emoji_22:850626710352166923>Prefix Bot**
 [ ${PREFIX} ]
 
-** <a:emoji_24:850633169978916864> Servers**
+**<a:emoji_24:850633169978916864>Servers**
 ${client.guilds.cache.size}
 
-** <a:emoji_23:850626724513185802> Users**
+**<a:emoji_23:850626724513185802>Users**
 ${client.guilds.cache.reduce((a, g) => a + g.memberCount, 0)}
 
 
-** <a:emoji_11:850610595350970369> 
-Channels**
+**<a:emoji_11:850610595350970369>Channels**
 ${client.channels.cache.size}
 
-**<a:emoji_12:850610615877894154> 
-Commands**
+**<a:emoji_12:850610615877894154>Commands**
 ${client.commands.size}
 
-** <a:emoji_16:850611586921398283> Node**
+**<a:emoji_16:850611586921398283>Node**
 ${process.version}
-
 `)
 
     //send the Message
