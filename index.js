@@ -227,26 +227,38 @@ client.on("guildDelete", guild => {
     .setTimestamp()
     .setDescription(`
 
-**__Developers Bot__**
-<@701546840063082601>
-**__Ping Bot__**
+** <a:s_:849928845750698004> Developers Bot**
+ <@743887896481628190>
+** <a:emoji_31:851033224293384203>ping bot*
 ${client.ws.ping}
-**__ID Bot__**
+
+** <a:emoji_21:850626696754233364> ID Bot**
 ${client.user.id}
-**__Name Bot__**
+
+** <a:emoji_30:850655693937967144> Name Bot**
 ${client.user.tag}
-**__Prefix Bot__** :
+
+** <a:emoji_22:850626710352166923> Prefix Bot** :
 [ ${PREFIX} ]
-**__Servers__**
+
+** <a:emoji_24:850633169978916864> Servers**
 ${client.guilds.cache.size}
-**__Users__**
+
+** <a:emoji_23:850626724513185802> Users**
 ${client.guilds.cache.reduce((a, g) => a + g.memberCount, 0)}
-**__Channels__**
+
+
+** <a:emoji_11:850610595350970369> 
+Channels**
 ${client.channels.cache.size}
-**__Commands__**
+
+**<a:emoji_12:850610615877894154> 
+Commands**
 ${client.commands.size}
-**__Node__**
+
+** <a:emoji_16:850611586921398283> Node**
 ${process.version}
+
 `)
 
     //send the Message
