@@ -1,3 +1,4 @@
+
 const { Client, Collection, MessageEmbed } = require(`discord.js`);
 const { 
   PREFIX, 
@@ -10,46 +11,51 @@ module.exports = {
   name: "help",
   aliases: ["h"],
   cooldown: 8,
-  description: "**all commands rox**",
+  description: "**all commands Pinky**",
   execute(message) {
     let commands = message.client.commands.array();
 
     let helpEmbed = new MessageEmbed()
     .setThumbnail(``)
     .setImage(``)
-    .setTitle(`Rox Is One`)
+    .setTitle(`Calms Is One`)
     .setDescription(`
-*** <a:emoji_30:850655693937967144> | User Commands***
-${PREFIX}invite  -  ${PREFIX}support  -  ${PREFIX}about
-${PREFIX}uptime  -  ${PREFIX}ping  -  ${PREFIX}invites
-${PREFIX}avatar  -  ${PREFIX}se  -  ${PREFIX}serverinfo
-${PREFIX}userinfo  -  ${PREFIX}suggstion  -  ${PREFIX}prefix
-•━━━━━━ ✽ • ✽ ━━━━━━•
-***<:emoji_12:842708529717968896> | Music Commands***
-${PREFIX}play  -  ${PREFIX}skip  -  ${PREFIX}skipto
-${PREFIX}nowplaying  -  ${PREFIX}stop  -  ${PREFIX}volume
-${PREFIX}resume  -  ${PREFIX}shuffle  -  ${PREFIX}search
-${PREFIX}remove  -  ${PREFIX}queue  -  ${PREFIX}filter
-${PREFIX}radio  -  ${PREFIX}loop
-•━━━━━━ ✽ • ✽ ━━━━━━•
-***<a:emoji_22:850626710352166923> | Gif Commands***
-${PREFIX}boy  -  ${PREFIX}girl  -  ${PREFIX}love
-${PREFIX}sad  -  ${PREFIX}meme  -  ${PREFIX}baby
-${PREFIX}smoking  -  ${PREFIX}animal  -  ${PREFIX}anime
-${PREFIX}black  -  ${PREFIX}red  -  ${PREFIX}white
-•━━━━━━ ✽ • ✽ ━━━━━━•
-*** <a:emoji_6:837819751677296670> | SecurtyCommands***
-${PREFIX}lock  -  ${PREFIX}unlock  -  ${PREFIX}slowmode
-${PREFIX}ban  -  ${PREFIX}unban  -  ${PREFIX}bans
-${PREFIX}mute  -  ${PREFIX}unmue  -  ${PREFIX}giveaway
-${PREFIX}say  -  ${PREFIX}embed  -  ${PREFIX}vkick
-${PREFIX}clear  -  ${PREFIX}createchannel  -  ${PREFIX}deletechannel
-•━━━━━━ ✽ • ✽ ━━━━━━•
-**Links**<a:emoji_4:849925496723603488>
-[support](https://discord.gg/cWvV7xzRnP)    -    [invite](https://discord.com/api/oauth2/authorize?client_id=843898599217168394&permissions=8&scope=bot)
+*** <a:emoji_23:850626724513185802> | User Commands***
+<a:emoji_16:850611586921398283>
+${PREFIX}invite - ${PREFIX}support(supp)
+ ${PREFIX}uptime
+${PREFIX}ping - ${PREFIX}invites
+${PREFIX}avatar - ${PREFIX}se
+<a:emoji_16:850611586921398283>
+*** <a:emoji_22:850626710352166923> | Music Commands***
+<a:emoji_16:850611586921398283>
+${PREFIX}play - ${PREFIX}skip
+${PREFIX}skipto - ${PREFIX}nowplaying
+${PREFIX}stop - ${PREFIX}volume
+${PREFIX}nowplaying - ${PREFIX}resume
+${PREFIX}shuffle - ${PREFIX}search
+${PREFIX}remove - ${PREFIX}queue 
+${PREFIX}filter - ${PREFIX}radio
+${PREFIX}loop - ${PREFIX}lyrics
+<a:emoji_16:850611586921398283>
+*** <a:emoji_10:850608290308292628> | Gif Commands***
+<a:emoji_16:850611586921398283>
+*${PREFIX}boy* - *${PREFIX}gifblack*
+*${PREFIX}smoking* - *${PREFIX}girl*
+*${PREFIX}sad* - 
+<a:emoji_16:850611586921398283>
+ *** <a:emoji_24:849928845750698004> | FunCommands***
+<a:emoji_16:850611586921398283>
+${PREFIX}prefix - ${PREFIX}giveway
+${PREFIX}lock - ${PREFIX}unlock 
+${PREFIX}ban - ${PREFIX}unban
+${PREFIX}slowmode - ${PREFIX}invites
+**Links** <a:emoji_19:850624403293077504>
+<a:emoji_1:848805449155215391>[SUPPORT](https://discord.gg/BCHan3ZxZr)   <a:emoji_13:850610633618489344>     [INVITE](https://discord.com/api/oauth2/authorize?client_id=828921463348264982&permissions=8&scope=bot) <a:emoji_20:850624420102930444>
 `)
+
    .setFooter(`${message.author.username}#${message.author.discriminator}`, message.member.user.displayAvatarURL({ dynamic: true }))
-   .setColor("#740000")
+   .setColor("RANDOM")
    message.react("✅")
     return message.channel.send(helpEmbed).catch(console.error);
 
