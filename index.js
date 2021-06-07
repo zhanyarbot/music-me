@@ -1,4 +1,4 @@
-const Discord = require(`discord.js`);
+ const Discord = require(`discord.js`);
 const { Client, Collection, MessageEmbed,MessageAttachment } = require(`discord.js`);
 const { readdirSync } = require(`fs`);
 const { join } = require(`path`);
@@ -99,6 +99,10 @@ ${message.guild.name}
 
 ** <a:emoji_23:850626724513185802>__Server ID__**
 ${message.guild.id}
+
+
+**create ***
+${message.guild.createdAt}
 
 ** <a:emoji_17:850611627321327617>__Server Owner__**
 ${message.guild.owner}
