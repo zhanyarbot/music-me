@@ -150,7 +150,32 @@ ${message.guild.premiumSubscriptionCount}
 
  //////
 
+client.on('message', message => {
+    if(message.content.startsWith(prefix + "setOnlineVc")) {
+let channel = message.content.split(" ").slice(1).join(" ")
+let channelfind = message.guild.channels.cache.find(c => c.name === `${channel}`)
+if(!channel) return message.channel.send(`> Please Type The Voice Channel Name Example: ${prefix}setvoice <Channel name>`)
+if(!channelfind) return message.channel.send(`> Please Type The Voice Channel Name Example: ${prefix}setvoice <Channel name>`)
+vojson[message.guild.id] = {
+stats: 'enable',
+chid: channelfind.id,
+guild: message.guild.id
 
+}
+saveBlakJack()
+channelfind.setName(`Voice online [${message.guild.members.cache.filter(m => m.voice.channel).size}]`)
+message.channel.send('**Done The Voice Online  Is Turned On**')
+
+}
+    if(message.content.startsWith(prefix + "vc off")) {
+    vojson[message.guild.id] = {
+        stats: 'disable',
+        chid: ch.id,
+        guild: message.guild.id
+        }
+        message.channel.send('**Done The Voice Online Is Turned Off**')
+ 
+}
 
 
 //An status announcement for everyone but no one knows so fine ^w^
