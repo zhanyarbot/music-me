@@ -100,10 +100,6 @@ ${message.guild.name}
 ** <a:emoji_23:850626724513185802>__Server ID__**
 ${message.guild.id}
 
-
-**create ***
-${message.guild.createdAt}
-
 ** <a:emoji_17:850611627321327617>__Server Owner__**
 ${message.guild.owner}
 
