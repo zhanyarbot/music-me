@@ -206,6 +206,35 @@ ${client.commands.size}
 //////
 
 
+client.on('message', msg => {
+if(msg.content.startsWith(prefix + "report")){
+const reason = msg.content.split(" ").slice(2).join(" ");
+let reportschannel = msg.guild.channels.cache.find(channel => channel.name === "Report");
+if(!reportschannel) return msg.channel.send("لا استطيع العثور على روم الابلاعات");
+const user = msg.mentions.users.first();user
+if(!user) return msg.channel.send("منشن العضو");
+if(!reason) return msg.channel.send("اكتب السبب");
+  if (user.id == msg.author.id)
+        return msg.channel.send("لا تسطيع الابلاغ على نفسك")
+
+              if(user.bot) return msg.channel.send("لا تسطيع الابلاغ عن بوت")
+
+if(msg.author.bot || !msg.guild) return msg.reply("this command for server only")
+
+const embed = new Discord.MessageEmbed()
+.setTitle("ابلاغ جديد")
+.addField("العضو", `${user.username}`)
+.addField("السبب", `${reason}`)
+.addField("اسم المبلغ", `${msg.author.username}`)
+.addField("ايدي المبلغ", `${msg.author.id}`)
+.setFooter("ابلاغ جديد")
+
+reportschannel.send(embed)
+msg.channel.send("تم ارسال ابلاغك بنجاح")
+}
+
+})
+
    
  //////
 
