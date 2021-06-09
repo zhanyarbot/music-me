@@ -1,4 +1,4 @@
- const Discord = require(`discord.js`);
+const Discord = require(`discord.js`);
 const { Client, Collection, MessageEmbed,MessageAttachment } = require(`discord.js`);
 const { readdirSync } = require(`fs`);
 const { join } = require(`path`);
@@ -120,7 +120,7 @@ ${message.guild.premiumSubscriptionCount}
 
 
 `)
-
+////////
 client.on("message", message => {
   if (message.content.startsWith(prefix + "kick")) {
     if (!message.member.hasPermission("KICK_MEMBERS"))
@@ -143,7 +143,7 @@ client.on("message", message => {
     tag.kick();
   }
 });
-
+/////
     //send the Message
     message.channel.send(embed)
     message.react("<a:emoji_81:830444292111204382>")
