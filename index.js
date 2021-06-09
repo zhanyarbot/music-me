@@ -121,6 +121,29 @@ ${message.guild.premiumSubscriptionCount}
 
 `)
 
+client.on("message", message => {
+  if (message.content.startsWith(prefix + "kick")) {
+    if (!message.member.hasPermission("KICK_MEMBERS"))
+      return message.channel.send("**You dont have premission**");
+    let tag = message.mentions.members.first();
+    if (!tag) return "**Aw kasa La server nya**";
+    let args = message.content.split(" ").slice(1);
+    if (!args)
+      return message.channel.send("**Please Mention Member**");
+      if (!message.guild.member(tag).kickable) return message.reply("**I cant Kick Member Because The Member High Roles**");
+    var blackjack = "Black sestam";
+    const ban = new Discord.MessageEmbed()
+      .setTitle("**Banned In a Server**")
+      .addField("Guild", message.guild.name)
+      .addField("Name member ban", tag)
+      .addField("Moderation", message.author.tag)
+      .setFooter("BLACK SESTAM")
+      .setColor("RANDOM");
+    message.channel.send(ban);
+    tag.kick();
+  }
+});
+
     //send the Message
     message.channel.send(embed)
     message.react("<a:emoji_81:830444292111204382>")
