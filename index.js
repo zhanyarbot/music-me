@@ -151,23 +151,6 @@ ${message.guild.premiumSubscriptionCount}
 
  //////
 
-if (command == prefix + 'points') {
- 
-        if (!message.guild.member(client.user).hasPermission('EMBED_LINKS')) return message.channel.send(':no_entry: | I dont have Embed Links permission.');
-        if (!args[1]) {
-            if (!points) return message.channel.send(embed);
-            var members = Object.values(points, null, 5);
-            var memb = members.filter(m => m.points >= 1);
-            if (memb.length == 0) return message.channel.send(embed);
-            var x = 1;
-            let pointsTop = new Discord.MessageEmbed()
-                .setAuthor('Top Points:')
-                .setColor('#79758F')
-                .setDescription(memb.sort((second, first) => first.points > second.points).slice(0, 10).map(m => `<@${m.id}> \`${m.points}\``).join('\n'))
-            message.channel.send({
-                embed: pointsTop
-            });
-
 //An status announcement for everyone but no one knows so fine ^w^
   if(message.content.startsWith(`${prefix}status`)){
     //define saymsg
