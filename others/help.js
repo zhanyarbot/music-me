@@ -20,14 +20,17 @@ module.exports = {
     .setImage(``)
     .setTitle(`Calms Is One`)
     .setDescription(`
-*** <a:emoji_23:850626724513185802> | User Commands***
+
+<a:emoji_52:853130289491476561>|PRIFIX +
+
+***<a:emoji_30:850655693937967144> | User Commands***
 <a:emoji_16:850611586921398283>
 ${PREFIX}invite - ${PREFIX}support(supp)
  ${PREFIX}uptime
 ${PREFIX}ping - ${PREFIX}invites
 ${PREFIX}avatar - ${PREFIX}se
 <a:emoji_16:850611586921398283>
-*** <a:emoji_22:850626710352166923> | Music Commands***
+*** <a:emoji_51:853130142565793852> <a:emoji_51:853130142565793852> | Music Commands***
 <a:emoji_16:850611586921398283>
 ${PREFIX}play - ${PREFIX}skip
 ${PREFIX}skipto - ${PREFIX}nowplaying
