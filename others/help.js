@@ -33,7 +33,7 @@ ${PREFIX}satus - ${PREFIX}impostor
 
 <a:emoji_16:850611586921398283>
 ***<a:emoji_51:853130142565793852><a:emoji_44:852963983761211443> | Music Commands***
-<a:emoji_16:850611586921398283> <a:emoji_47:853130067857244200>
+<a:emoji_16:850611586921398283><a:emoji_47:853130067857244200>
 ${PREFIX}play - ${PREFIX}skip
 ${PREFIX}skipto - ${PREFIX}nowplaying
 ${PREFIX}stop - ${PREFIX}volume
@@ -44,13 +44,13 @@ ${PREFIX}filter - ${PREFIX}radio
 ${PREFIX}loop - ${PREFIX}lyrics
 <a:emoji_16:850611586921398283>
 *** <a:emoji_10:850608290308292628> | Gif Commands***
-<a:emoji_16:850611586921398283> <a:emoji_47:853130067857244200>
+<a:emoji_16:850611586921398283><a:emoji_47:853130067857244200>
 *${PREFIX}boy* - *${PREFIX}gifblack*
 *${PREFIX}smoking* - *${PREFIX}girl*
 *${PREFIX}sad* - 
 <a:emoji_16:850611586921398283>
  *** <a:emoji_24:849928845750698004> | FunCommands***
-<a:emoji_16:850611586921398283> <a:emoji_47:853130067857244200>
+<a:emoji_16:850611586921398283><a:emoji_47:853130067857244200>
 ${PREFIX}prefix - ${PREFIX}giveway
 ${PREFIX}lock - ${PREFIX}unlock 
 ${PREFIX}ban - ${PREFIX}unban
