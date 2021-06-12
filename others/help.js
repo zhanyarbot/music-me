@@ -21,8 +21,8 @@ module.exports = {
     .setTitle(`Calms Is One`)
     .setDescription(`
 
-*** <a:emoji_50:853130123585781771> | Prefix bot  
-_+_***
+*** <a:emoji_50:853130123585781771> | Prefix bot*** 
+***_+_***
 
 ***<a:emoji_30:850655693937967144> | User Commands***
 <a:emoji_16:850611586921398283>
