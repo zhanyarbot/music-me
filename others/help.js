@@ -22,7 +22,7 @@ module.exports = {
     .setDescription(`
 
 *** <a:emoji_50:853130123585781771> | Prefix bot*** 
-***_+_***
+***__+__***
 
 ***<a:emoji_30:850655693937967144> | User Commands***
 <a:emoji_16:850611586921398283>
