@@ -237,23 +237,6 @@ ${process.version}
   }
 
 
-
-   
-
-  //An embed announcement for everyone but no one knows so fine ^w^
-  if(message.content.startsWith(`${prefix}embed`)){
-    //define saymsg
-    const saymsg = message.content.slice(Number(prefix.length) + 5)
-    //define embed
-    const embed = new Discord.MessageEmbed()
-    .setColor("RANDOM")
-    .setDescription(saymsg)
-    //delete the Command
-    message.delete({timeout: 300})
-    //send the Message
-    message.channel.send(embed)
-  }
-
 ///////
 
 //An about announcement for everyone but no one knows so fine ^https://discord.com/api/oauth2/authorize?client_id=821793441293139968&permissions=4294967287&scope=botw^
