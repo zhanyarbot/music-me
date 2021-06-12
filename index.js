@@ -237,24 +237,6 @@ ${process.version}
 
 
 ///////
-
-//An about announcement for everyone but no one knows so fine ^https://discord.com/api/oauth2/authorize?client_id=821793441293139968&permissions=4294967287&scope=botw^
-  if (!message.channel.guild) return;
-  if (message.content.startsWith(prefix + 'allbot')) {
-    if (!message.channel.guild) return;
-    if (message.author.bot) return;
-    let i = 1;
-    const botssize = message.guild.members.filter(m => m.user.bot).map(m => `${i++} - <@${m.id}>`);
-    const embed = new Discord.RichEmbed()
-      .setAuthor(message.author.tag, message.author.avatarURL)
-      .setDescription(`**Found ${message.guild.members.filter(m => m.user.bot).size} bots in this Server**
-${botssize.join('\n')}`)
-      .setFooter(client.user.username, client.user.avatarURL)
-      .setTimestamp();
-    message.channel.send(embed)
-
-  }
-});
 //command Handler DO NOT TOUCH
  const prefixRegex = new RegExp(`^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`);
  if (!prefixRegex.test(message.content)) return;
