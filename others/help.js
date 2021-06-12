@@ -21,7 +21,7 @@ module.exports = {
     .setTitle(`Calms Is One`)
     .setDescription(`
 
-<a:emoji_52:853130289491476561>|PRIFIX +
+*** <a:emoji_50:853130123585781771> |PRIFIX +***
 
 ***<a:emoji_30:850655693937967144> | User Commands***
 <a:emoji_16:850611586921398283>
@@ -30,7 +30,7 @@ ${PREFIX}invite - ${PREFIX}support(supp)
 ${PREFIX}ping - ${PREFIX}invites
 ${PREFIX}avatar - ${PREFIX}se
 <a:emoji_16:850611586921398283>
-*** <a:emoji_51:853130142565793852> <a:emoji_51:853130142565793852> | Music Commands***
+***<a:emoji_51:853130142565793852> | Music Commands***
 <a:emoji_16:850611586921398283>
 ${PREFIX}play - ${PREFIX}skip
 ${PREFIX}skipto - ${PREFIX}nowplaying
@@ -47,7 +47,7 @@ ${PREFIX}loop - ${PREFIX}lyrics
 *${PREFIX}smoking* - *${PREFIX}girl*
 *${PREFIX}sad* - 
 <a:emoji_16:850611586921398283>
- *** <a:emoji_24:849928845750698004> | FunCommands***
+ ***<a:emoji_42:852963953104388096> |Midrator commnads***
 <a:emoji_16:850611586921398283>
 ${PREFIX}prefix - ${PREFIX}giveway
 ${PREFIX}lock - ${PREFIX}unlock 
