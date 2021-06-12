@@ -20,19 +20,14 @@ module.exports = {
     .setImage(``)
     .setTitle(`Calms Is One`)
     .setDescription(`
-*** <a:emoji_30:850655693937967144>| User Commands***
+*** <a:emoji_23:850626724513185802> | User Commands***
 <a:emoji_16:850611586921398283>
 ${PREFIX}invite - ${PREFIX}support(supp)
-${PREFIX}uptime
+ ${PREFIX}uptime
 ${PREFIX}ping - ${PREFIX}invites
 ${PREFIX}avatar - ${PREFIX}se
-${PREFIX}icon - ${PREFIX}say
-${PREFIX}rate - ${PREFIX}simp
-${PREFIX}satus - ${PREFIX}impostor
-
-
 <a:emoji_16:850611586921398283>
-***<a:emoji_51:853130142565793852> | Music Commands***
+*** <a:emoji_22:850626710352166923> | Music Commands***
 <a:emoji_16:850611586921398283>
 ${PREFIX}play - ${PREFIX}skip
 ${PREFIX}skipto - ${PREFIX}nowplaying
@@ -55,8 +50,6 @@ ${PREFIX}prefix - ${PREFIX}giveway
 ${PREFIX}lock - ${PREFIX}unlock 
 ${PREFIX}ban - ${PREFIX}unban
 ${PREFIX}slowmode - ${PREFIX}invites
-${PREFIX}server - ${PREFIX}about
-
 **Links** <a:emoji_19:850624403293077504>
 <a:emoji_1:848805449155215391>[SUPPORT](https://discord.gg/BCHan3ZxZr)   <a:emoji_13:850610633618489344>     [INVITE](https://discord.com/api/oauth2/authorize?client_id=828921463348264982&permissions=8&scope=bot) <a:emoji_20:850624420102930444>
 `)
@@ -68,3 +61,4 @@ ${PREFIX}server - ${PREFIX}about
 
   }
 };
+
