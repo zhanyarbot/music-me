@@ -7,8 +7,8 @@ const {
 
 
 module.exports = {
-  name: "help",
-  aliases: ["h"],
+  name: "emoji",
+  aliases: ["e"],
   cooldown: 8,
   description: "**all commands Pinky**",
   execute(message) {
