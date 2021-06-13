@@ -133,12 +133,12 @@ module.exports = {
 
     try {
       const newsong = new MessageEmbed()
-       .setTitle("<a:emoji_40:823437442895314945> "+song.title)
+       .setTitle("<a:emoji_47:853130067857244200>"+song.title)
         .setURL(song.url)
         .setColor("YELLOW")
         .setImage(thumb)
         .setThumbnail(`https://cdn.discordapp.com/attachments/822637229297238026/833218301542924308/20210418_084342.png`)
-         .addField("<a:emoji_86:833222624220938250> Requested by:", `\`${message.author.username}#${message.author.discriminator}\``, true)
+         .addField("Requested by:", `\`${message.author.username}#${message.author.discriminator}\``, true)
         .addField("<a:emoji_65:830443146307567647> Time:", `\`${song.duration} Minutes\``, true)
         .addField("<a:emoji_34:822641693387653182> Volume:", `\`100\``, true)
 
