@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
-let replies = [""];
+let replies = ["https://media.discordapp.net/attachments/764927608013193276/764933832142749736/image0.gif"];
 
 let result = Math.floor((Math.random() * replies.length));
   
