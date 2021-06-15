@@ -25,14 +25,14 @@ module.exports = {
 ***__+__***
 
 ***<a:emoji_30:850655693937967144> | User Commands***
-<a:emoji_16:850611586921398283>
+
+
 ${PREFIX}invite - ${PREFIX}support(supp)
  ${PREFIX}uptime
 ${PREFIX}ping - ${PREFIX}invites
 ${PREFIX}avatar - ${PREFIX}se
 <a:emoji_16:850611586921398283>
 ***<a:emoji_51:853130142565793852> | Music Commands***
-<a:emoji_16:850611586921398283>
 ${PREFIX}play - ${PREFIX}skip
 ${PREFIX}skipto - ${PREFIX}nowplaying
 ${PREFIX}stop - ${PREFIX}volume
@@ -41,14 +41,14 @@ ${PREFIX}shuffle - ${PREFIX}search
 ${PREFIX}remove - ${PREFIX}queue 
 ${PREFIX}filter - ${PREFIX}radio
 ${PREFIX}loop - ${PREFIX}lyrics
-<a:emoji_16:850611586921398283>
+
+
 *** <a:emoji_10:850608290308292628> | Gif Commands***
-<a:emoji_16:850611586921398283>
+
 *${PREFIX}boy* - *${PREFIX}gifblack*
 *${PREFIX}smoking* - *${PREFIX}girl*
 *${PREFIX}sad* - 
-<a:emoji_16:850611586921398283>
- ***<a:emoji_42:852963953104388096> |Midrator commnads***
+ *** <a:emoji_42:852963953104388096> |Midrator commnads***
 <a:emoji_16:850611586921398283>
 ${PREFIX}prefix - ${PREFIX}giveway
 ${PREFIX}lock - ${PREFIX}unlock 
