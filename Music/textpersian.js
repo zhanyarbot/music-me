@@ -1,6 +1,12 @@
-const fs = require("fs");
-const Discord = require("discord.js");
-  module.exports = {
+const { Client, Collection, MessageEmbed } = require(`discord.js`);
+const { 
+  PREFIX, 
+} = require(`../config.json`);
+
+  
+
+
+module.exports = {
   name: "textpersian",
   aliases: ["text-persian","tp"],
   enabled: true,
