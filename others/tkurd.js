@@ -10,20 +10,20 @@ module.exports = {
       else {
         let user = message.mentions.users.first();
         if(user){ 
-          message.channel.send(``);
+          message.channel.send(`ڕەنگە ھیچ کات خۆشیان نەویستبین ڕەنگە تەنھا برینەکانی خۆیان بە ئێمە چاک کردبێتەوە  `);
         }else{
         if(!user){
           let author = message.author;
             var use = args[0];
             var mem = client.users.cache.get(use);
             if(message.guild.member(mem)){
-               return message.channel.send(`${author} I rate ${mem.username} **${number}/10**`);
+               return message.channel.send(`بـمرێ ئـەو دڵەیی تەنھا بـەناو ھێنانت پڕ دەبێ `);
             }
             else {
-              return message.channel.send(`${author} Please mention a user to rate`);
+              return message.channel.send(`خـەڵک بۆ یەکتری وتـۆش بۆ من `);
               }
            } else {
-           return message.channel.send(`${author} Please mention a user to rate`);
+           return message.channel.send(`${author} Please mention a user to`);
            }
         }
          
