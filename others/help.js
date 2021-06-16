@@ -17,7 +17,7 @@ module.exports = {
 
     let helpEmbed = new MessageEmbed()
     .setThumbnail(``)
-    .setImage(``)
+    .setImage(`https://media.discordapp.net/attachments/848454202514079764/854642997894971392/image0.gif `)
     .setTitle(`Calms Is One`)
     .setDescription(`
 
