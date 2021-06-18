@@ -17,7 +17,7 @@ const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, `\\$&`);
 //this fires when the BOT STARTS DO NOT TOUCH
 
 client.on("message", message => {
-  if (message.content.startsWith(PREFIX + "man gif")) {
+  if (message.content.startsWith(PREFIX + "boy gif")) {
     let man = [
       "https://media.discordapp.net/attachments/786897044483604490/803870769313480714/Enes_Acar_GIF_70.gif",
       "https://media.discordapp.net/attachments/786897044483604490/803870793716858880/a_57a7f6c875e3a329b170edf177392911.gif",
@@ -42,6 +42,107 @@ client.on("message", message => {
           description: `${message.author.username} MAN GIFS photos  `,
           image: {
             url: man[Math.floor(Math.random() * man.length)]
+          }
+        }
+      })
+      .catch(e => {
+        client.log.error(e);
+      });
+  }
+});
+
+client.on("message", message => {
+  if (message.content.startsWith(prefix + "girl gif")) {
+    let girl = [
+      "https://media.discordapp.net/attachments/786897045436366849/804968189892755456/image2-1.gif",
+      "https://media.discordapp.net/attachments/786897045436366849/804968223577604126/gif472.gif",
+      "https://media.discordapp.net/attachments/786897045436366849/804968231794245642/rexsin_212.gif",
+      "https://media.discordapp.net/attachments/786897045436366849/804968258859827210/pintrst___luri_4.gif",
+      "https://media.discordapp.net/attachments/786897045436366849/804983128527077387/a_177ddfe86ad32b68be6200f007682136.gif",
+      "https://media.discordapp.net/attachments/786897045436366849/805008600334073866/3WIu.gif",
+      "https://media.discordapp.net/attachments/786897045436366849/805370008330436648/image0.gif",
+      "https://media.discordapp.net/attachments/786897045436366849/805008566439641128/image0.gif",
+      "https://media.discordapp.net/attachments/786897045436366849/804681217022099466/a_3c85d4517fbaf4f750d344820b49c076.gif",
+      "https://media.discordapp.net/attachments/786897045436366849/804682936615829504/image0.gif",
+      "https://media.discordapp.net/attachments/786897045436366849/804314115601596426/ALANIS_WOMAN_GIF_176.gif",
+      "https://media.discordapp.net/attachments/786897045436366849/804280612227383316/ALANIS_WOMAN_GIF_138.gif"
+    ];
+
+    message.channel
+      .send({
+        embed: {
+          description: `${message.author.username} GIRL GIFS `,
+          image: {
+            url: girl[Math.floor(Math.random() * girl.length)]
+          }
+        }
+      })
+      .catch(e => {
+        client.log.error(e);
+      });
+  }
+});
+
+client.on("message", message => {
+  if (message.content.startsWith(prefix + "sad gif")) {
+    let sads = [
+      "https://media.discordapp.net/attachments/786897045952790550/798719676795715614/Zeyrox_43.gif",
+      "https://media.discordapp.net/attachments/786897045952790550/799435191323852820/luisa1-1.gif",
+      "https://media.discordapp.net/attachments/786897045952790550/799435254011920404/a_caf4fdc4f3e516fcabec0022078c38ab.gif",
+      "https://media.discordapp.net/attachments/786897045952790550/804040753072439326/038842117446a0c76a922d23727942b1.gif",
+      "https://media.discordapp.net/attachments/786897045952790550/787581071079768074/image0.gif",
+      "https://media.discordapp.net/attachments/786897045952790550/787581004424544256/image0.gif",
+      "https://media.discordapp.net/attachments/786897045952790550/787580974975549450/image0.gif",
+      "https://media.discordapp.net/attachments/786897045952790550/787580943627976704/image0.gif",
+      "https://media.discordapp.net/attachments/786897045952790550/802930927784820766/Cedric_Anime_Gif_81.gif",
+      "https://media.discordapp.net/attachments/786897045952790550/802722301984243712/a_66f26e072e89a58c1879c6fa27744bd7.gif",
+      "https://media.discordapp.net/attachments/786897045952790550/801054305569865778/uzgun-4.gif",
+      "https://media.discordapp.net/attachments/786897044483604490/806288916160315422/image0.gif"
+    ];
+
+    message.channel
+      .send({
+        embed: {
+          description: `${message.author.username} **SAD GIFS**`,
+          image: {
+            url: sads[Math.floor(Math.random() * sads.length)]
+          }
+        }
+      })
+      .catch(e => {
+        client.log.error(e);
+      });
+  }
+});
+
+client.on("message", message => {
+  if (message.content.startsWith(prefix + "love gif")) {
+    let loves = [
+      "https://media.discordapp.net/attachments/608711480346542102/782233713538498600/hit_gif_5.gif",
+      "https://media.discordapp.net/attachments/608711480346542102/782286421020508170/image0_1.gif",
+      "https://media.discordapp.net/attachments/608711480346542102/782284851570147358/image0-1-4.gif",
+      "https://media.discordapp.net/attachments/608711480346542102/782406047473467422/image0.gif",
+      "https://media.discordapp.net/attachments/608711480346542102/782148760997593098/a_8bc52b6080ce3079988c6e49f84c4b03.gif",
+      "https://media.discordapp.net/attachments/608711480346542102/782445443665625128/ezgif-7-2032ed99845d.gif",
+      "https://media.discordapp.net/attachments/608711480346542102/782196955488321556/a_637b8e2042d540a1e5e28282e3fe5cc7.gif",
+      "https://media.discordapp.net/attachments/788119246517174362/803307812608409600/image0.gif",
+      "https://media.discordapp.net/attachments/788119246517174362/803869330005688340/a_130ce69bc8c1f06d917ee668f7051b64.gif",
+      "https://media.discordapp.net/attachments/788119246517174362/803869344266321931/dans4.gif",
+      "https://media.discordapp.net/attachments/788119246517174362/803869587988152340/gif.13.gif",
+      "https://media.discordapp.net/attachments/788119246517174362/803869653641854996/20210105_223539.gif",
+      "https://media.discordapp.net/attachments/788119246517174362/803869660814376960/a_09fbaba0301c6db194af2f0c6d2a6a93.gif",
+      "https://media.discordapp.net/attachments/788119246517174362/804188805204410378/2.gif",
+      "https://media.discordapp.net/attachments/788119246517174362/804337804179275776/16-10-27-tenor.gif",
+      "https://media.discordapp.net/attachments/788119246517174362/804759240451424256/Lrows_Gif_25.gif",
+      "https://media.discordapp.net/attachments/788119246517174362/804759252899594259/ciftler8.gif"
+    ];
+
+    message.channel
+      .send({
+        embed: {
+          description: `${message.author.username} :heart:  Love photos  `,
+          image: {
+            url: loves[Math.floor(Math.random() * loves.length)]
           }
         }
       })
