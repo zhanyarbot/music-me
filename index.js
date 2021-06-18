@@ -105,15 +105,27 @@ client.on('message',async message => {
   }
 })
 
-client.on("message", (message) => {
-    if (message.content.startsWith('+cdelete')) {
-        if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
+client.on("message", message => {
+if(message.content.startsWith(PREFIX + "setnick")){
+if(message.author.bot || message.channel.type == "dm" || !message.member.hasPermission("MANAGE_NICKNAMES") || !message.guild.member(client.user).hasPermission("MANAGE_NICKNAMES")) return;
+var user = message.mentions.members.first();
+var args = message.content.split(" ").slice(2);
+var nick = args.join(" ");
+if(!user || !args) return message.channel.send(`
+\`\`\`js
+Command: setnick
+تغيير لقب العضو.
  
-        let args = message.content.split(' ').slice(1);
-        let channel = message.client.channels.cache.find('name', args.join(' '));
-        if (!channel) return message.reply('**There is no room like this name **').catch(console.error);
-        channel.delete()
-    }
+الاستخدام:
++setnick (العضو)
++setnick (العضو) (اللقب الجديد)
+ 
+\`\`\`
+ 
+`);
+message.guild.member(user.user).setNickname(`${nick}`);
+message.channel.send(`Successfully changed **${user}** nickname to **${nick}**`);
+}
 });
 
 client.on(`ready`, () => {
