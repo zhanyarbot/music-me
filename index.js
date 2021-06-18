@@ -51,6 +51,7 @@ client.on("message", message => {
   }
 });
 
+
 client.on("message", message => {
   if (message.content.startsWith(prefix + "girl gif")) {
     let girl = [
@@ -83,6 +84,7 @@ client.on("message", message => {
   }
 });
 
+
 client.on("message", message => {
   if (message.content.startsWith(prefix + "sad gif")) {
     let sads = [
@@ -114,6 +116,7 @@ client.on("message", message => {
       });
   }
 });
+
 
 client.on("message", message => {
   if (message.content.startsWith(prefix + "love gif")) {
@@ -152,13 +155,17 @@ client.on("message", message => {
   }
 });
 
+
 client.on(`ready`, () => {
 
 
 //////////////
 
+
+
 ////////
    
+
    ///////////////////////////////
     ////////////IFCHEMPTY//////////
         //remove everything in between those 2 big comments if you want to disable that the bot leaves when ch. or queue gets empty!
