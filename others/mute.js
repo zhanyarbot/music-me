@@ -2,8 +2,6 @@ const fs = require("fs");
 const Discord = require("discord.js");
 
 module.exports = {
-
-module.exports = {
     config: {
         name: "mute",
         description: "Mutes a member in the discord!",
