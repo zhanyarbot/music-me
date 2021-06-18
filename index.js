@@ -189,6 +189,31 @@ if (!message.member.hasPermission("MANAGE_GUILD")) {
   }
 })
 
+client.on("message", async message => {
+  if (message.content.startsWith(PREFIX + "tinvites")) {
+    if (message.author.bot) return;
+    if (!message.channel.guild)
+      return message.reply(" Error : ` Server Command `");
+ 
+    var invites = await message.guild.fetchInvites();
+    invites = invites.array();
+    invites, "uses", { reverse: true };
+    let possibleInvites = ["User Invited |  Uses "];
+    invites.forEach(i => {
+      if (i.uses === 0) {
+        return;
+      }
+      possibleInvites.push([
+        "\n " + "<@" + i.inviter.id + ">" + "  :  " + i.uses
+      ]);
+    });
+    let embed = new Discord.MessageEmbed()
+      .setColor("RANDOM")
+      .addField("Top Invites.", `${possibleInvites}`);
+ 
+    message.channel.send(embed);
+  }
+});
 
 client.on(`ready`, () => {
 
