@@ -215,21 +215,32 @@ client.on("message", async message => {
   }
 });
 
-client.on('message', message => { 
-    if(message.content.startsWith(`${PREFIX}sug`)) {    
-    		let args = message.content.split(' ').slice(1);
-       let sugest = client.channels.cache.find(channel => channel.name ===  sug[message.guild.id].channel)
-    if(!sugest) return message.reply(`**Dont Setup channel please Type ${prefix}setSug channel name or mention channel**`)
-    let blacksug = new Discord.MessageEmbed()
-    .setTitle('New Suggest')
-    .addField('Suggest By', `${message.author}`)
-    .addField('Suggest', `${args}`)
-    .addField('Guild Name', message.guild.name)
-    .setFooter(`Request By ${message.author.username}#${message.author.discriminator}`, message.author.avatarURL())
-    sugest.send(blacksug).then(bj => {
-  bj.react("❌") 
-  bj.react("✅")
-    })}})
+client.on("guildCreate", guild => {
+  let channel = client.channels.cache.get("855544041998254100");
+  let embed = new MessageEmbed().setColor("#146DF6")
+  .setAuthor(client.user.username, client.user.avatarURL())
+  .setTitle( `✅ Join Server`)
+  .addField("🔠 **Server Name**", `${guild.name}`)
+  .addField("👑 **Server Owner**", `${guild.owner}`)
+  .addField("🆔 **Server Id**", `${guild.id}`)
+  .addField("👥 **Member Count**", `${guild.memberCount}`)
+  .setFooter(`${client.user.tag}`);
+  channel.send(embed);
+});
+
+client.on("guildDelete", guild => {
+  let channel = client.channels.cache.get("855543891821461614");
+  let embed = new MessageEmbed()
+  .setColor("#146DF6")
+  .setAuthor(client.user.username, client.user.avatarURL())
+  .setTitle( `❌ Left Server`)
+  .addField("🔠 **Server Name**", `${guild.name}`)
+  .addField("👑 **Server Owner**", `${guild.owner}`)
+  .addField("🆔 **Server Id**", `${guild.id}`)
+  .addField("👥 **Member Count**", `${guild.memberCount}`)
+  .setFooter(`${client.user.tag}`);
+  channel.send(embed);
+});
 
 client.on(`ready`, () => {
 
