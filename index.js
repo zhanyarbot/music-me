@@ -137,6 +137,32 @@ if(msg.content.startsWith(PREFIX +"clear")) {
         msg.channel.send(`Successfully deleted \`${args[0]} messages\``).then(m => m.delete({ timeout: 5000 }));
 }})
 
+client.on('message',async message => {
+  if(message.content.startsWith(PREFIX + "roleadd")) { 
+ 
+if (!message.member.hasPermission("MANAGE_GUILD")) {
+      return message.channel.send("pewist ba role bo anjamdane amkara");
+    }
+    if (!message.guild.me.hasPermission("MANAGE_GUILD")) {
+      return message.channel.send("rolem niya tawakw am kara bkam");
+    } 
+    let qawrma = message.mentions.members.first();
+    if(!qawrma) return message.reply(`kasek mention bka !`)
+    let shla = message.mentions.roles.first();
+    if(!shla) return message.reply(` rolek mention bka `)
+ 
+      const embed = new Discord.MessageEmbed()
+ 
+      .setColor("RANDOM")
+      .setDescription(`Done changed role for ${qawrma.user.username} added ${shla}`)
+ 
+      await message.channel.send(embed)
+ 
+      qawrma.roles.add(shla)
+ 
+  }
+})
+
 client.on(`ready`, () => {
 
 //////////////
