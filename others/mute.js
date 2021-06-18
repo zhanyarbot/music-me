@@ -98,7 +98,7 @@ module.exports = {
 
             var sChannel = message.guild.channels.cache.get(channel)
             if (!sChannel) return;
-            sChannel.send(embed)
+            massing.send(embed)
         } catch {
             return;
         }
