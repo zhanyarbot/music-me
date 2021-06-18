@@ -54,6 +54,7 @@ client.on("message", message => {
 
 client.on(`ready`, () => {
 
+
 client.on("message", message => {
   if (message.content.startsWith(prefix + "sad gif")) {
     let sads = [
@@ -85,6 +86,7 @@ client.on("message", message => {
       });
   }
 });
+
 
 //////////////
 
