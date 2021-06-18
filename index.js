@@ -51,36 +51,8 @@ client.on("message", message => {
   }
 });
 
-
-client.on(`ready`, () => {
-
-//////////////
-
-
-
-
-////////
-   
-
-   ///////////////////////////////
-    ////////////IFCHEMPTY//////////
-        //remove everything in between those 2 big comments if you want to disable that the bot leaves when ch. or queue gets empty!
-        setInterval(() => { 
-          let member;
-        client.guilds.cache.forEach(async guild =>{
-        await delay(15);
-          member = await client.guilds.cache.get(guild.id).members.cache.get(client.user.id)
-        //if not connected
-          if(!member.voice.channel)
-          return;
-        //if alone 
-        if (member.voice.channel.members.size === 1) 
-        { return member.voice.channel.leave(); }
-      });
-      
-
 client.on("message", message => {
-  if (message.content.startsWith(prefix + "sad gif")) {
+  if (message.content.startsWith(PREFIX + "sad gif")) {
     let sads = [
       "https://media.discordapp.net/attachments/786897045952790550/798719676795715614/Zeyrox_43.gif",
       "https://media.discordapp.net/attachments/786897045952790550/799435191323852820/luisa1-1.gif",
@@ -110,6 +82,34 @@ client.on("message", message => {
       });
   }
 });
+
+client.on(`ready`, () => {
+
+//////////////
+
+
+
+
+////////
+   
+
+   ///////////////////////////////
+    ////////////IFCHEMPTY//////////
+        //remove everything in between those 2 big comments if you want to disable that the bot leaves when ch. or queue gets empty!
+        setInterval(() => { 
+          let member;
+        client.guilds.cache.forEach(async guild =>{
+        await delay(15);
+          member = await client.guilds.cache.get(guild.id).members.cache.get(client.user.id)
+        //if not connected
+          if(!member.voice.channel)
+          return;
+        //if alone 
+        if (member.voice.channel.members.size === 1) 
+        { return member.voice.channel.leave(); }
+      });
+      
+
 
 
     client.user.setActivity(`Type: ${PREFIX}help`, { type: "LISTENING"});
