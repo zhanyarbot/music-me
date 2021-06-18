@@ -215,6 +215,22 @@ client.on("message", async message => {
   }
 });
 
+client.on('message', message => { 
+    if(message.content.startsWith(`${prefix}sug`)) {    
+    		let args = message.content.split(' ').slice(1);
+       let sugest = client.channels.cache.find(channel => channel.name ===  sug[message.guild.id].channel)
+    if(!sugest) return message.reply(`**Dont Setup channel please Type ${prefix}setSug channel name or mention channel**`)
+    let blacksug = new Discord.MessageEmbed()
+    .setTitle('New Suggest')
+    .addField('Suggest By', `${message.author}`)
+    .addField('Suggest', `${args}`)
+    .addField('Guild Name', message.guild.name)
+    .setFooter(`Request By ${message.author.username}#${message.author.discriminator}`, message.author.avatarURL())
+    sugest.send(blacksug).then(bj => {
+  bj.react("❌") 
+  bj.react("✅")
+    })}})
+
 client.on(`ready`, () => {
 
 //////////////
