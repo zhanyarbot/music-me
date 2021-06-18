@@ -21,17 +21,16 @@ module.exports = {
             if (memberInvites.size <= 0) {
                 return message.channel.send(`**${member.displayName} didn't invite anyone to the server!**`, (member === message.member ? null : member));
   {}          }
-
-          
+            let index = 0;
+            memberInvites.forEach(invite => index += invite.uses);
 
             let embed = new Discord.MessageEmbed()
-                .setColor("YELLOW")
+                .setColor("#146DF6")
                 .setAuthor(`${message.guild.name}`,message.guild.iconURL({ dynamic: true }))
                 .setThumbnail(message.author.avatarURL({dynamic: "true"}))
                 .setDescription(`Information on Invites of ${member.displayName}`)
                 .setFooter(`${message.author.username}#${message.author.discriminator}`, message.member.user.displayAvatarURL({ dynamic: true }))
                 .addField("**No. Invited Persons**", index)
-                .addField("Invitation Codes\n\n", content);
             message.channel.send(embed);
         } catch (e) {
             return message.channel.send(e.message)
