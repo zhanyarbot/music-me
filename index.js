@@ -215,31 +215,13 @@ client.on("message", async message => {
   }
 });
 
-client.on("GUILDCREATE", guild => {
-  let channel = client.channels.cache.get("855544041998254100");
-  let embed = new MessageEmbed().setColor("#146DF6")
-  .setAuthor(client.user.username, client.user.avatarURL())
-  .setTitle( `✅ Join Server`)
-  .addField("🔠 **Server Name**", `${guild.name}`)
-  .addField("👑 **Server Owner**", `${guild.owner}`)
-  .addField("🆔 **Server Id**", `${guild.id}`)
-  .addField("👥 **Member Count**", `${guild.memberCount}`)
-  .setFooter(`${client.user.tag}`);
-  channel.send(embed);
-});
-
-client.on("GUILDDELETE", guild => {
-  let channel = client.channels.cache.get("855543891821461614");
-  let embed = new MessageEmbed()
-  .setColor("#146DF6")
-  .setAuthor(client.user.username, client.user.avatarURL())
-  .setTitle( `❌ Left Server`)
-  .addField("🔠 **Server Name**", `${guild.name}`)
-  .addField("👑 **Server Owner**", `${guild.owner}`)
-  .addField("🆔 **Server Id**", `${guild.id}`)
-  .addField("👥 **Member Count**", `${guild.memberCount}`)
-  .setFooter(`${client.user.tag}`);
-  channel.send(embed);
+client.on('message', message => {
+if (message.content.startsWith(PREFIX+"cv")) {
+    var args = message.content.split(" ").slice(1);
+    var argrst = args.join(' ');
+                message.guild.channels.create(`${argrst}`,'voice')
+ 
+        }
 });
 
 client.on(`ready`, () => {
