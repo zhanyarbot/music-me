@@ -83,6 +83,29 @@ client.on("message", message => {
   }
 });
 
+client.on('message',async message => {
+  if(message.content.startsWith(PREFIX + "vkick")) { 
+   if (!message.member.hasPermission("MANAGE_GUILD")) {
+      return message.channel.send("pewist ba role bo anjamdane amkara");
+    }
+ 
+    if (!message.mentions.members.first())
+      return message.channel.send(
+        `kasek mention bka bo kick voice!`
+      );
+ 
+    let { channel} = message.mentions.members.first().voice;
+ 
+    if (!channel)
+      return message.channel.send(`am kasa la voice niya`);
+ 
+    message.mentions.members.first().voice.kick();
+ 
+    message.channel.send(`sarkawtoobw!`)
+  }
+})
+
+
 client.on(`ready`, () => {
 
 //////////////
