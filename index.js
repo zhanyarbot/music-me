@@ -163,81 +163,32 @@ if (!message.member.hasPermission("MANAGE_GUILD")) {
   }
 })
 
-client.on("message", async (message,target)  => {
-if(message.content.startsWith(PREFIX +"userinfo")) {
+client.on('message',async message => {
+  if(message.content.startsWith(PREFIX + "roleremove")) { 
  
- 
- 
- 
- 
-  if(message.author.bot) return;
-if(!message.channel.guild) return;
- 
- 
-let args = message.content.split(" ").slice(1);
- 
-const member = message.mentions.members.last() || message.guild.members.cache.get(target) || message.member;
- 
-    if (!member) {
-      return message.channel.send(":x: Unable to find this person!")
+if (!message.member.hasPermission("MANAGE_GUILD")) {
+      return message.channel.send("pewist ba role bo anjamdane amkara");
     }
+    if (!message.guild.me.hasPermission("MANAGE_GUILD")) {
+      return message.channel.send("rolem niya tawakw am kara bkam");
+    } 
+    let qawrma = message.mentions.members.first();
+    if(!qawrma) return message.reply(`kasek mention bka !`)
+    let shla = message.mentions.roles.first();
+    if(!shla) return message.reply(` rolek mention bka `)
  
+      const embed = new Discord.MessageEmbed()
  
+      .setColor("RANDOM")
+      .setDescription(`Done changed role for ${qawrma.user.username} removed ${shla}`)
  
-    let badges = await member.user.flags
-    badges = await badges.toArray();
+      await message.channel.send(embed)
  
-    let newbadges = [];
-    badges.forEach(m => {
-      newbadges.push(m.replace("_", " "))
-    })
+      qawrma.roles.remove(shla)
  
-    let embed = new discord.MessageEmbed()
-      .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
- 
- 
-    let array = []
-    if (member.user.presence.activities.length) {
- 
-      let data = member.user.presence.activities;
- 
-      for (let i = 0; i < data.length; i++) {
-        let name = data[i].name || "None"
-        let xname = data[i].details || "None"
-        let zname = data[i].state || "None"
-        let type = data[i].type
- 
-        array.push(`**${type}** : \`${name} : ${xname} : ${zname}\``)
- 
-        if (data[i].name === "Spotify") {
-          embed.setThumbnail(`https://i.scdn.co/image/${data[i].assets.largeImage.replace("spotify:", "")}`)
-        }
- 
-        embed.setDescription(array.join("\n"))
- 
-      }
-    }
- 
- 
-      embed.setColor(member.displayHexColor === "#000000" ? "#ffffff" : member.displayHexColor)
- 
- 
-      embed.setAuthor(member.user.tag, member.user.displayAvatarURL({ dynamic: true }))
- 
- 
-      if (member.nickname !== null) embed.addField("Nickname", member.nickname)
-      embed.addField("Join Date", moment(member.user.joinedAt).format("LLLL"))
-        .addField(" Create Date", moment(member.user.createdAt).format("LLLL"))
-        .addField("Other Information", `ID: \`${member.user.id}\`\nDiscriminator: ${member.user.discriminator}\nBot: ${member.user.bot}\nDeleted User: ${member.deleted}`)
-        .addField("Badges", newbadges.join(", ").toLowerCase() || "None")
-        .setFooter(member.user.presence.status)
- 
- 
- 
-      return message.channel.send(embed).catch(err => {
-        return message.channel.send("Error : " + err)
- 
-      })}})
+  }
+})
+
 
 client.on(`ready`, () => {
 
