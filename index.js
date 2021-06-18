@@ -52,6 +52,169 @@ client.on("message", message => {
 });
 
 client.on("message", message => {
+  if (message.content.startsWith(PREFIX+ "girl gif")) {
+    let girl = [
+      "https://media.discordapp.net/attachments/786897045436366849/804968189892755456/image2-1.gif",
+      "https://media.discordapp.net/attachments/786897045436366849/804968223577604126/gif472.gif",
+      "https://media.discordapp.net/attachments/786897045436366849/804968231794245642/rexsin_212.gif",
+      "https://media.discordapp.net/attachments/786897045436366849/804968258859827210/pintrst___luri_4.gif",
+      "https://media.discordapp.net/attachments/786897045436366849/804983128527077387/a_177ddfe86ad32b68be6200f007682136.gif",
+      "https://media.discordapp.net/attachments/786897045436366849/805008600334073866/3WIu.gif",
+      "https://media.discordapp.net/attachments/786897045436366849/805370008330436648/image0.gif",
+      "https://media.discordapp.net/attachments/786897045436366849/805008566439641128/image0.gif",
+      "https://media.discordapp.net/attachments/786897045436366849/804681217022099466/a_3c85d4517fbaf4f750d344820b49c076.gif",
+      "https://media.discordapp.net/attachments/786897045436366849/804682936615829504/image0.gif",
+      "https://media.discordapp.net/attachments/786897045436366849/804314115601596426/ALANIS_WOMAN_GIF_176.gif",
+      "https://media.discordapp.net/attachments/786897045436366849/804280612227383316/ALANIS_WOMAN_GIF_138.gif"
+    ];
+
+    message.channel
+      .send({
+        embed: {
+          description: `${message.author.username} GIRL GIFS `,
+          image: {
+            url: girl[Math.floor(Math.random() * girl.length)]
+          }
+        }
+      })
+      .catch(e => {
+        client.log.error(e);
+      });
+  }
+});
+
+
+client.on("message", message => {
+  if (message.content.startsWith(PREFIX + "love gif")) {
+    let loves = [
+      "https://media.discordapp.net/attachments/608711480346542102/782233713538498600/hit_gif_5.gif",
+      "https://media.discordapp.net/attachments/608711480346542102/782286421020508170/image0_1.gif",
+      "https://media.discordapp.net/attachments/608711480346542102/782284851570147358/image0-1-4.gif",
+      "https://media.discordapp.net/attachments/608711480346542102/782406047473467422/image0.gif",
+      "https://media.discordapp.net/attachments/608711480346542102/782148760997593098/a_8bc52b6080ce3079988c6e49f84c4b03.gif",
+      "https://media.discordapp.net/attachments/608711480346542102/782445443665625128/ezgif-7-2032ed99845d.gif",
+      "https://media.discordapp.net/attachments/608711480346542102/782196955488321556/a_637b8e2042d540a1e5e28282e3fe5cc7.gif",
+      "https://media.discordapp.net/attachments/788119246517174362/803307812608409600/image0.gif",
+      "https://media.discordapp.net/attachments/788119246517174362/803869330005688340/a_130ce69bc8c1f06d917ee668f7051b64.gif",
+      "https://media.discordapp.net/attachments/788119246517174362/803869344266321931/dans4.gif",
+      "https://media.discordapp.net/attachments/788119246517174362/803869587988152340/gif.13.gif",
+      "https://media.discordapp.net/attachments/788119246517174362/803869653641854996/20210105_223539.gif",
+      "https://media.discordapp.net/attachments/788119246517174362/803869660814376960/a_09fbaba0301c6db194af2f0c6d2a6a93.gif",
+      "https://media.discordapp.net/attachments/788119246517174362/804188805204410378/2.gif",
+      "https://media.discordapp.net/attachments/788119246517174362/804337804179275776/16-10-27-tenor.gif",
+      "https://media.discordapp.net/attachments/788119246517174362/804759240451424256/Lrows_Gif_25.gif",
+      "https://media.discordapp.net/attachments/788119246517174362/804759252899594259/ciftler8.gif"
+    ];
+
+    message.channel
+      .send({
+        embed: {
+          description: `${message.author.username} :heart:  Love photos  `,
+          image: {
+            url: loves[Math.floor(Math.random() * loves.length)]
+          }
+        }
+      })
+      .catch(e => {
+        client.log.error(e);
+      });
+  }
+});
+
+client.on("message", message => {
+  if (message.content.startsWith(PREFIX + "meme")) {
+    let meme = [
+      "https://media.discordapp.net/attachments/778349612146360381/805361657781944340/FB_IMG_1608729181806.jpg",
+      "https://media.discordapp.net/attachments/778349612146360381/805361657177702420/IMG_20201125_181212.jpg",
+      "https://media.discordapp.net/attachments/778349612146360381/805361656954748948/received_310923683551106.jpeg",
+      "https://media.discordapp.net/attachments/778349612146360381/805361656698765342/Komede.jpg",
+      "https://media.discordapp.net/attachments/778349612146360381/805361172776747038/1f16fa85f750c462.jpg",
+      "https://media.discordapp.net/attachments/778349612146360381/805361042229690398/image0.jpg",
+      "https://media.discordapp.net/attachments/791219055083651092/805361152481689610/image0.jpg",
+      "https://media.tenor.co/videos/2f17757958ab63c82e105cb2f068ba25/mp4",
+      "https://media.discordapp.net/attachments/793750057500278805/805371117404815360/image0.jpg",
+      "https://media.discordapp.net/attachments/793750057500278805/805370861393149962/image0.jpg",
+      "https://media.discordapp.net/attachments/793750057500278805/805370485155954728/image0.jpg",
+      "https://media.discordapp.net/attachments/791219055083651092/805363347390201866/image0.jpg",
+      "https://media.discordapp.net/attachments/791219055083651092/805363470182383646/image0.jpg",
+      "https://media.discordapp.net/attachments/791219055083651092/805363578055163934/image0.jpg",
+      "https://media.discordapp.net/attachments/788957374311956480/792776202984095744/133411745_960371687826475_946663856063250772_n.png",
+      "https://media.discordapp.net/attachments/768041476004904971/781669774374469642/124907941_1816050908534119_3407893796902602469_n.jpg",
+      "https://media.discordapp.net/attachments/768041476004904971/777584124663037982/Will_You_Shut_Up_Man_.jpg",
+      "https://media.discordapp.net/attachments/768041476004904971/777176870130155540/Screenshot_2020-11-14-18-17-30.png",
+      "https://media.discordapp.net/attachments/791219055083651092/805364265540124683/image0.jpg",
+      "https://media.discordapp.net/attachments/778349612146360381/805361657387024414/Screenshot_20210122_160111.jpg",
+      "https://media.discordapp.net/attachments/793750057500278805/805781587316441108/image0.jpg",
+      "https://media.discordapp.net/attachments/793750057500278805/805781864220196885/image0.jpg",
+      "https://media.discordapp.net/attachments/793750057500278805/805782023562199060/image0.jpg",
+      "https://media.discordapp.net/attachments/793750057500278805/806561503980421120/image0.jpg"
+    ];
+
+    message.channel
+      .send({
+        embed: {
+          description: `**${message.author.username} Meme photos :joy:**`,
+          image: {
+            url: meme[Math.floor(Math.random() * meme.length)]
+          }
+        }
+      })
+      .catch(e => {
+        client.log.error(e);
+      });
+  }
+});
+
+client.on("message", message => {
+  if (message.content.startsWith(PREFIX + "boom")) {
+    let bombs = [
+      "https://media.giphy.com/media/Xp98Vi5OBvhXpwA0Zp/giphy.gif",
+      "https://media.giphy.com/media/POnwee2RZBWmWWCeiX/giphy.gif",
+      "https://media.giphy.com/media/oywQ7OhnYupINQa0L4/giphy.gif",
+      "https://media.giphy.com/media/5aLrlDiJPMPFS/giphy.gif",
+      "https://media.giphy.com/media/l1BgS9aNtdCdjgkaQ/giphy.gif",
+      "https://media.giphy.com/media/d0NnEG1WnnXqg/giphy.gif",
+      "https://media.giphy.com/media/NmrqUdwGXPOog/giphy.gif",
+      "https://media.giphy.com/media/dpnfPvaCIHBrW/giphy.gif",
+      "https://media.giphy.com/media/mks5DcSGjhQ1a/giphy.gif",
+      "https://media.giphy.com/media/8wfoaIjVc0FBaLu5xH/giphy.gif",
+      "https://media.giphy.com/media/xThtanBNixj1O1m5oY/giphy.gif",
+      "https://media.giphy.com/media/fdGkCOiM0oOqI/giphy.gif",
+      "https://media.giphy.com/media/c862b2dAhJXYA/giphy.gif",
+      "https://media.giphy.com/media/CepTYjGRbV1ba/giphy.gif",
+      "https://media.giphy.com/media/sRGCQ7INgSD0qbTqB5/giphy.gif",
+      "https://media.giphy.com/media/ZJYOwl8SbFsic/giphy.gif",
+      "https://media.giphy.com/media/3oEhmKspQX9EN48HNm/giphy.gif",
+      "https://media.giphy.com/media/l1KVcAP6jvP9r4MaA/giphy.gif",
+      "https://media.giphy.com/media/j2mY6orBJqAdG/giphy.gif",
+      "https://media.giphy.com/media/3oz8xEqn8AGAQbR0yY/giphy.gif",
+      "https://media.giphy.com/media/l4lQW9KfRQscU0ds4/giphy.gif",
+      "https://media.giphy.com/media/XathaB5ILqSME/giphy.gif",
+      "https://media.giphy.com/media/26AHvF2p5pridaSf6/giphy.gif",
+      "https://media.giphy.com/media/Nlur5uO8GkjC0/giphy.gif",
+      "https://media.giphy.com/media/l1J3preURPiwjRPvG/giphy.gif",
+      "https://media.giphy.com/media/8cdZit2ZcjTri/giphy.gif",
+      "https://media.giphy.com/media/3o7btNa0RUYa5E7iiQ/giphy.gif",
+      "https://media.giphy.com/media/V88pTEefkoOFG/giphy.gif",
+      "https://media.giphy.com/media/rfWAomOTPeOo8/giphy.gif"
+    ];
+
+    message.channel
+      .send({
+        embed: {
+          description: `${message.author.username} BOOMED`,
+          image: {
+            url: bombs[Math.floor(Math.random() * bombs.length)]
+          }
+        }
+      })
+      .catch(e => {
+        client.log.error(e);
+      });
+  }
+});
+
+client.on("message", message => {
   if (message.content.startsWith(PREFIX + "sad gif")) {
     let sads = [
       "https://media.discordapp.net/attachments/786897045952790550/798719676795715614/Zeyrox_43.gif",
