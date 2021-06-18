@@ -32,8 +32,7 @@ client.on("message", message => {
       "https://media.discordapp.net/attachments/786897044483604490/804968381816111124/image0-5.gif",
       "https://media.discordapp.net/attachments/786897044483604490/804760463044640808/ALANIS_MAN_GIF_99.gif",
       "https://media.discordapp.net/attachments/786897044483604490/803870704999202836/ENES_ACAR_GIF_104.gif",
-      "https://media.discordapp.net/attachments/786897044483604490/803870737941135421/ENES_ACAR_GIF_15.gif"
-      
+      "https://media.discordapp.net/attachments/786897044483604490/803870737941135421/ENES_ACAR_GIF_15.gif"  
     ];
 
     message.channel
@@ -82,6 +81,7 @@ client.on("message", message => {
       });
   }
 });
+
 
 client.on(`ready`, () => {
 
