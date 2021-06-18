@@ -111,6 +111,7 @@ client.on(`ready`, () => {
       });
       
 
+
     client.user.setActivity(`Type: ${PREFIX}help`, { type: "LISTENING"});
     client.user.setActivity(`Type: GuIdis ${client.guilds.cache.size},Users ${client.guilds.cache.reduce((a, g) => a + g.memberCount, 0)},`, { type: "LISTENING"});
       }, (5000));
@@ -127,6 +128,7 @@ client.on(`ready`, () => {
     })
    
 });
+
 //DO NOT TOUCH
 //FOLDERS:
 //Admin custommsg data FUN General Music NSFW others
