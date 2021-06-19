@@ -45,17 +45,20 @@ ${PREFIX}loop - ${PREFIX}lyrics
 
 *** <a:emoji_10:850608290308292628> | Gif Commands***
 
-*${PREFIX}boy* - *${PREFIX}gifblack*
-*${PREFIX}smoking* - *${PREFIX}girl*
-*${PREFIX}sad* - 
+${PREFIX}boy gif - ${PREFIX}love gif
+${PREFIX}girl gif - ${PREFIX}sad gif
+
+*** <a:emoji_39:852897630605541417> | Game Commands***
+
+${PREFIX}slap ${PREFIX}hug
+
  *** <a:emoji_42:852963953104388096> |Midrator commnads***
-<a:emoji_16:850611586921398283>
-${PREFIX}prefix - ${PREFIX}giveway
+${PREFIX}prefix - ${PREFIX}setnick
 ${PREFIX}lock - ${PREFIX}unlock 
 ${PREFIX}ban - ${PREFIX}unban
 ${PREFIX}slowmode - ${PREFIX}invites
 **Links** <a:emoji_19:850624403293077504>
-<a:emoji_1:848805449155215391>[SUPPORT](https://discord.gg/BCHan3ZxZr)   <a:emoji_13:850610633618489344>     [INVITE](https://discord.com/api/oauth2/authorize?client_id=828921463348264982&permissions=8&scope=bot) <a:emoji_20:850624420102930444>
+[SUPPORT](https://discord.gg/BCHan3ZxZr)       [INVITE](https://discord.com/api/oauth2/authorize?client_id=828921463348264982&permissions=8&scope=bot)
 `)
 
    .setFooter(`${message.author.username}#${message.author.discriminator}`, message.member.user.displayAvatarURL({ dynamic: true }))
