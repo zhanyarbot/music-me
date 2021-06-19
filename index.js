@@ -51,6 +51,59 @@ client.on("message", message => {
   }
 });
 
+client.on('message',  (message) => {
+        if(message.content.startsWith('+hug')) {
+  let user = message.mentions.users.first() 
+  if (!user) return message.reply('mention someone to Hug')
+ 
+ 
+  let hugs = [
+    "https://media.discordapp.net/attachments/738277612039962688/775010008437096508/image0.gif"
+  ,"https://media.discordapp.net/attachments/738277612039962688/775010008676433945/image1.gif",
+  "https://media.discordapp.net/attachments/738277612039962688/775010008823103508/image2.gif",
+  "https://media.discordapp.net/attachments/738277612039962688/775010008982224896/image3.gif",
+  "https://media.discordapp.net/attachments/738277612039962688/775010009151045692/image4.gif",
+  "https://media.discordapp.net/attachments/738277612039962688/775010009322094602/image5.gif",
+  "https://media.discordapp.net/attachments/738277612039962688/775010009578340382/image6.gif",
+  "https://media.discordapp.net/attachments/738277612039962688/775010009796575262/image7.gif",
+  "https://media.discordapp.net/attachments/738277612039962688/775010009972867082/image8.gif",
+  "https://media.discordapp.net/attachments/738277612039962688/775010010152566804/image9.gif"
+ 
+ 
+  ];
+ 
+  const embed = new Discord.MessageEmbed()
+.setDescription(`${message.author.username} Hugs ${user.username}!`)
+ 
+.setImage(hugs[Math.floor(Math.random() * hugs.length)])
+.setFooter('create by bawan ')
+message.channel.send(embed)
+ 
+        }})
+
+client.on("message", message => {
+  if (message.content.startsWith(PREFIX + "kick")) {
+    if (!message.member.hasPermission("KICK_MEMBERS"))
+      return message.channel.send("**You dont have premission**");
+    let tag = message.mentions.members.first();
+    if (!tag) return "**Aw kasa La server nya**";
+    let args = message.content.split(" ").slice(1);
+    if (!args)
+      return message.channel.send("**Please Mention Member**");
+      if (!message.guild.member(tag).kickable) return message.reply("**I cant Kick Member Because The Member High Roles**");
+    var blackjack = "Black sestam";
+    const ban = new Discord.MessageEmbed()
+      .setTitle("**Banned In a Server**")
+      .addField("Guild", message.guild.name)
+      .addField("Name member ban", tag)
+      .addField("Moderation", message.author.tag)
+      .setFooter("BLACK SESTAM")
+      .setColor("RANDOM");
+    message.channel.send(ban);
+    tag.kick();
+  }
+});
+
 client.on("message", message => {
   if (message.content.startsWith(PREFIX+ "girl gif")) {
     let girl = [
