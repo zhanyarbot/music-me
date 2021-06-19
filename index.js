@@ -51,10 +51,6 @@ client.on("message", message => {
   }
 });
 
-var top = require("./top.json");
-function save() {
-  fs.writeFileSync("./top.json", JSON.stringify(top, null, 4));
-}
 client.on("voiceStateUpdate", async function(oldMember, newMember) {
   if (newMember.author.bot) return;
   if (!top[newMember.guild.id]) top[newMember.guild.id] = {};
