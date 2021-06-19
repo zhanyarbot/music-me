@@ -56,7 +56,8 @@ ${PREFIX}slap ${PREFIX}hug
 ${PREFIX}prefix  ${PREFIX}setnick
 ${PREFIX}lock  ${PREFIX}unlock 
 ${PREFIX}ban  ${PREFIX}unban
-${PREFIX}clear 
+${PREFIX}clear ${PREFIX}kick
+${PREFIX}vkick ${PREFIX}addrole
 ${PREFIX}slowmode ${PREFIX}invites
 **Links** <a:emoji_19:850624403293077504>
 [SUPPORT](https://discord.gg/BCHan3ZxZr)       [INVITE](https://discord.com/api/oauth2/authorize?client_id=828921463348264982&permissions=8&scope=bot)
