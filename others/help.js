@@ -33,15 +33,16 @@ ${PREFIX}ping - ${PREFIX}invites
 ${PREFIX}avatar - ${PREFIX}se
 
 
-***<a:emoji_51:853130142565793852> | Music Commands***
-${PREFIX}play - ${PREFIX}skip
-${PREFIX}skipto - ${PREFIX}nowplaying
-${PREFIX}stop - ${PREFIX}volume
-${PREFIX}nowplaying - ${PREFIX}resume
-${PREFIX}shuffle - ${PREFIX}search
-${PREFIX}remove - ${PREFIX}queue 
-${PREFIX}filter - ${PREFIX}radio
-${PREFIX}loop - ${PREFIX}lyrics
+ *** <a:emoji_42:852963953104388096> |Fun commnads***
+
+
+${PREFIX}prefix  ${PREFIX}setnick
+${PREFIX}lock  ${PREFIX}unlock 
+${PREFIX}ban  ${PREFIX}unban
+${PREFIX}clear ${PREFIX}kick
+${PREFIX}vkick ${PREFIX}addrole ${PREFIX}roleremove
+${PREFIX}slowmode ${PREFIX}invites
+${PREFIX}topinvites(tinvites)
 
 
 *** <a:emoji_10:850608290308292628> | Gif Commands***
@@ -52,16 +53,20 @@ ${PREFIX}meme
 
 *** <a:emoji_39:852897630605541417> | Game Commands***
 
-${PREFIX}boom ${PREFIX}hug
 
- *** <a:emoji_42:852963953104388096> |Midrator commnads***
-${PREFIX}prefix  ${PREFIX}setnick
-${PREFIX}lock  ${PREFIX}unlock 
-${PREFIX}ban  ${PREFIX}unban
-${PREFIX}clear ${PREFIX}kick
-${PREFIX}vkick ${PREFIX}addrole ${PREFIX}roleremove
-${PREFIX}slowmode ${PREFIX}invites
-${PREFIX}topinvites(tinvites)
+${PREFIX}boom ${PREFIX}hug ${PREFIX}kess
+
+
+***<a:emoji_51:853130142565793852> | Music Commands***
+${PREFIX}play - ${PREFIX}skip
+${PREFIX}skipto - ${PREFIX}nowplaying
+${PREFIX}stop - ${PREFIX}volume
+${PREFIX}nowplaying - ${PREFIX}resume
+${PREFIX}shuffle - ${PREFIX}search
+${PREFIX}remove - ${PREFIX}queue 
+${PREFIX}filter - ${PREFIX}radio
+${PREFIX}loop - ${PREFIX}lyrics
+
 **Links** <a:emoji_19:850624403293077504>
 [SUPPORT](https://discord.gg/BCHan3ZxZr)       [INVITE](https://discord.com/api/oauth2/authorize?client_id=828921463348264982&permissions=8&scope=bot)
 `)
