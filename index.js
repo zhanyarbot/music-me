@@ -105,27 +105,6 @@ client.on("message", message => {
   }
 });
 
-client.on('message', bawan => {
- 
-if(bawan.content.split(' ')[0] == PREFIX + 'deletechannels') {  
-if (!bawan.channel.guild) return;
-if(!bawan.guild.member(bawan.author).hasPermission("MANAGE_CHANNELS")) return bawan.reply("**ناتوانی ئەم کارە ئەنجام بدەیت**");
-if(!bawan.guild.member(client.user).hasPermission("MANAGE_CHANNELS")) return bawan.reply("**ناتوانی ئەم کارە ئەنجام بدەیت");
-bawan.guild.channels.cache.forEach(m => {
-m.delete();
-});
-}
-if(bawan.content.split(' ')[0] == PREFIX + 'deleteroles') {
-if (!bawan.channel.guild) return;
-if(!bawan.guild.member(bawan.author).hasPermission("MANAGE_ROLES_OR_PERMISSIONS")) return bawan.reply("**ناتوانی ئەم کارە ئەنجام بدەیت**");
-if(!bawan.guild.member(client.user).hasPermission("MANAGE_ROLES_OR_PERMISSIONS")) return bawan.reply("**ناتوانی ئەم کارە ئەنجام بدەیت**");
-bawan.guild.roles.cache.forEach(m => {
-m.delete();
-});
-bawan.reply("✅ `سەرکەوتوبوو `")
-}
-});
-
 client.on("message", message => {
   if (message.content.startsWith(PREFIX+ "girl gif")) {
     let girl = [
