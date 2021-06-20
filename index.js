@@ -510,7 +510,7 @@ if (!message.member.hasPermission("MANAGE_GUILD")) {
 client.on('message', message => {
  
 if(!message.channel.guild) return;
-if(message.content.startsWith(prefix + 'move')) {
+if(message.content.startsWith(PREFIX + 'move')) {
  if (message.member.hasPermission("MOVE_MEMBERS")) {
  if (message.mentions.users.size === 0) {
  return message.channel.send("``Use : " +prefix+ "move @User``")
