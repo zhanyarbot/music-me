@@ -441,7 +441,7 @@ Nickname:
  
 `);
 message.guild.member(user.user).setNickname(`${nick}`);
-message.channel.send(`Successfully changed **${user}** nickname to **${nick}**`);
+message.channel.send(` \`\`\`Successfully changed **${user}** nickname to **${nick}** js`\`\`\ `);
 }
 });
 
@@ -506,36 +506,6 @@ if (!message.member.hasPermission("MANAGE_GUILD")) {
  
   }
 })
-
-client.on('message', message => {
- 
-if(!message.channel.guild) return;
-if(message.content.startsWith(PREFIX + 'move')) {
- if (message.member.hasPermission("MOVE_MEMBERS")) {
- if (message.mentions.users.size === 0) {
- return message.channel.send("``Use : " +prefix+ "move @User``")
-}
-if (message.member.voiceChannel != null) {
- if (message.mentions.members.first().voiceChannel != null) {
- var authorchannel = message.member.voiceChannelID;
- var usermentioned = message.mentions.members.first().id;
-var embed = new Discord.MessageEmbed()
- .setTitle("Succes!")
- .setColor("#000000")
- .setDescription(`✅ move kra <@${usermentioned}>  `)
-var embed = new Discord.MessageEmbed()
-.setTitle(`You are Moved in ${message.guild.name}`)
- .setColor("RANDOM")
-.setDescription(`**<@${message.author.id}> kra!\nServer --> ${message.guild.name}**`)
- message.guild.members.cache.get(usermentioned).setVoiceChannel(authorchannel).then(m => message.channel.send(embed))
-message.guild.members.cache.get(usermentioned).send(embed)
-} else {
-message.channel.send("`You Cant Move"+ message.mentions.members.first() +" `sarkawtoo nabw`")
-}
-} {
- 
- 
- }}}})
 
 client.on("message", async message => {
   if (message.content.startsWith(PREFIX + "tinvites")) {
