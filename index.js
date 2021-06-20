@@ -372,11 +372,34 @@ const embed = new Discord.MessageEmbed()
 .addField('kase ban kraw', Ban)
 .addField('ban kra la layan', message.author)
 .addField('ba hokare', hokar)
-.setFooter('created by bawan')
+.setFooter('ban')
 message.channel.send(embed)
  
 Ban.ban();
 }}})
+
+client.on('message', async message=>{
+ 
+  if(message.content.startsWith(PREFIX +'unban')){
+if(!message.member.hasPermission('BAN_MEMBERS')) return message.channel.send('bbura to natwane am frmana anjam bdait')
+    let args = message.content.split(" ").slice(1)
+if(!args[0]) return message.channel.send('tkaya kasek mention bka bo unban krdn')
+const reason = args[1] || "be hokar"
+let unban = await client.users.fetch(args[0])
+ 
+message.guild.members.unban(unban,reason)
+const qala = new Discord.MessageEmbed()
+ 
+  .setTitle('unBan')  
+    .addField('kase unban kraw ',unban)
+ 
+.addField('un ban kra la layan',message.author)
+ 
+.addField('ba hokare',reason)
+.setFooter('Powered by BAWAN/ KURD FAM')
+message.channel.send(qala)
+ 
+  }})
 
 client.on('message',async message => {
   if(message.content.startsWith(PREFIX + "vkick")) { 
@@ -483,6 +506,36 @@ if (!message.member.hasPermission("MANAGE_GUILD")) {
  
   }
 })
+
+client.on('message', message => {
+ 
+if(!message.channel.guild) return;
+if(message.content.startsWith(prefix + 'move')) {
+ if (message.member.hasPermission("MOVE_MEMBERS")) {
+ if (message.mentions.users.size === 0) {
+ return message.channel.send("``Use : " +prefix+ "move @User``")
+}
+if (message.member.voiceChannel != null) {
+ if (message.mentions.members.first().voiceChannel != null) {
+ var authorchannel = message.member.voiceChannelID;
+ var usermentioned = message.mentions.members.first().id;
+var embed = new Discord.MessageEmbed()
+ .setTitle("Succes!")
+ .setColor("#000000")
+ .setDescription(`✅ move kra <@${usermentioned}>  `)
+var embed = new Discord.MessageEmbed()
+.setTitle(`You are Moved in ${message.guild.name}`)
+ .setColor("RANDOM")
+.setDescription(`**<@${message.author.id}> kra!\nServer --> ${message.guild.name}**`)
+ message.guild.members.cache.get(usermentioned).setVoiceChannel(authorchannel).then(m => message.channel.send(embed))
+message.guild.members.cache.get(usermentioned).send(embed)
+} else {
+message.channel.send("`You Cant Move"+ message.mentions.members.first() +" `sarkawtoo nabw`")
+}
+} {
+ 
+ 
+ }}}})
 
 client.on("message", async message => {
   if (message.content.startsWith(PREFIX + "tinvites")) {
