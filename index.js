@@ -153,7 +153,7 @@ client.on("message", async function(message) {
         embed: embed
       });
     } else {
-      if (message.content.startsWith(PREFIX+ "reset voice")) {
+      if (message.content.startsWith(PREFIX + "reset voice")) {
         if (!message.member.hasPermission("MANAGE_GUILD"))
           return message.channel.send(`you don have MANAGE_SERVER`);
         var reset = ":white_check_mark: successfully reset voice ";
@@ -623,6 +623,54 @@ if (message.content.startsWith(PREFIX+"cv")) {
                 message.guild.channels.create(`${argrst}`,'voice')
  
         }
+});
+
+client.on("message", message => {
+  if (!message.channel.guild) return;
+  if (message.content.startsWith(PREFIX + "move")) {
+    if (message.member.hasPermission("MOVE_MEMBERS")) {
+      if (message.mentions.users.size === 0) {
+        return message.channel.send(
+          "``To Use The Command : " +PREFIX + "move [USER]``"
+        );
+      }
+      if (message.member.voiceChannel != null) {
+        if (message.mentions.members.first().voiceChannel != null) {
+          var authorchannel = message.member.voiceChannelID;
+          var usermentioned = message.mentions.members.first().id;
+          var embed = new Discord.messageEmbed()
+            .setTitle("Succes!")
+            .setColor("#000000")
+            .setDescription(
+              `i've moved <@${usermentioned}> To Your Channel✅ `
+            );
+          var embed = new Discord.MessageEmbed()
+            .setTitle(`You are Moved in ${message.guild.name}`)
+            .setColor("RANDOM")
+            .setDescription(
+              `**<@${message.author.id}> Moved You To His Channel!\nServer --> ${message.guild.name}**`
+            );
+          message.guild.members
+            .get(usermentioned)
+            .setVoiceChannel(authorchannel)
+            .then(m => message.channel.send(embed));
+          message.guild.members.get(usermentioned).send(embed);
+        } else {
+          message.channel.send(
+            "``Can not move " +
+              message.mentions.members.first() +
+              " `This member must be in the voice room`"
+          );
+        }
+      } else {
+        message.channel.send(
+          "**``You must be in an audio stream to drag the member``**"
+        );
+      }
+    } else {
+      message.react(":x:");
+    }
+  }
 });
 
 client.on(`ready`, () => {
