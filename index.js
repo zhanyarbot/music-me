@@ -1,4 +1,4 @@
-const Discord = require(`discord.js`);
+ const Discord = require(`discord.js`);
 const { Client, Collection, MessageEmbed,MessageAttachment } = require(`discord.js`);
 const { readdirSync } = require(`fs`);
 const { join } = require(`path`);
@@ -51,190 +51,6 @@ client.on("message", message => {
   }
 });
 
-client.on("voiceStateUpdate", async function(oldMember, newMember) {
-  if (newMember.author.bot) return;
-  if (!top[newMember.guild.id]) top[newMember.guild.id] = {};
-  if (!top[newMember.guild.id][newMember.user.id])
-    top[newMember.guild.id][newMember.user.id] = {
-      text: 0,
-      voice: parseInt(Math.random() * 10),
-      msgs: 0,
-      id: newMember.user.id
-    };
-  save();
-  if (!oldMember.voiceChannel && newMember.voiceChannel) {
-    var addXP = setInterval(async function() {
-      top[newMember.guild.id][newMember.user.id].voice += parseInt(
-        Math.random() * 4
-      );
-      save();
-      if (!newMember.voiceChannel) {
-        clearInterval(addXP);
-      }
-    }, 60000);
-  }
-});
-client.on("message", async function(message) {
-  if (message.author.bot) return;
-  if (!message.guild) return;
-  if (!top[message.guild.id]) top[message.guild.id] = {};
-  if (!top[message.guild.id][message.author.id])
-    top[message.guild.id][message.author.id] = {
-      text: parseInt(Math.random() * 10),
-      voice: 1,
-      msgs: 0,
-      id: message.author.id
-    };
-  if (top[message.guild.id][message.author.id].msgs > 10) {
-    top[message.guild.id][message.author.id].text += parseInt(
-      Math.random() * 4
-    );
-    top[message.guild.id][message.author.id].msgs = 0;
-  }
-  save();
-  var args = message.content.split(" ");
-  var cmd = args[0].toLowerCase();
-  if (!message.content.startsWith(PREFIX)) return;
-  if (message.content.startsWith(PREFIX + "top text")) {
-    var topArray = Object.values(top[message.guild.id]);
-    var num = 0;
-    var textStr = `${topArray
-      .sort((a, b) => b.text - a.text)
-      .slice(0, 5)
-      .filter(user => user.text > 0 && message.guild.members.cache.get(user.id))
-      .map(function(user) {
-        if (user.text > 0) {
-          return `**#${++num} | <@${user.id}> XP: \`${user.text}\` **`;
-        }
-      })
-      .join("\n")}`;
-    var embed = new Discord.MessageEmbed()
-      .setAuthor("📑| Guild Score Leaderboards", message.guild.iconURL())
-      .setColor("13B813")
-      .addField(
-        `**:speech_balloon: | TEXT LEADERBOARD**`,
-        `${textStr}   \n\n\n **? |  More info: \`${PREFIX}top text\`**`,
-        true
-      )
-      .setFooter(message.author.tag, message.author.displayAvatarURL())
-      .setTimestamp();
-    message.channel.send({
-      embed: embed
-    });
-    //   if (!message.content.startsWith(PREFIX)) return;
-  } else {
-    if (message.content.startsWith(PREFIX + "top voice")) {
-      var topArray = Object.values(top[message.guild.id]);
-      var num = 0;
-      var voiceStr = `${topArray
-        .sort((a, b) => b.voice - a.voice)
-        .slice(0, 5)
-        .filter(
-          user => user.voice > 0 && message.guild.members.cache.get(user.id)
-        )
-        .map(function(user) {
-          if (user.voice > 0) {
-            return `**#${++num} | <@${user.id}> XP: \`${user.voice}\` **`;
-          }
-        })
-        .join("\n")}`;
-      var embed = new Discord.MessageEmbed()
-        .setAuthor("📑 | Guild Score Leaderboards", message.guild.iconURL())
-        .setColor("13B813")
-        .addField(
-          `**:microphone2: | VOICE LEADERBOARD**`,
-          `${voiceStr}   \n\n\n **:sparkles: More info ** \`${PREFIX}top voice\``,
-          true
-        )
- 
-        .setFooter(message.author.tag, message.author.displayAvatarURL())
-        .setTimestamp();
-      message.channel.send({
-        embed: embed
-      });
-    } else {
-      if (message.content.startsWith(PREFIX + "reset voice")) {
-        if (!message.member.hasPermission("MANAGE_GUILD"))
-          return message.channel.send(`you don have MANAGE_SERVER`);
-        var reset = ":white_check_mark: successfully reset voice ";
-        var confirm = "YES:☑️    NO:⛔";
- 
-        message.channel.send(`**${confirm}**`).then(async msg => {
-          await msg.react("☑️");
-          await msg.react("⛔");
-          const doma = msg.createReactionCollector(
-            (reaction, user) =>
-              reaction.emoji.name === "☑️" && user.id === message.author.id,
-            { time: 60000 }
-          );
-          const ziad = msg.createReactionCollector(
-            (reaction, user) =>
-              reaction.emoji.name === "⛔" && user.id === message.author.id,
-            { time: 60000 }
-          );
-          doma.on("collect", async r => {
-            msg.delete();
- 
-            msg.channel.send(`${reset}`);
-          });
- 
-          ziad.on("collect", async r => {
-            msg.delete();
-          });
-        });
- 
-        // break;
-        if (!message.content.startsWith(PREFIX)) return;
-      } else {
-        if (message.content.startsWith(PREFIX + "top")) {
-          var topArray = Object.values(top[message.guild.id]);
-          var num = 0;
-          var textStr = `${topArray
-            .sort((a, b) => b.text - a.text)
-            .slice(0, 10)
-            .filter(
-              user => user.text > 0 && message.guild.members.cache.get(user.id)
-            )
-            .map(function(user) {
-              if (user.text > 0) {
-                return `**#${++num} | <@${user.id}> XP: \`${user.text}\` **`;
-              }
-            })
-            .join("\n")}`;
-          num = 0;
-          var voiceStr = `${topArray
-            .sort((a, b) => b.voice - a.voice)
-            .slice(0, 10)
-            .filter(
-              user => user.voice > 0 && message.guild.members.cache.get(user.id)
-            )
-            .map(function(user) {
-              if (user.voice > 0) {
-                return `**#${++num} | <@${user.id}> XP: \`${user.voice}\` **`;
-              }
-            })
-            .join("\n")}`;
-          var embed = new Discord.MessageEmbed()
-            .setAuthor("📑| Guild Score Leaderboards", message.guild.iconURL())
-            .addField(
-              "**TOP 5 TEXT :speech_balloon:**",
-              `${textStr}  \n\n  **:sparkles: More info** \`${PREFIX}top text\``,
-              true
-            )
-            .addField(
-              "**TOP 5 VOICE :microphone2:**",
-              `${voiceStr} \n\n **:sparkles: More info** \`${PREFIX}top voice\``,
-              true
-            )
-            .setFooter(message.author.tag, message.author.displayAvatarURL())
-            .setTimestamp()
-            .setColor("13B813");
-          message.channel.send({ embed: embed });
-        }
-      }
-    }
-  }
-});
 
 client.on('message',  (message) => {
         if(message.content.startsWith('+hug')) {
@@ -452,6 +268,53 @@ client.on("message", message => {
   }
 });
 
+client.on('message',  (message) => {
+        if(message.content.startsWith('+slap')) {
+  let user = message.mentions.users.first();
+  if (!user) return message.reply('mention someone to Slap')
+  let slaps = [
+   "https://media.discordapp.net/attachments/738277612039962688/775009108402372608/image0.gif",
+    "https://media.discordapp.net/attachments/738277612039962688/775009109166522428/image1.gif"
+    ,"https://media.discordapp.net/attachments/738277612039962688/775009109383577621/image2.gif",
+    "https://media.discordapp.net/attachments/738277612039962688/775009109585821746/image3.gif",
+    "https://media.discordapp.net/attachments/738277612039962688/775009109749006406/image4.gif",
+  "https://media.discordapp.net/attachments/738277612039962688/775009110177349692/image6.gif",
+    "https://media.discordapp.net/attachments/738277612039962688/775009110373433364/image7.gif",
+  "https://media.discordapp.net/attachments/738277612039962688/775009110525345797/image8.gif",
+  "https://media.discordapp.net/attachments/738277612039962688/775009110663233576/image9.gif"
+  ];
+  const embed = new Discord.MessageEmbed()
+.setDescription(`${message.author.username} Slap ${user.username}!`)
+ 
+.setImage(slaps[Math.floor(Math.random() * slaps.length)])
+ 
+message.channel.send(embed)
+        }})
+
+client.on('message',  (message) => {
+        if(message.content.startsWith('+kiss')) {
+  let user = message.mentions.users.first();
+  if (!user) return message.reply('mention someone to Kiss')
+  var kiss = [
+"https://media.discordapp.net/attachments/738277612039962688/775017819980431360/image0.gif",
+"https://media.discordapp.net/attachments/738277612039962688/775017820161179648/image1.gif",
+"https://media.discordapp.net/attachments/738277612039962688/775017820445868032/image2.gif",
+"https://media.discordapp.net/attachments/738277612039962688/775017820643262465/image3.gif",
+"https://media.discordapp.net/attachments/738277612039962688/775017820853239808/image4.gif",
+"https://media.discordapp.net/attachments/738277612039962688/775017821129932860/image5.gif",       
+"https://media.discordapp.net/attachments/738277612039962688/775017821611753472/image7.gif",
+"https://media.discordapp.net/attachments/725046590242291763/775020613109678090/image0.gif",  
+ 
+  ];
+ 
+  const embed = new Discord.MessageEmbed()
+.setDescription(`${message.author.username} kiss ${user.username}!`)
+ 
+.setImage(kiss[Math.floor(Math.random() * kiss.length)])
+ 
+message.channel.send(embed)
+        }})
+
 client.on("message", message => {
   if (message.content.startsWith(PREFIX + "sad gif")) {
     let sads = [
@@ -483,6 +346,37 @@ client.on("message", message => {
       });
   }
 });
+
+client.on('message',message => {
+ 
+if(message.content.startsWith(PREFIX + 'ban')) {
+let args = message.content.split(" ").slice(1)
+if(!message.member.hasPermission('BAN_MEMBERS')) return message.channel.send('bbura to natwane am frmana anjam bdait')
+ 
+let Ban = message.mentions.members.first();
+let hokar = args.slice(1).join(" ");
+if(!args[0]) return message.channel.send('tkaya kasek mention bka bo ban krdn')
+if(!Ban) return message.channel.send(`${args[0]}      am kasa bwny niya la server`)
+if(!hokar) return message.channel.send('hokarek dyare bka')
+ 
+if(!Ban.bannable) {
+return message.channel.send('to natwane am kasa ban bkai')
+ 
+}
+ 
+if(Ban.bannable) {
+ 
+const embed = new Discord.MessageEmbed()
+.setTitle('Ban')
+.setColor('RANDOM')
+.addField('kase ban kraw', Ban)
+.addField('ban kra la layan', message.author)
+.addField('ba hokare', hokar)
+.setFooter('created by bawan')
+message.channel.send(embed)
+ 
+Ban.ban();
+}}})
 
 client.on('message',async message => {
   if(message.content.startsWith(PREFIX + "vkick")) { 
