@@ -54,7 +54,8 @@ ${PREFIX}meme
 *** <a:emoji_39:852897630605541417> | Game Commands***
 
 
-${PREFIX}boom ${PREFIX}hug ${PREFIX}kess
+${PREFIX}boom ${PREFIX}hug 
+${PREFIX}kiss ${PREFIX}slap
 
 
 ***<a:emoji_51:853130142565793852> | Music Commands***
