@@ -31,7 +31,8 @@ ${PREFIX}invite - ${PREFIX}support(supp)
  ${PREFIX}uptime - ${PREFIX}prefix
 ${PREFIX}ping - ${PREFIX}invites
 ${PREFIX}avatar - ${PREFIX}se
-<a:emoji_16:850611586921398283>
+
+
 ***<a:emoji_51:853130142565793852> | Music Commands***
 ${PREFIX}play - ${PREFIX}skip
 ${PREFIX}skipto - ${PREFIX}nowplaying
@@ -47,18 +48,20 @@ ${PREFIX}loop - ${PREFIX}lyrics
 
 ${PREFIX}boy gif - ${PREFIX}love gif
 ${PREFIX}girl gif - ${PREFIX}sad gif
+${PREFIX}meme 
 
 *** <a:emoji_39:852897630605541417> | Game Commands***
 
-${PREFIX}slap ${PREFIX}hug
+${PREFIX}boom ${PREFIX}hug
 
  *** <a:emoji_42:852963953104388096> |Midrator commnads***
 ${PREFIX}prefix  ${PREFIX}setnick
 ${PREFIX}lock  ${PREFIX}unlock 
 ${PREFIX}ban  ${PREFIX}unban
 ${PREFIX}clear ${PREFIX}kick
-${PREFIX}vkick ${PREFIX}addrole
+${PREFIX}vkick ${PREFIX}addrole ${PREFIX}roleremove
 ${PREFIX}slowmode ${PREFIX}invites
+${PREFIX}topinvites(tinvites)
 **Links** <a:emoji_19:850624403293077504>
 [SUPPORT](https://discord.gg/BCHan3ZxZr)       [INVITE](https://discord.com/api/oauth2/authorize?client_id=828921463348264982&permissions=8&scope=bot)
 `)
