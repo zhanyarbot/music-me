@@ -52,6 +52,55 @@ client.on("message", message => {
 });
     
 
+client.on('message',async message => {
+  if(message.content.startsWith(PREFIX + "channelinfo")) { 
+  let args = message.content.split(" ").slice(1)
+let channel = message.mentions.channels.first() || client.guilds.cache.get(message.guild.id).channels.cache.get(args[0]) || message.guild.channels.cache.find(r => r.name.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.channel;
+        if (!channel) return message.channel.send("**Channel Not Found!**");
+        let channelembed = new Discord.MessageEmbed()
+            .setTitle(`Channel Information for ${channel.name}`)
+            .setThumbnail(message.guild.iconURL())
+            .addField("**NSFW**", channel.nsfw, true)
+            .addField("**Channel ID**", channel.id, true)
+            .addField("**Channel Type**", channel.type)
+            .addField("**Channel Topic**", `${channel.topic || "No Description"}`)
+            .addField("**Channel Created At**", channel.createdAt)
+           .setFooter('Bawan')
+        .setColor("RANDOM")
+        message.channel.send(channelembed);
+    }
+})
+
+client.on('message', message => {
+if (message.content.startsWith(PREFIX + 'listEmoji')) {
+  let Emojis = "";
+    let EmojisAnimated = "";
+    let EmojiCount = 0;
+    let Animated = 0;
+    let OverallEmojis = 0;
+    function Emoji(id) {
+      return client.emojis.cache.get(id).toString();
+    }
+    message.guild.emojis.cache.forEach((emoji) => {
+      OverallEmojis++;
+      if (emoji.animated) {
+        Animated++;
+        EmojisAnimated += Emoji(emoji.id);
+      } else {
+        EmojiCount++;
+        Emojis += Emoji(emoji.id);
+      }
+    });
+    let Embed = new Discord.MessageEmbed()
+      .setTitle(`Emojis in ${message.guild.name}.`)
+      .setDescription(
+        `**Animated [${Animated}]**:\n${EmojisAnimated}\n\n**Standard [${EmojiCount}]**:\n${Emojis}\n\n**All Emoji [${OverallEmojis}]**`
+      )
+      .setColor(`RANDOM`);
+    message.channel.send(Embed);
+ 
+}})
+
 client.on('message',  (message) => {
         if(message.content.startsWith('+hug')) {
   let user = message.mentions.users.first() 
