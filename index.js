@@ -51,23 +51,37 @@ client.on("message", message => {
   }
 });
 
-client.on("message", async message => {
-  if (message.content.toLowerCase() === PREFIX + "profile") {
-    message.channel.startTyping();
-    setTimeout(() => {
-      message.channel.stopTyping();
-    }, Math.random() * (1 - 3) + 1 * 200).then(
-      message.channel.send({
-        files: [
-          {
-            name: "prfoilebycutie.png",
-            attachment: `https://api.probot.io/profile/${message.author.id}`
-          }
-        ]
-      })
-    );
-  }
-});
+}); 
+     client.on("guildCreate", guild => {
+     console.log(` باوان ! ${guild.name} owner ${guild.owner.user.username}!`)  });  
+     client.on('message', message => {         if(message.content === PREFIX + "close") { 
+     if(!message.channel.guild) return message.reply('** sarkawtoo nabw **'); 
+  
+    if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **__rolet niya bo am esha__**');
+ 
+               message.channel.overwritePermissions(message.guild.id, {
+
+             SEND_MESSAGES: false
+               }).then(() => {
+ 
+                   message.reply("**__قفڵکرا  __ ✅ **")            }); 
+                }  
+   if(message.content === PREFIX + "open") {                     if(!message.channel.guild) return message.reply('** sarkawtoo nabw**');
+ 
+  
+    if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('rolet niya')
+              message.channel.overwritePermissions(message.guild.id, { 
+            SEND_MESSAGES: true
+               }).then(() => {   
+
+       
+  message.reply("**__کرایەوە__✅**")  
+
+            });
+
+    }
+
+ });
 
 client.on('message',  (message) => {
         if(message.content.startsWith('+hug')) {
