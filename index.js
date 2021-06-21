@@ -434,8 +434,8 @@ if(!user || !args) return message.channel.send(`
 Command: setnick
  
 Nickname:
-+setnick (${qawrma.user.username})
-+setnick (${qawrma.user.username}) (nick)
++setnick (name)
++setnick (user}) (nick)
  
 \`\`\`
  
