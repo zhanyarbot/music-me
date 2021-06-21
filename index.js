@@ -110,62 +110,7 @@ client.on("message", function(niro_games) {
 });
 
 
-client.on("message", async niro =>{
-  if(niro.content.startsWith(PREFIX + "credits")){
- let user = niro.mentions.users.first() || niro.author;
-    let bal = db.fetch(`money_${user.id}`)
-    if (bal === null) bal = 0;
-      {
-                              if (cooldown_command.has(niro.author.id)) {
-            niro.reply(new Discord.MessageEmbed().setDescription(`**${niro.author.username},  Cooldown : 5 seconds**`))
-        } else {
-       niro.channel.send(`:bank: | **${user.username} , your account balance is** \`\`$${bal}\`\`.`)
-                                    cooldown_command.add(niro.author.id);
-            setTimeout(() => {
-                cooldown_command.delete(niro.author.id);
-            }, 5000)
-        }
-}}
-});
 
-const ms = require('parse-ms')
-client.on("message", async niro =>{
-if(niro.content.startsWith(PREFIX + "daily")){
-    let timeout = 86400000/2 //by Ashour
-  let amount = Math.floor(Math.random() * 1000) + 1;
-    let daily = await db.fetch(`daily_${niro.author.id}`);
-    if (daily !== null && timeout - (Date.now() - daily) > 0) {
-        let time = ms(timeout tu- (Date.now() - daily));
-        niro.channel.send(`:rolling_eyes: **| ${niro.author.username}, your daily credits refreshes in ${time.hours}h ${time.minutes}m ${time.seconds}s .** `)
-    } else {
-    niro.channel.send(`:moneybag: **${niro.author.username}, you got :dollar: ${amount} daily credits!**`)
-    db.add(`money_${niro.author.id}`, amount)
-    db.set(`daily_${niro.author.id}`, Date.now())
-    }}});
-client.on("message", async niro =>{
-  if(niro.content.startsWith(prefix + "trans")){
-    let args = niro.content.split(" ").slice(2); 
-    let user = niro.mentions.members.first() 
-    let member = db.fetch(`money_${niro.author.id}`)
-    if (!user) {
-        return niro.channel.send(`:rolling_eyes: | ** ${niro.author.username}, I Cant Find a User**`)
-    }
-    if (!args) {
-        return niro.channel.send(`:rolling_eyes: | **${niro.author.username}, type the credit you need to transfer!**`)
-    }
-    if (niro.content.includes('-')) { 
-      return niro.channel.send(`:rolling_eyes: | **${niro.author.username}, Type a Amount \`Not Negative\`**`)
-    }
-    if (member < args) {
-        return niro.channel.send(`:thinking: ** | ${niro.author.username}, Your balance is not enough for that!**`)
-    }
-    if(isNaN(args)) 
-return niro.channel.send(`:rolling_eyes: Numbers Only`)
-    niro.channel.send(`:moneybag: **| ${niro.author.username}, has transferred \`$${args}\` to ${user}**`)
-    user.send(`:atm:  |  Transfer Receipt \n\`\`\`You have received $${args} from user ${niro.author.username} (ID: ${user.id})\`\`\``)
-    db.add(`money_${user.id}`, args)
-    db.subtract(`money_${niro.author.id}`, args)
-}});
 
 client.on('message',async message => {
   if(message.content.startsWith(PREFIX + "channelinfo")) { 
