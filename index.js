@@ -348,6 +348,7 @@ client.on("message", message => {
         client.log.error(e);
       });
   }
+});
 
 client.on('message',message => {
  
