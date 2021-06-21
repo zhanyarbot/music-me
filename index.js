@@ -52,7 +52,7 @@ client.on("message", message => {
 });
 
 client.on("message", async message => {
-  if (message.content.toLowerCase() === prefix + "profile") {
+  if (message.content.toLowerCase() === PREFIX + "profile") {
     message.channel.startTyping();
     setTimeout(() => {
       message.channel.stopTyping();
