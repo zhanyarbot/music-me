@@ -27,46 +27,45 @@ module.exports = {
 ***<a:emoji_30:850655693937967144> | User Commands***
 
 
-${PREFIX}invite - ${PREFIX}support(supp)
- ${PREFIX}uptime - ${PREFIX}prefix
-${PREFIX}ping - ${PREFIX}invites
-${PREFIX}avatar - ${PREFIX}se
-
+${PREFIX}invite ・ ${PREFIX}support(supp)
+ ${PREFIX}uptime ・ ${PREFIX}prefix
+${PREFIX}ping ・ ${PREFIX}invites
+${PREFIX}avatar ・ ${PREFIX}se
+${PREFIX}listEmoji
 
  *** <a:emoji_42:852963953104388096> |Fun commnads***
 
 
-${PREFIX}prefix  ${PREFIX}setnick
-${PREFIX}lock  ${PREFIX}unlock 
-${PREFIX}ban  ${PREFIX}unban
-${PREFIX}clear ${PREFIX}kick
-${PREFIX}vkick ${PREFIX}addrole ${PREFIX}roleremove
-${PREFIX}slowmode ${PREFIX}invites
+${PREFIX}prefix ・ ${PREFIX}setnick
+${PREFIX}lock ・ ${PREFIX}unlock 
+${PREFIX}ban ・ ${PREFIX}unban
+${PREFIX}clear・${PREFIX}kick ・${PREFIX}channelinfo
+${PREFIX}vkick・${PREFIX}addrole ・ ${PREFIX}roleremove
+${PREFIX}slowmode・${PREFIX}invites
 ${PREFIX}topinvites(tinvites)
 
 
 *** <a:emoji_10:850608290308292628> | Gif Commands***
 
-${PREFIX}boy gif - ${PREFIX}love gif
-${PREFIX}girl gif - ${PREFIX}sad gif
-${PREFIX}meme 
+${PREFIX}boy gif ・ ${PREFIX}love gif
+${PREFIX}girl gif ・ ${PREFIX}sad gif・${PREFIX}meme 
 
 *** <a:emoji_39:852897630605541417> | Game Commands***
 
 
-${PREFIX}boom ${PREFIX}hug 
-${PREFIX}kiss ${PREFIX}slap
+${PREFIX}boom・${PREFIX}hug 
+${PREFIX}kiss・${PREFIX}slap
 
 
 ***<a:emoji_51:853130142565793852> | Music Commands***
-${PREFIX}play - ${PREFIX}skip
-${PREFIX}skipto - ${PREFIX}nowplaying
-${PREFIX}stop - ${PREFIX}volume
-${PREFIX}nowplaying - ${PREFIX}resume
-${PREFIX}shuffle - ${PREFIX}search
-${PREFIX}remove - ${PREFIX}queue 
-${PREFIX}filter - ${PREFIX}radio
-${PREFIX}loop - ${PREFIX}lyrics
+${PREFIX}play ・ ${PREFIX}skip
+${PREFIX}skipto ・ ${PREFIX}nowplaying
+${PREFIX}stop ・ ${PREFIX}volume
+${PREFIX}nowplaying ・ ${PREFIX}resume
+${PREFIX}shuffle ・ ${PREFIX}search
+${PREFIX}remove ・  ${PREFIX}queue 
+${PREFIX}filter ・ ${PREFIX}radio
+${PREFIX}loop ・ ${PREFIX}lyrics
 
 **Links** <a:emoji_19:850624403293077504>
 [SUPPORT](https://discord.gg/BCHan3ZxZr)       [INVITE](https://discord.com/api/oauth2/authorize?client_id=828921463348264982&permissions=8&scope=bot)
