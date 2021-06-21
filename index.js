@@ -379,7 +379,6 @@ Ban.ban();
 }}})
 
 client.on('message', async message=>{
- 
   if(message.content.startsWith(PREFIX +'unban')){
 if(!message.member.hasPermission('BAN_MEMBERS')) return message.channel.send('bbura to natwane am frmana anjam bdait')
     let args = message.content.split(" ").slice(1)
@@ -533,14 +532,6 @@ client.on("message", async message => {
   }
 });
 
-client.on('message', message => {
-if (message.content.startsWith(PREFIX +"cv")) {
-    var args = message.content.split(" ").slice(1);
-    var argrst = args.join(' ');
-                message.guild.channels.create(`${argrst}`,'voice')
- 
-        }
-});
 
 client.on(`ready`, () => {
 
