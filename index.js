@@ -51,6 +51,23 @@ client.on("message", message => {
   }
 });
 
+client.on("message", async message => {
+  if (message.content.toLowerCase() === prefix + "profile") {
+    message.channel.startTyping();
+    setTimeout(() => {
+      message.channel.stopTyping();
+    }, Math.random() * (1 - 3) + 1 * 200).then(
+      message.channel.send({
+        files: [
+          {
+            name: "prfoilebycutie.png",
+            attachment: `https://api.probot.io/profile/${message.author.id}`
+          }
+        ]
+      })
+    );
+  }
+});
 
 client.on('message',  (message) => {
         if(message.content.startsWith('+hug')) {
