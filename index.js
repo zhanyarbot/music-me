@@ -108,7 +108,8 @@ client.on("message", function(niro_games) {
     });
   }
 });
-> \\
+
+
 client.on("message", async niro =>{
   if(niro.content.startsWith(PREFIX + "credits")){
  let user = niro.mentions.users.first() || niro.author;
@@ -126,6 +127,7 @@ client.on("message", async niro =>{
         }
 }}
 });
+
 const ms = require('parse-ms')
 client.on("message", async niro =>{
 if(niro.content.startsWith(PREFIX + "daily")){
@@ -133,7 +135,7 @@ if(niro.content.startsWith(PREFIX + "daily")){
   let amount = Math.floor(Math.random() * 1000) + 1;
     let daily = await db.fetch(`daily_${niro.author.id}`);
     if (daily !== null && timeout - (Date.now() - daily) > 0) {
-        let time = ms(timeout - (Date.now() - daily));
+        let time = ms(timeout tu- (Date.now() - daily));
         niro.channel.send(`:rolling_eyes: **| ${niro.author.username}, your daily credits refreshes in ${time.hours}h ${time.minutes}m ${time.seconds}s .** `)
     } else {
     niro.channel.send(`:moneybag: **${niro.author.username}, you got :dollar: ${amount} daily credits!**`)
