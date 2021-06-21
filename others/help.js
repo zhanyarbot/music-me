@@ -53,7 +53,7 @@ ${PREFIX}girl gif ・ ${PREFIX}sad gif・${PREFIX}meme
 *** <a:emoji_39:852897630605541417> | Game Commands***
 
 
-${PREFIX}boom・${PREFIX}hug 
+${PREFIX}boom・${PREFIX}hug ・${PREFIX}rps
 ${PREFIX}kiss・${PREFIX}slap
 
 
