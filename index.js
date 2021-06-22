@@ -71,6 +71,7 @@ const rply = [
    msg.channel.send(`${rply[Math.floor(Math.random() * rply.length)]}`);
   }
 }); 
+
 const rply = [
 'dare gua chwab nadatawa aw mapxora',
 'aesta lanaw gamaea',////ba dlli xot la jegai zhmaraka wllami slawaka bnwsa
