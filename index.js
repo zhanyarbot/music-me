@@ -51,7 +51,19 @@ client.on("message", message => {
   }
 });
 
-
+const rply = [
+'mapxor',
+'mapxor2',////ba dlli xot la jegai zhmaraka wllami slawaka bnwsa
+'3',
+'4',
+'5'
+];
+ client.on('message', msg => {
+ if (msg.content === "slaw") {/////ba dlli xot la jegai sllaw shtek da bna
+   msg.channel.send(`${rply[Math.floor(Math.random() * rply.length)]}`);
+  }
+}); 
+ 
 
              
     
