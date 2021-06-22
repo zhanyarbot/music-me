@@ -51,37 +51,7 @@ client.on("message", message => {
   }
 });
 
-        client.on("message"), message => {
-         if (message.content.startsWith(PREFIX + "tinvite")
-
-            invites.forEach((invite => {
-                const { uses, inviter } = invite
-                const { username, discriminator } = inviter
-
-                const name = `{inviter}`
-
-                inviteCounter[name] = (inviteCounter[name] || 0) + uses
-             }))
-
-             let replyText = new MessageEmbed()
-             .setDescription('**Top invites** \n')
-             .setColor("BLUE")
-
-             const sortedInvites = Object.keys(inviteCounter).sort((a, b) => inviteCounter[b] - inviteCounter[a])
-
-             if (sortedInvites.length > 10) sortedInvites.length = 10
-             else if(sortedInvites.length > 10) sortedInvites.length = sortedInvites.length
-
-
-             for(const invite of sortedInvites) {
-                 const count = inviteCounter[invite]
-                 replyText.description += `\n${invite} has invited ${count} member(s)!`
-             }
-             message.channel.send(replyText)
-
-
-        })
-    }
+  
 
 client.on("message", message => {
   if (!message.channel.guild) return;
