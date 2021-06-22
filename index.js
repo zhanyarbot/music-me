@@ -125,23 +125,6 @@ if(message.content.startsWith(PREFIX + "slots")) {
 }
 });
 
-client.on('message',function(message) {
-  if (message.author.bot) return;
-                  if(!message.channel.guild) return;
-
-                    if (message.content === PREFIX + "members") {
- const embed = new Discord.RichEmbed()
-
-    .setDescription(`**Members info 
-:green_heart: online:   ${message.guild.members.filter(m=>m.presence.status == 'online').size}
-:heart:  dnd:       ${message.guild.members.filter(m=>m.presence.status == 'dnd').size}
-:yellow_heart:  idle:     ${message.guild.members.filter(m=>m.presence.status == 'idle').size}
-:diamond_shape_with_a_dot_inside:   membersCount:  ${message.guild.memberCount - message.guild.members.filter(m=>m.user.bot).size}
-:bulb: bots: ${message.guild.members.filter(m=>m.user.bot).size} **`)
-         message.channel.send({embed});
-
-    }
-      });  
 
 client.on('message',async message => {
   if(message.content.startsWith(PREFIX + "channelinfo")) { 
@@ -713,7 +696,40 @@ client.on(`message`, async (message) => {
   if(message.content.includes(client.user.id)) {
     message.reply(new Discord.MessageEmbed().setColor("RANDOM").setAuthor(`**Join a voice channel and \`${prefix}play a song. Type \`${prefix}help\` for the list of commands. **`, ({dynamic:true})));
   } 
+if (msg.content.toLowerCase() === `${PREFIX}top`) {
+    if (msg.author.bot) return;
+    if (msg.channel.type == "dm") return msg.channel.send(new Discord.MessageEmbed().setColor("RED").setDescription(error + ` **You Can't Use This Command In DM's!**`).setFooter(`Request By ${msg.author.tag}`).setTimestamp())
+    const filtered = client.points.filter(p => p.guild === msg.guild.id).array();
+    const sorted = filtered.sort((a, b) => b.points - a.points);
+    const top10 = sorted.splice(0, 10);
+    const embed = new Discord.MessageEmbed()
+      .setTitle(`${msg.guild.name}: Leaderboard`)
+      .setTimestamp()
+      .setDescription(`Top 10 Ranking:`)
+      .setColor("ORANGE");
 
+    let i = 0;
+
+    for (const data of top10) {
+      await delay(15); try {
+        i++;
+        embed.addField(`**${i}**. ${client.users.cache.get(data.user).tag}`, `Points: \`${Math.floor(data.points * 100) / 100}\` | Level: \`${data.level}\``);
+      } catch {
+        i++;
+        embed.addField(`**${i}**. ${client.users.cache.get(data.user)}`, `Points: \`${Math.floor(data.points * 100) / 100}\` | Level: \`${data.level}\``);
+      }
+    }
+              if (cooldown_command.has(msg.author.id)) {
+            msg.reply(new Discord.MessageEmbed().setDescription(`**${msg.author.username},  Cooldown : 5 seconds**`))
+        } else {
+    return msg.channel.send(embed);
+                cooldown_command.add(msg.author.id);
+            setTimeout(() => {
+                cooldown_command.delete(msg.author.id);
+            }, 5000)
+        }
+  }
+})
 
 //An server announcement for everyone but no one knows so fine ^w^
   if(message.content.startsWith(`${prefix}server`)){
