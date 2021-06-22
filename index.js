@@ -53,9 +53,6 @@ client.on("message", message => {
 
         client.on("message"), message => {
          if (message.content.startsWith(PREFIX + "tinvite")
-        message.guild.fetchInvites().then((invites) => {
-            const inviteCounter = {}
-
 
             invites.forEach((invite => {
                 const { uses, inviter } = invite
