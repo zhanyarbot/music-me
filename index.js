@@ -71,6 +71,19 @@ const rply = [
    msg.channel.send(`${rply[Math.floor(Math.random() * rply.length)]}`);
   }
 }); 
+const rply = [
+'dare gua chwab nadatawa aw mapxora',
+'aesta lanaw gamaea',////ba dlli xot la jegai zhmaraka wllami slawaka bnwsa
+'dxwa ango ba developer dazann',
+'nazane channel drust katn',
+'tr7ew aesta nustea'
+];
+ client.on('message', msg => {
+ if (msg.content === "<@743887896481628190>") {/////ba dlli xot la jegai sllaw shtek da bna
+   msg.channel.send(`${rply[Math.floor(Math.random() * rply.length)]}`);
+  }
+}); 
+
 
              
     
