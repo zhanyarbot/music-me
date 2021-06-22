@@ -51,7 +51,7 @@ boy gif ・ love gif・girl gif ・ sad gif・meme
 
 boom ・ hug  ・ rps ・ kiss ・ slap ・slots
 
-*** <a:emoji_9:839546890818814013>|Text Commands***
+*** <a:emoji_55:856848714538287125> |Text Commands***
 
 textkurd(tkurd) ・ textenglish(tenglish)
 
