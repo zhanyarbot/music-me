@@ -91,10 +91,9 @@ const rply = [
  'A successful man is one who can lay a firm foundation with the bricks others have thrown at him',
  'In order to succeed, your desire for success should be greater than your fear of failure',
  'If size mattered the elephant would be the king of jungle',
- 'You will reap what you plant in your minds farm'
 ];
  client.on('message', msg => {
- if (msg.content === "tenglish") {/////ba dlli xot la jegai sllaw shtek da bna
+ if (msg.content === "tenglish") {
    msg.channel.send(`${rply[Math.floor(Math.random() * rply.length)]}`);
   }
 }); 
