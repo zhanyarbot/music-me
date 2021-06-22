@@ -124,7 +124,209 @@ if(message.content.startsWith(PREFIX + "slots")) {
   message.channel.send(`${slots1} | ${slots2} | ${slots3} - ${we}`)
 }
 });
-
+//const fs = require("fs")
+const log = JSON.parse(fs.readFileSync('./log.json', 'utf8'));
+client.on("message", message => {
+  if (message.content.startsWith(PREFIX + "setLogs")) {
+    let rome = message.content.split(/ +/).slice(1);
+    let findrome = message.guild.channels.cache.find(r => r.name == rome)
+    if (!message.channel.guild) return;
+    if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send(`${message.author}, Sorry You Need \`MANAGE_GUILD\` for use this command`);
+    if (!rome) return message.reply("Please Type The Name Of Log Channel");
+    if (!findrome) return message.reply("I can't Find The Channel In the Guild");
+    let logembed = new Discord.MessageEmbed()
+      .setTitle("Logs Channel")
+      .setDescription("**The Log Channel Has Been Setup**")
+      .addField("Channel:", `${rome}`)
+      .addField("Requested By :", `${message.author}`);
+    message.channel.send(logembed)
+    log[message.guild.id] = {
+      channel: rome,
+      onoff: "on"
+    }
+    fs.writeFile("./log.json", JSON.stringify(log), function(e) {
+      if (e) throw e;
+    });
+  }
+});
+ 
+client.on("message", message => {
+  if (message.content.startsWith(PREFIX + "toggleLog")) {
+    if (!message.channel.guild) return message.reply("**This Command For Serverr**");
+    if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send(`${message.author}, Sorry You Need \`MANAGE_GUILD\` for use this command`);
+    if (!log[message.guild.id])
+      log[message.guild.id] = {
+        onoff: "Off"
+      };
+    if (log[message.guild.id].onoff === "off") return [
+      message.channel.send(`**The log Is __𝐎𝐍__ !**`),
+      (log[message.guild.id].onoff = "on")
+    ];
+    if (log[message.guild.id].onoff === "on") return [
+      message.channel.send(`**The log Is __𝐎𝐅𝐅__ !**`),
+      (log[message.guild.id].onoff = "off")
+    ];
+    fs.writeFile("./log.json", JSON.stringify(log), err => {
+      if (err)
+        console.error(err).catch(err => {
+          console.error(err);
+        });
+    });
+  }
+});
+client.on("messageDelete", message => {
+  if (message.author.bot) return;
+  if (message.channel.type === "dm") return;
+  if (!message.guild.member(client.user).hasPermission("EMBED_LINKS")) return;
+  if (!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES"))
+    return;
+  if (!log[message.guild.id])
+    log[message.guild.id] = {
+      onoff: "Off"
+    };
+  if (log[message.guild.id].onoff === "Off") return;
+  var logChannel = message.guild.channels.cache.find(
+    c => c.name === `${log[message.guild.id].channel}`
+  );
+  if (!logChannel) return;
+ 
+  let messageDelete = new Discord.MessageEmbed()
+    .setTitle("**[MESSAGE DELETE]**")
+    .setColor("RED")
+    .setThumbnail(message.author.displayAvatarURL())
+    .setDescription(
+      `**\n**:wastebasket: Successfully \`\`DELETE\`\` **MESSAGE** In ${message.channel}\n\n**Channel:** \`\`${message.channel.name}\`\` (ID: ${message.channel.id})\n**Message ID:** ${message.id}\n**Sent By:** <@${message.author.id}> (ID: ${message.author.id})\n**Message:**\n\`\`\`${message}\`\`\``
+    )
+    .setTimestamp()
+    .setFooter(message.guild.name, message.guild.iconURL());
+ 
+  logChannel.send(messageDelete);
+});
+client.on("messageUpdate", (oldMessage, newMessage) => {
+  if (oldMessage.author.bot) return;
+  if (!oldMessage.channel.type === "dm") return;
+  if (!oldMessage.guild.member(client.user).hasPermission("EMBED_LINKS"))
+    return;
+  if (!oldMessage.guild.member(client.user).hasPermission("MANAGE_MESSAGES"))
+    return;
+  if (!log[oldMessage.guild.id])
+    log[oldMessage.guild.id] = {
+      onoff: "Off"
+    };
+  if (log[oldMessage.guild.id].onoff === "Off") return;
+  var logChannel = oldMessage.guild.channels.cache.find(
+    c => c.name === `${log[oldMessage.guild.id].channel}`
+  );
+  if (!logChannel) return;
+ 
+  if (oldMessage.content.startsWith("https://")) return;
+ 
+  let messageUpdate = new Discord.MessageEmbed()
+    .setTitle("**[MESSAGE EDIT]**")
+    .setThumbnail(oldMessage.author.displayAvatarURL)
+    .setColor("BLUE")
+    .setDescription(
+      `**\n**:wrench: Successfully \`\`EDIT\`\` **MESSAGE** In ${oldMessage.channel}\n\n**Channel:** \`\`${oldMessage.channel.name}\`\` (ID: ${oldMessage.channel.id})\n**Message ID:** ${oldMessage.id}\n**Sent By:** <@${oldMessage.author.id}> (ID: ${oldMessage.author.id})\n\n**Old Message:**\`\`\`${oldMessage}\`\`\`\n**New Message:**\`\`\`${newMessage}\`\`\``
+    )
+    .setTimestamp()
+    .setFooter(oldMessage.guild.name, oldMessage.guild.iconURL());
+ 
+  logChannel.send(messageUpdate);
+});
+ 
+client.on("channelCreate", channel => {
+  if (!channel.guild.member(client.user).hasPermission("EMBED_LINKS")) return;
+  if (!channel.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return;
+  if (!log[channel.guild.id])
+    log[channel.guild.id] = {
+      onoff: "Off"
+    };
+  if (log[channel.guild.id].onoff === "Off") return;
+  var logChannel = channel.guild.channels.cache.find(
+    c => c.name === `${log[channel.guild.id].channel}`
+  );
+  if (!logChannel) return;
+  if (channel.type === "text") {
+    var roomType = "Text";
+  } else if (channel.type === "voice") {
+    var roomType = "Voice";
+  } else if (channel.type === "category") {
+    var roomType = "Category";
+  }
+  channel.guild.fetchAuditLogs().then(logs => {
+    var userID = logs.entries.first().executor.id;
+    var userAvatar = logs.entries.first().executor.avatarURL();
+    let channelCreate = new Discord.MessageEmbed()
+      .setTitle("**[CHANNEL CREATE]**")
+      .setThumbnail(userAvatar)
+      .setDescription(
+        `**\n**:white_check_mark: Successfully \`\`CREATE\`\` **${roomType}** channel.\n\n**Channel Name:** \`\`${channel.name}\`\` (ID: ${channel.id})\n**By:** <@${userID}> (ID: ${userID})`
+      )
+      .setTimestamp()
+      .setColor("GREEN")
+      .setFooter(channel.guild.name, channel.guild.iconURL());
+    logChannel.send(channelCreate)
+  })
+});
+ 
+ 
+ 
+client.on("channelUpdate", (oldChannel, newChannel) => {
+  if (!oldChannel.guild) return;
+  if (!log[oldChannel.guild.id])
+    log[oldChannel.guild.id] = {
+      onoff: "Off"
+    };
+  if (log[oldChannel.guild.id].onoff === "Off") return;
+  var logChannel = oldChannel.guild.channels.cache.find(
+    c => c.name === `${log[oldChannel.guild.id].channel}`
+  );
+  if (!logChannel) return;
+ 
+  if (oldChannel.type === "text") {
+    var channelType = "Text";
+  } else if (oldChannel.type === "voice") {
+    var channelType = "Voice";
+  } else if (oldChannel.type === "category") {
+    var channelType = "Category";
+  }
+ 
+  oldChannel.guild.fetchAuditLogs().then(logs => {
+    var userID = logs.entries.first().executor.id;
+    var userAvatar = logs.entries.first().executor.avatarURL();
+ 
+    if (oldChannel.name !== newChannel.name) {
+      let newName = new Discord.MessageEmbed()
+        .setTitle("**[CHANNEL EDIT]**")
+        .setThumbnail(userAvatar)
+        .setColor("BLUE")
+        .setDescription(
+          `**\n**:wrench: Successfully Edited **${channelType}** Channel Name\n\n**Old Name:** \`\`${oldChannel.name}\`\`\n**New Name:** \`\`${newChannel.name}\`\`\n**Channel ID:** ${oldChannel.id}\n**By:** <@${userID}> (ID: ${userID})`
+        )
+        .setTimestamp()
+        .setFooter(oldChannel.guild.name, oldChannel.guild.iconURL());
+ 
+      logChannel.send(newName);
+    }
+    if (oldChannel.topic !== newChannel.topic) {
+      if (log[oldChannel.guild.id].onoff === "Off") return;
+      let newTopic = new Discord.MessageEmbed()
+        .setTitle("**[CHANNEL EDIT]**")
+        .setThumbnail(userAvatar)
+        .setColor("BLUE")
+        .setDescription(
+          `**\n**:wrench: Successfully Edited **${channelType}** Channel Topic\n\n**Old Topic:**\n\`\`\`${oldChannel.topic ||
+          "NULL"}\`\`\`\n**New Topic:**\n\`\`\`${newChannel.topic ||
+          "NULL"}\`\`\`\n**Channel:** ${oldChannel} (ID: ${
+          oldChannel.id
+          })\n**By:** <@${userID}> (ID: ${userID})`
+        )
+        .setTimestamp()
+        .setFooter(oldChannel.guild.name, oldChannel.guild.iconURL());
+ 
+      logChannel.send(newTopic);
+    }
+  });
 
 client.on('message',async message => {
   if(message.content.startsWith(PREFIX + "channelinfo")) { 
