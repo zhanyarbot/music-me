@@ -124,7 +124,15 @@ if(message.content.startsWith(PREFIX + "slots")) {
   message.channel.send(`${slots1} | ${slots2} | ${slots3} - ${we}`)
 }
 });
-
+client.on('message', async message => {
+if(message.author.bot) return;
+if (message.channel.guild) {
+if (message.content.startsWith(PREFIX + 'voicerank')) {
+message.channel.send(`Your XP : ${voice[message.member.id].xp}
+Your Level : ${voice[message.member.id].level}`);
+        if(e) console.log(e);
+      };
+}});
 
 client.on('message',async message => {
   if(message.content.startsWith(PREFIX + "channelinfo")) { 
