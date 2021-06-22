@@ -27,18 +27,15 @@ module.exports = {
 ***<a:emoji_30:850655693937967144> | User Commands***
 
 
- invite ・ support(supp)
- uptime ・ prefix
- ping ・ invites
- avatar ・ se
+ invite ・ support(supp)・ uptime ・ prefix
+ ping ・ invites・avatar ・ se
  listEmoji
 
  *** <a:emoji_42:852963953104388096> |Fun commnads***
 
 
- prefix ・ setnick
- lock ・ unlock 
- ban ・ unban
+ topinvites(tinvites)・ setnick
+ lock ・ unlock ban ・ unban
  clear・kick ・channelinfo
  vkick・addrole ・ roleremove
  slowmode・invites
@@ -47,25 +44,21 @@ module.exports = {
 
 *** <a:emoji_10:850608290308292628> | Gif Commands***
 
-boy gif ・ love gif
-girl gif ・ sad gif・meme 
+boy gif ・ love gif・girl gif ・ sad gif・meme 
 
 *** <a:emoji_39:852897630605541417> | Game Commands***
 
 
-boom・hug ・rps
-kiss・slap
+boom・hug ・rps・kiss・slap ・slots
 
+*** |Text Commands
 
 ***<a:emoji_51:853130142565793852> | Music Commands***
-play ・ skip
-nowplaying・skipto
-stop ・ volume
-nowplaying ・ resume
-shuffle ・ search
-remove ・  queue 
-filter ・ radio
-loop ・ lyrics
+play ・ skip・lyrics
+nowplaying・skipto・ stop
+volume・nowplaying ・ resume
+shuffle ・ search ・remove
+queue ・ filter ・ radio・loob
 
 **Links** <a:emoji_19:850624403293077504>
 [SUPPORT](https://discord.gg/BCHan3ZxZr)       [INVITE](https://discord.com/api/oauth2/authorize?client_id=828921463348264982&permissions=8&scope=bot)
