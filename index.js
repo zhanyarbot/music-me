@@ -51,6 +51,54 @@ client.on("message", message => {
   }
 });
 
+client.on("message", message => {
+  if (!message.channel.guild) return;
+  if (message.content.startsWith(PREFIX + "move")) {
+    if (message.member.hasPermission("MOVE_MEMBERS")) {
+      if (message.mentions.users.size === 0) {
+        return message.channel.send(
+          "``To Use The Command : " + PREFIX + "move [USER]``"
+        );
+      }
+      if (message.member.voiceChannel != null) {
+        if (message.mentions.members.first().voiceChannel != null) {
+          var authorchannel = message.member.voiceChannelID;
+          var usermentioned = message.mentions.members.first().id;
+          var embed = new Discord.messageEmbed()
+            .setTitle("Succes!")
+            .setColor("#000000")
+            .setDescription(
+              `i've moved <@${usermentioned}> To Your Channel✅ `
+            );
+          var embed = new Discord.MessageEmbed()
+            .setTitle(`You are Moved in ${message.guild.name}`)
+            .setColor("RANDOM")
+            .setDescription(
+              `**<@${message.author.id}> Moved You To His Channel!\nServer --> ${message.guild.name}**`
+            );
+          message.guild.members
+            .get(usermentioned)
+            .setVoiceChannel(authorchannel)
+            .then(m => message.channel.send(embed));
+          message.guild.members.get(usermentioned).send(embed);
+        } else {
+          message.channel.send(
+            "``Can not move " +
+              message.mentions.members.first() +
+              " `This member must be in the voice room`"
+          );
+        }
+      } else {
+        message.channel.send(
+          "**``You must be in an audio stream to drag the member``**"
+        );
+      }
+    } else {
+      message.react(":x:");
+    }
+  }
+});
+
 const rply = [
 'ڕاوەستە با قوڵتر لە سیمات ڕابمێنم کێ دەزانێ ڕەنگە تاتۆدێیەوە من نەمێنم"];',
 'بەخەیاڵیشمدا نەهاتبو هێندە تەنهابم..',////ba dlli xot la jegai zhmaraka wllami slawaka bnwsa
