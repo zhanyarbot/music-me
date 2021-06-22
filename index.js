@@ -124,15 +124,24 @@ if(message.content.startsWith(PREFIX + "slots")) {
   message.channel.send(`${slots1} | ${slots2} | ${slots3} - ${we}`)
 }
 });
-client.on('message', async message => {
-if(message.author.bot) return;
-if (message.channel.guild) {
-if (message.content.startsWith(PREFIX + 'voicerank')) {
-message.channel.send(`Your XP : ${voice[message.member.id].xp}
-Your Level : ${voice[message.member.id].level}`);
-        if(e) console.log(e);
-      };
-}});
+
+client.on('message',function(message) {
+  if (message.author.bot) return;
+                  if(!message.channel.guild) return;
+
+                    if (message.content === PREFIX + "members") {
+ const embed = new Discord.RichEmbed()
+
+    .setDescription(`**Members info 
+:green_heart: online:   ${message.guild.members.filter(m=>m.presence.status == 'online').size}
+:heart:  dnd:       ${message.guild.members.filter(m=>m.presence.status == 'dnd').size}
+:yellow_heart:  idle:     ${message.guild.members.filter(m=>m.presence.status == 'idle').size}
+:diamond_shape_with_a_dot_inside:   membersCount:  ${message.guild.memberCount - message.guild.members.filter(m=>m.user.bot).size}
+:bulb: bots: ${message.guild.members.filter(m=>m.user.bot).size} **`)
+         message.channel.send({embed});
+
+    }
+      });  
 
 client.on('message',async message => {
   if(message.content.startsWith(PREFIX + "channelinfo")) { 
