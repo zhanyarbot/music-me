@@ -67,7 +67,7 @@ const rply = [
  'کەسێک لە ژیانما نیە،ژیانم لەکەسێکایە'
 ];
  client.on('message', msg => {
- if (msg.content === "+tkurd") {/////ba dlli xot la jegai sllaw shtek da bna
+ if (msg.content === "tkurd") {/////ba dlli xot la jegai sllaw shtek da bna
    msg.channel.send(`${rply[Math.floor(Math.random() * rply.length)]}`);
   }
 }); 
@@ -94,7 +94,7 @@ const rply = [
  'You will reap what you plant in your minds farm'
 ];
  client.on('message', msg => {
- if (msg.content === "+tenglish") {/////ba dlli xot la jegai sllaw shtek da bna
+ if (msg.content === "tenglish") {/////ba dlli xot la jegai sllaw shtek da bna
    msg.channel.send(`${rply[Math.floor(Math.random() * rply.length)]}`);
   }
 }); 
