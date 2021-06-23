@@ -67,6 +67,8 @@ client.on("message", message => {
   }
 });
 
+
+
 client.on("message", message => {
 if (message.content.startsWith(PREFIX + "createchannel")) {
             if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
@@ -97,6 +99,7 @@ client.on("message", msg => {
     
   }
 }
+
 
 client.on("message", message => {
   if (!message.channel.guild) return;
