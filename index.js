@@ -79,27 +79,6 @@ message.channel.send('Created  channel✅')
 }
 }); 
 
-client.on("message", msg => {
- if (msg.content.startsWith(PREFIX + "unmute")) {
-   var unmuteRole = msg.guild.roles.cache.find(role => role.name.toLowerCase().includes("muted"));
-    var muteUser = msg.mentions.members.first();
-    var muteReason = msg.content.slice(prefix.length + 27);
-    if (!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.channel.send("pewist ba role a bo anjamdane amkara");
-   if (!muteUser) return msg.channel.send("kasek mention bka");
-   if (!muteRole) return msg.channel.send("rolek ba nawe muted bwny niya tkaya drwsty bka");
-  if (!msg.guild.member(client.user.id).hasPermission("MANAGE_ROLES")) return msg.channel.send("sarata rolem bare inja bakarm hena");
-     
-    var UnmuteEmbed = new Discord.MessageEmbed() 
-    .setTitle("unMute")
-    .addField("unMuted user", muteUser)
-    .setFooter(`unMuted by ${msg.author.tag}`)
-    .setTimestamp()
-    muteUser.roles.remove(unmuteRole);
-    msg.channel.send(UnmuteEmbed);
-    
-  }
-}
-
 
 client.on("message", message => {
   if (!message.channel.guild) return;
