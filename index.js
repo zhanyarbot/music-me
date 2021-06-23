@@ -95,13 +95,13 @@ client.on("message", message => {
           var usermentioned = message.mentions.members.first().id;
           var embed = new Discord.messageEmbed()
             .setTitle("Succes!")
-            .setColor("#000000")
+            .setColor("#ff0000")
             .setDescription(
               `i've moved <@${usermentioned}> To Your Channel✅ `
             );
           var embed = new Discord.MessageEmbed()
             .setTitle(`You are Moved in ${message.guild.name}`)
-            .setColor("RANDOM")
+            .setColor("#ff0000")
             .setDescription(
               `**<@${message.author.id}> Moved You To His Channel!\nServer --> ${message.guild.name}**`
             );
@@ -161,7 +161,7 @@ let role = message.guild.roles.cache.find(ro => ro.name == 'Muted');
 if (!message.guild.me.hasPermission('MANAGE_ROLES')) {
         const embed = new Discord.MessageEmbed()
 .setThumbnail(client.user.avatarURL())
-.setColor("RED")
+.setColor("#ff0000")
 .setTitle("Error ❌")
 .setDescription("** I don't have permission`MANAGE_ROLES` **")
 .setFooter(client.user.username,client.user.avatarURL())
@@ -170,7 +170,7 @@ message.channel.send(embed);
 if (!message.member.hasPermission('MANAGE_GUILD')) {
     const embed = new Discord.MessageEmbed()
 .setThumbnail(client.user.avatarURL())
-.setColor("RED")
+.setColor("#ff0000")
 .setTitle("Error ❌")
 .setDescription(`** you don't have permissionMANAGE_GUILD**`)
 .setFooter(client.user.username,client.user.avatarURL())
@@ -192,7 +192,7 @@ ADD_REACTIONS: false
 mention.roles.add(role)
 const embed = new Discord.MessageEmbed()
 .setThumbnail(mention.user.avatarURL())
-.setColor("GREEN")
+.setColor("#ff0000")
 .setTitle("Done ✅")
 .setDescription(`**muted ${mention.user.username}**`)
 .setFooter(`by ${message.author.username}`)
@@ -293,7 +293,7 @@ let channel = message.mentions.channels.first() || client.guilds.cache.get(messa
             .addField("**Channel Topic**", `${channel.topic || "No Description"}`)
             .addField("**Channel Created At**", channel.createdAt)
            .setFooter('Bawan')
-        .setColor("RANDOM")
+        .setColor("#ff0000")
         message.channel.send(channelembed);
     }
 })
@@ -323,7 +323,7 @@ if (message.content.startsWith(PREFIX + 'listEmoji')) {
       .setDescription(
         `**Animated [${Animated}]**:\n${EmojisAnimated}\n\n**Standard [${EmojiCount}]**:\n${Emojis}\n\n**All Emoji [${OverallEmojis}]**`
       )
-      .setColor(`RANDOM`);
+      .setColor(`#ff0000`);
     message.channel.send(Embed);
  
 }})
@@ -376,7 +376,7 @@ client.on("message", message => {
       .addField("Name member ban", tag)
       .addField("Moderation", message.author.tag)
       .setFooter("BLACK SESTAM")
-      .setColor("RANDOM");
+      .setColor("#ff0000");
     message.channel.send(ban);
     tag.kick();
   }
@@ -612,7 +612,7 @@ return message.channel.send('to natwane am kasa ban bkai')
 if(Ban.bannable) {
 const embed = new Discord.MessageEmbed()
 .setTitle('Ban')
-.setColor('RANDOM')
+.setColor('#ff0000')
 .addField('kase ban kraw', Ban)
 .addField('ban kra la layan', message.author)
 .addField('ba hokare', hokar)
