@@ -51,7 +51,50 @@ client.on("message", message => {
   }
 });
 
-  
+  client.on("message", message => {
+  let args = message.content.split(" ");
+  if (args[0] === PREFIX + "hightRole") {
+    let user =
+      message.mentions.users.first() ||
+      client.users.cache.get(args[1]) ||
+      message.author;
+    if (!user) return message.channel.send(`> ❎ | I Can't Find This User.`);
+    let height = message.guild.member(user).roles.highest.id;
+    let heightR = message.guild.roles.cache.find(r => r.id === height);
+    let embed = new Discord.MessageEmbed()
+      .setAuthor(`${user.username} info`)
+      .addField(`Height Role:`, heightR)
+      .setFooter(
+        `Requsted By ${message.author.username}`,
+        message.author.displayAvatarURL()
+      )
+      .setThumbnail(user.displayAvatarURL());
+    message.channel.send(embed);
+  }
+});
+
+///////
+
+
+client.on('message', message => {
+    if (message.content.startsWith(PREFIX + 'say')) {
+        if (message.member.hasPermission("MANAGE_GUILD")) return message.reply("Sorry You Not Have Premission MANAGE GUILD")
+   var say = message.content.split(" ").slice(1).join(" ");
+    if(!say) return message.reply("**Please Type Message For say**")
+        message.channel.send(say);
+}
+    if (message.content.startsWith(prefix  + "embed")) {
+        if (message.member.hasPermission("MANAGE_GUILD")) return message.reply("Sorry You Not Have Premission MANAGE GUILD")
+   var args = message.content.split(" ").slice(1).join(" ");
+   if(!args) return message.reply("**Please Type Message For say Embed**")
+   const embed = new Discord.MessageEmbed()
+        .setColor('RANDOM')
+        .setThumbnail(message.author.avatarURL())
+        .setAuthor(message.author.username,message.author.avatarURL())
+        .setDescription(args)
+        message.channel.send(embed);
+}
+});
 
 
 client.on("message", message => {
