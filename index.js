@@ -51,7 +51,7 @@ client.on("message", message => {
   }
 });
 
-const sug = JSON.parse(fs.readFileSync("./sug.json", "utf8"));
+
 client.on("message", message => {
   if (!message.channel.guild) return;
   let room = message.content.split(" ").slice(1).join(" ");
@@ -79,7 +79,7 @@ client.on("message", message => {
       channel: channel.name,
       onoff: 'On',
     };
-    fs.writeFile("./sug.json", JSON.stringify(sug), err => {
+   
       if (err) console.error(err);
     });
   }
