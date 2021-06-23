@@ -51,13 +51,30 @@ client.on("message", message => {
   }
 });
 
-client.on('message', message => {
-if (message.content.startsWith(PREFIX +"createvoice")) {
-    var args = message.content.split(" ").slice(1);
-    var argrst = args.join(' ');
-                message.guild.channels.create(`${argrst}`,'voice')
-         
-        }
+client.on("message", message => {
+  if (message.content.startsWith(PREFIX + "rooms")) {
+    if (message.author.bot) return;
+    if (!message.guild) return;
+
+    var channels = message.guild.channels.cache
+      .map(channels => `${channels.name}, `)
+      .join(" ");
+    const embed = new Discord.MessageEmbed()
+      .setColor("RANDOM")
+      .setAuthor(message.author.username, message.author.avatarURL())
+      .setTitle("**INFO ROOMS**")
+      .addField(`${message.guild.name}`, `**Rooms:white_check_mark:**`)
+      .addField(
+        ":arrow_down: Rooms Number. :heavy_check_mark:",
+        `** ${message.guild.channels.cache.size}**`
+      )
+
+      .addField(
+        ":arrow_down:Rooms  Name. :heavy_check_mark::",
+        `**[${channels}]**`
+      );
+    message.channel.send(embed);
+  }
 });
 
 client.on("message", message => {
