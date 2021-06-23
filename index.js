@@ -79,54 +79,36 @@ message.channel.send('Created  channel✅')
 }
 }); 
 
-
 client.on("message", message => {
-  if (!message.channel.guild) return;
   if (message.content.startsWith(PREFIX + "move")) {
-    if (message.member.hasPermission("MOVE_MEMBERS")) {
-      if (message.mentions.users.size === 0) {
-        return message.channel.send(
-          "``To Use The Command : " + PREFIX + "move [USER]``"
-        );
-      }
-      if (message.member.voiceChannel != null) {
-        if (message.mentions.members.first().voiceChannel != null) {
-          var authorchannel = message.member.voiceChannelID;
-          var usermentioned = message.mentions.members.first().id;
-          var embed = new Discord.messageEmbed()
-            .setTitle("Succes!")
-            .setColor("#ff0000")
-            .setDescription(
-              `i've moved <@${usermentioned}> To Your Channel✅ `
-            );
-          var embed = new Discord.MessageEmbed()
-            .setTitle(`You are Moved in ${message.guild.name}`)
-            .setColor("#ff0000")
-            .setDescription(
-              `**<@${message.author.id}> Moved You To His Channel!\nServer --> ${message.guild.name}**`
-            );
-          message.guild.members
-            .get(usermentioned)
-            .setVoiceChannel(authorchannel)
-            .then(m => message.channel.send(embed));
-          message.guild.members.get(usermentioned).send(embed);
-        } else {
-          message.channel.send(
-            "``Can not move " +
-              message.mentions.members.first() +
-              " `This member must be in the voice room`"
-          );
-        }
-      } else {
+    let args = message.content.split(" ");
+    let user = message.guild.member(
+      message.mentions.users.first() || message.guild.members.cache.get(args[1])
+    );
+    if (!message.channel.guild || message.author.bot) return;
+    if (!message.guild.member(message.author).hasPermission("MOVE_MEMBERS"))
+      return message.channel.send("Please Check Your Permission");
+    if (!message.guild.member(client.user).hasPermission("MOVE_MEMBERS"))
+      return message.channel.send("Please Check My Permission");
+    if (!message.member.voice.channel)
+      return message.channel.send("Your are not in voice channel");
+    if (!user) return message.channel.send(`**>>> ${prefix}move <@mention or id>`);
+    if (!message.guild.member(user.id).voice.channel)
+      return message.channel.send(
+        `**${user.user.username}** Has not in Voice channel`
+      );
+    message.guild
+      .member(user.id)
+      .voice.setChannel(message.member.voice.channel.id)
+      .then(() => {
         message.channel.send(
-          "**``You must be in an audio stream to drag the member``**"
+          `**${user.user.username}** has been moved to **${
+            message.guild.member(message.author).voice.channel.name
+          }**`
         );
-      }
-    } else {
-      message.react(":x:");
-    }
+      });
   }
-});
+
 
 
 
