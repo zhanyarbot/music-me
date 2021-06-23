@@ -52,13 +52,47 @@ client.on("message", message => {
 });
 
 client.on("message", message => {
-  if(message.content.startsWith(PREFIX + "banner")) {
+  if(message.content.startsWith(PREFIX + "benner")) {
     if(message.guild.bannerURL() === null || message.guild.bannerURL === undefined) return message.channel.send("**❌ | This server doesn\'t have a banner.**");
     const ba = new Discord.MessageEmbed()
     .setAuthor(message.guild.name, message.guild.iconURL())
     .setDescription(`[Banner URL](${message.guild.bannerURL}?size=2048)`)
     .setImage(message.guild.bannerURL() + "?size=2048")
     message.channel.send({embed : ba})
+  }
+});
+
+client.on("message", message => {
+  if (message.content.startsWith(PREFIX + "user")) {
+    if (!message.channel.guild) return;
+    let user = message.mentions.users.first();
+    var men = message.mentions.users.first();
+    var heg;
+    if (men) {
+      heg = men;
+    } else {
+      heg = message.author;
+    }
+    var mentionned = message.mentions.members.first();
+    var h;
+    if (mentionned) {
+      h = mentionned;
+    } else {
+      h = message.member;
+    }
+    const embed = new Discord.MessageEmbed()
+        .setThumbnail(heg.avatarURL())
+        .addField("**ID**", `${heg.id}`, true)
+        .addField("**Name**", `${heg.username}`, true)
+        .addField('**Discrim Account**',"**#" +  `${heg.discriminator}**`,true)
+        .addField("**Created Account At**", `${heg.createdAt}`, true)
+        .addField("**Time Join Server**", message.member.joinedAt.toLocaleString())    
+        .addField("**Bot**", `${heg.bot}`, true)
+        .setFooter(`Replying to ${message.author.username}#${message.author.discriminator}`)
+        .setColor("RANDOM")     
+        .setFooter("BLACK SESTAM");
+  
+    message.channel.send(embed);
   }
 });
 
