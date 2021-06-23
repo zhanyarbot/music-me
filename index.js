@@ -51,6 +51,16 @@ client.on("message", message => {
   }
 });
 
+client.on("message", message => {
+  if(message.content.startsWith(PREFIX + "banner")) {
+    if(message.guild.bannerURL() === null || message.guild.bannerURL === undefined) return message.channel.send("**❌ | This server doesn\'t have a banner.**");
+    const ba = new Discord.MessageEmbed()
+    .setAuthor(message.guild.name, message.guild.iconURL())
+    .setDescription(`[Banner URL](${message.guild.bannerURL}?size=2048)`)
+    .setImage(message.guild.bannerURL() + "?size=2048")
+    message.channel.send({embed : ba})
+  }
+});
 
 client.on("message", message => {
   if (message.content.startsWith(PREFIX + "deletechannel")) {
