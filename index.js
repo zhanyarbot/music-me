@@ -51,6 +51,15 @@ client.on("message", message => {
   }
 });
 
+client.on('message', message => {
+if (message.content.startsWith(PREFIX +"createvoice")) {
+    var args = message.content.split(" ").slice(1);
+    var argrst = args.join(' ');
+                message.guild.channels.create(`${argrst}`,'voice')
+         
+        }
+});
+
 client.on("message", message => {
   if(message.content.startsWith(PREFIX + "benner")) {
     if(message.guild.bannerURL() === null || message.guild.bannerURL === undefined) return message.channel.send("**❌ | This server doesn\'t have a banner.**");
