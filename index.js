@@ -53,40 +53,6 @@ client.on("message", message => {
 
 
 client.on("message", message => {
-  if (!message.channel.guild) return;
-  let room = message.content.split(" ").slice(1).join(" ");
-  let channel = message.guild.channels.cache.find(c => c.name === `${room}`) || message.mentions.channels.first();
-  if (message.content.startsWith(PREFIX + "setSug")) {
-    if (!message.channel.guild) return;
-    if (!message.member.hasPermission("MANAGE_GUILD"))
-      return message.channel.send(
-        "**Sorry But You Dont Have Permission** `MANAGE_GUILD`"
-      );
-    if (!room) return message.channel.send("**Please Type The Name Channel Or mention**");
-    if (!channel) return message.channel.send("**Cant Find This channel**");
-    let embed = new Discord.MessageEmbed()
-      .setAuthor(message.author.username, message.author.avatarURL())
-      .setThumbnail(message.author.avatarURL())
-      .setTitle("**✅Done Check The Sug Code Has Been Setup**")
-      .addField("Channel:", `${room}`)
-      .addField("Server", `${message.guild.name}`)
-      .addField("Requested By:", `${message.author}`)
-      .setColor("RANDOM")
-      .setFooter(`${client.user.username}`)
-      .setTimestamp();
-    message.channel.send(embed);
-    sug[message.guild.id] = {
-      channel: channel.name,
-      onoff: 'On',
-    };
-   
-      if (err) console.error(err);
-    });
-  }
-});
-
-
-client.on("message", message => {
   if (message.content.startsWith(PREFIX + "deletechannel")) {
     if (!message.member.hasPermission("MANAGE_CHANNELS"))
       return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
