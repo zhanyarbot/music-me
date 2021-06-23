@@ -29,7 +29,7 @@ module.exports = {
 
  invite ・ support(supp)・ uptime ・ prefix
  ping ・ invites・avatar ・ se
- listEmoji
+ listEmoji ・user
 
  *** <a:emoji_42:852963953104388096> |Fun commnads***
 
@@ -38,7 +38,8 @@ module.exports = {
  lock ・ unlock ban ・ unban
  clear・kick ・channelinfo
  vkick・addrole ・ roleremove
- slowmode・invites
+ slowmode・invites ・createchannel
+deletechannel ・benner ・
  topinvites(tinvites)
 
 
@@ -53,7 +54,7 @@ boom ・ hug  ・ rps ・ kiss ・ slap ・slots
 
 *** <a:emoji_55:856848714538287125> |Text Commands***
 
-textkurd(tkurd) ・ textenglish(tenglish)
+textkurd(tkurd)
 
 ***<a:emoji_51:853130142565793852> | Music Commands***
 play ・ skip・lyrics
