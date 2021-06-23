@@ -51,6 +51,52 @@ client.on("message", message => {
   }
 });
 
+
+client.on("message", message => {
+  if (!message.content.startsWith(PREFIX)) return;
+  if (!message.channel.guild)
+    return 
+  let command = message.content.split(" ")[0];
+  command = command.slice(PREFIX.length);
+  if (command === "kill") {
+    var sabotage = message.mentions.users.first();
+    if (sabotage == message.author)
+      return message.reply(`**No please menition user**`);
+    if (sabotage === client.user) return message.reply(`**Why?**`);
+    if (sabotage < 1) {
+      message.delete();
+      return message.channel.sendMessage(
+        "Put something to kill like mention your username or use an emoji"
+      );
+    }
+    if (!sabotage)
+      return message.channel.send(`Please Mention A Member to Kill :warning:`);
+    message.channel.send("▄︻̷̿┻̿═━一 ${sabotage").then(msg => {
+      msg.edit(`▄︻̷̿┻̿═━一 ${sabotage} :three:`);
+      setTimeout(function() {
+        msg.edit(`▄︻̷̿┻̿═━一 ${sabotage} :two:`);
+      }, 1000);
+      setTimeout(function() {
+        msg.edit(`▄︻̷̿┻̿═━一 ${sabotage} :one:`);
+      }, 2000);
+      setTimeout(function() {
+        msg.edit(`▄︻̷̿┻̿═━一 :boom:`);
+      }, 3000);
+      setTimeout(function() {
+        msg.edit(`▄︻̷̿┻̿═━一 :fire:`);
+      }, 4000);
+      setTimeout(function() {
+        msg.edit(`▄︻̷̿┻̿═━一 :skull:`);
+      }, 5000);
+      msg.delete(6000);
+      message.delete();
+    });
+    message.channel
+      .send("**** The crime has been successfully hidden 🕳 **")
+      .then(msg => msg.delete(7000));
+  }
+});
+
 client.on("message", message => {
   if (message.content.startsWith(PREFIX + "rooms")) {
     if (message.author.bot) return;
