@@ -51,6 +51,14 @@ client.on("message", message => {
   }
 });
 
+if(message.content == PREFIX + 'count')
+var Black = new Discord.MessageEmbed()
+.setThumbnail(message.author.avatarURL())
+.setFooter(message.author.username, message.author.avatarURL())
+.setTitle('Info server ',`__${message.guild.name}__`)
+.addField('Total Member',`__${message.guild.memberCount}__`)
+message.channel.send(Black);
+}); 
 
 client.on("message", message => {
   if (message.content.startsWith(PREFIX + "deletechannel")) {
