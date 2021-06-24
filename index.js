@@ -52,8 +52,8 @@ client.on("message", message => {
 });
 
 client.on('message', message => {///////Abdellhadi
-const prefix = 'bg'	///////Abdellhadi
-    if(message.content === prefix + 'creatcolores') {///////Abdellhadi
+const PREFIX = 'bg'	///////Abdellhadi
+    if(message.content === PREFIX + 'creatcolores') {///////Abdellhadi
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
 						 //// حقوق سيرفر كودز 
          if(!message.member.hasPermission('ADMINISTRATOR')) return    message.channel.send('**You Dont Have** `ADMINISTRATOR` **premission**').then(msg => msg.delete(6000))
