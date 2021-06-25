@@ -157,27 +157,6 @@ message.channel.send(`${slots1} - ${we}`)
 }
 });
 
-client.on("message", message => {
-  if (!message.channel.guild) return;
-  if (message.content == PREFIX + "allbots") {
-    if (message.author.bot) return;
-    let i = 1;
-    const botssize = message.guild.members
-      .filter(m => m.user.bot)
-      .map(m => `${i++} - <@${m.id}>`);
-    const embed = new Discord.RichEmbed()
-      .setAuthor(message.author.tag, message.author.avatarURL)
-      .setDescription(
-        `**Found ${
-          message.guild.members.filter(m => m.user.bot).size
-        } bots in this Server**
-${botssize.join("\n")}`
-      )
-      .setFooter(client.user.username, client.user.avatarURL)
-      .setTimestamp();
-    message.channel.send(embed);
-  }
-});
 
 
 client.on('message', async message =>{
