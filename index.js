@@ -53,7 +53,7 @@ client.on("message", message => {
         
  client.on("message", async (message) => {
 let DIG = require("discord-image-generation");
-    if (message.content.startsWith(PREFIX  + "delete")) {
+    if (message.content.startsWith(PREFIX  + "ddelete")) {
               let user = message.mentions.users.first();
               if(!user) return message.reply("need mention user")
         let avatar = message.author.displayAvatarURL({ dynamic: false, format: 'png' });
@@ -520,21 +520,6 @@ client.on("message", function(niro_games) {
   }
 });
 
-client.on('message', message => {
-if(message.content.startsWith(PREFIX + "slots")) {
-  let slot1 = ['??', '??', '??', '??', '??', '??', '??', '??'];
-  let slots1 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
-  let slots2 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
-  let slots3 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
-  let we;
-  if(slots1 === slots2 && slots2 === slots3) {
-    we = "Win!"
-  } else {
-    we = "Lose!"
-  }
-  message.channel.send(`${slots1} | ${slots2} | ${slots3} - ${we}`)
-}
-});
    
  
 
