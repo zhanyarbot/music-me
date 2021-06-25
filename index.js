@@ -51,19 +51,7 @@ client.on("message", message => {
   }
 });
         
- client.on("message", async (message) => {
-let DIG = require("discord-image-generation");
-    if (message.content.startsWith(PREFIX  + "ddelete")) {
-              let user = message.mentions.users.first();
-              if(!user) return message.reply("need mention user")
-        let avatar = message.author.displayAvatarURL({ dynamic: false, format: 'png' });
-        const avatar2 = user.displayAvatarURL({ dynamic: false, format: 'png' });
-        let img = await new DIG.Delete().getImage(`${avatar2}`);
-        let attach = new Discord.MessageAttachment(img, "Delete.png");;
-        message.channel.send(attach)
-    }
-});
-
+ 
 
      client.on("message", message => {
   if (message.content.startsWith(PREFIX + "slots")) {
@@ -82,6 +70,64 @@ let DIG = require("discord-image-generation");
 });
  
 
+
+client.on("message", message => {
+  if (!message.guild || message.author.bot) return;
+  if (message.content == PREFIX + "colors") {
+    var fsn = require("fs-nextra");
+    fs.readdir("./colors", async (err, files) => {
+      var f = files[Math.floor(Math.random() * files.length)];
+      var { Canvas } = require("canvas-constructor");
+      var x = 0;
+      var y = 0;
+      if (message.guild.roles.filter(role => !isNaN(role.name)).size <= 0)
+        return;
+      message.guild.roles
+        .filter(role => !isNaN(role.name))
+        .sort((b1, b2) => b1.name - b2.name)
+        .forEach(() => {
+          x += 100;
+          if (x > 100 * 12) {
+            x = 100;
+            y += 80;
+          }
+        });
+      var image = await fsn.readFile(`./colors/${f}`);
+      var xd = new Canvas(100 * 11, y + 350)
+        .addBeveledImage(image, 0, 0, 100 * 11, y + 350, 100)
+        .setTextBaseline("middle")
+        .setColor("white")
+        .setTextSize(60)
+        .addText(`قائمة الألوان`, 375, 40);
+      x = 0;
+      y = 150;
+      message.guild.roles
+        .filter(role => !isNaN(role.name))
+        .sort((b1, b2) => b1.name - b2.name)
+        .forEach(role => {
+          x += 75;
+          if (x > 100 * 10) {
+            x = 75;
+            y += 80;
+          }
+          xd.setTextBaseline("middle")
+            .setTextAlign("center")
+            .setColor(role.hexColor)
+            .addBeveledRect(x, y, 60, 60, 15)
+            .setColor("white");
+          if (`${role.name}`.length > 2) {
+            xd.setTextSize(30);
+          } else if (`${role.name}`.length > 1) {
+            xd.setTextSize(40);
+          } else {
+            xd.setTextSize(50);
+          }
+          xd.addText(role.name, x + 30, y + 30);
+        });
+      message.channel.sendFile(xd.toBuffer());
+    });
+  }
+});
 
 
 
