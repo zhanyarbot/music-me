@@ -157,19 +157,18 @@ message.channel.send(`${slots1} - ${we}`)
 }
 });
 
-client.on("message", async message => {
-  if (message.content.startsWith(PREFIX + "listbans")) {
-    if (!message.guild) return;
-    if (!message.member.hasPermission("BAN_MEMBERS"))
-      return message.channel.send(
-        "**Sorry But You Dont Have Permission** `BAN_MEMBERS`"
-      );
-    message.guild.fetchBans().then(bans => {
-      let b = bans.size;
-      let bb = bans.map(a => `${a}`).join(" - ");
-      message.channel.send(`**\`${b}\` | ${bb}**`);
-    });
-  }
+client.on("message", message => {
+  //Black jack
+  if (!message.channel.guild) return;
+  if (message.content == PREFIX + "count")
+    //Black jack
+    var Black = new Discord.RichEmbed()
+      .setThumbnail(message.author.avatarURL)
+      .setFooter(message.author.username, message.author.avatarURL)
+      .setTitle("🌍| Info member", `__${message.guild.name}__`)
+      .addBlankField(true) //Black jack
+      .addField("Member count", `__${message.guild.memberCount}__`);
+  message.channel.send(Black);
 });
 
 client.on('message', async message =>{
