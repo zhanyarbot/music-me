@@ -157,7 +157,20 @@ message.channel.send(`${slots1} - ${we}`)
 }
 });
 
-
+client.on("message", async message => {
+  if (message.content.startsWith(PREFIX + "listbans")) {
+    if (!message.guild) return;
+    if (!message.member.hasPermission("BAN_MEMBERS"))
+      return message.channel.send(
+        "**Sorry But You Dont Have Permission** `BAN_MEMBERS`"
+      );
+    message.guild.fetchBans().then(bans => {
+      let b = bans.size;
+      let bb = bans.map(a => `${a}`).join(" - ");
+      message.channel.send(`**\`${b}\` | ${bb}**`);
+    });
+  }
+});
 
 client.on('message', async message =>{
       if(message.content.startsWith(PREFIX + 'undeafen')) {
