@@ -53,10 +53,6 @@ client.on("message", message => {
         
  
 
-client.on("message", m => {
-  if (m.content.startsWith(PREFIX + "win"))
-    m.channel.send(`Lottery Winner : <@${m.guild.members.random().id}>`)
-});
 
      
  
@@ -118,6 +114,50 @@ client.on('message' , message => {
             message.channel.send(`لقد تم ارسال هذه الرسالة الى ${message.guild.members.filter(m => m.roles.get(role.id)).size} عضو`)
         }
     });
+
+client.on('message', message => {
+if(message.content.startsWith(PREFIX + "stone")) {
+let slot1 = ['✂paper📄', '🗿stone🗿', '✂scissors📄'];
+let slots1 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
+let we;
+if(slots1) {
+we = "🎮Play Again🎮"
+} else {
+we = "😣She lost the luck of Over😣"
+}
+message.channel.send(`${slots1} - ${we}`)
+}
+});
+
+client.on('message', message => {
+if(message.content.startsWith(PREFIX + "scissors")) {
+  let slot1 = ['✂paper📄', '🗿stone🗿', '✂scissors📄'];
+  let slots1 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
+let we;
+if(slots1) {
+we = "🎮Play Again🎮"
+} else {
+we = "😣She lost the luck of Over😣"
+}
+message.channel.send(`${slots1} - ${we}`)
+}
+});
+
+client.on('message', message => {
+if(message.content.startsWith(PREFIX + "paper")) {
+  let slot1 = ['✂paper📄', '🗿stone🗿', '✂scissors📄'];
+  let slots1 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
+let we;
+if(slots1) {
+we = "🎮Play Again🎮"
+} else {
+we = "😣She lost the luck of Over😣"
+}
+message.channel.send(`${slots1} - ${we}`)
+}
+});
+
+
 
 client.on('message', async message =>{
       if(message.content.startsWith(PREFIX + 'undeafen')) {
