@@ -51,7 +51,18 @@ client.on("message", message => {
   }
 });
         
- 
+ client.on("message", async (message) => {
+let DIG = require("discord-image-generation");
+    if (message.content.startsWith(PREFIX  + "delete")) {
+              let user = message.mentions.users.first();
+              if(!user) return message.reply("need mention user")
+        let avatar = message.author.displayAvatarURL({ dynamic: false, format: 'png' });
+        const avatar2 = user.displayAvatarURL({ dynamic: false, format: 'png' });
+        let img = await new DIG.Delete().getImage(`${avatar2}`);
+        let attach = new Discord.MessageAttachment(img, "Delete.png");;
+        message.channel.send(attach)
+    }
+});
 
 
      client.on("message", message => {
