@@ -51,7 +51,15 @@ client.on("message", message => {
   }
 });
         
- 
+ client.on("message", message => {
+  if (message.content.toLowerCase() === PREFIX + "bans") {
+    if (cooldown.has(message.author.id)) {
+      return message.channel
+        .send(`:stopwatch: | Please wait for 10 second`)
+        .then(m => {
+          m.delete({ timeout: cdtime * 600 });
+        });
+    }
 
      client.on("message", message => {
   if (message.content.startsWith(PREFIX + "slots")) {
@@ -68,52 +76,17 @@ client.on("message", message => {
     message.channel.send(`${slots1} | ${slots2} | ${slots3} - ${we}`);
   }
 });
- 
+ client.on('message', message => { 
+    if (!message.channel.guild) return;
+if(message.content == PREFIX + 'count') 
+var Black = new Discord.MessageEmbed()
+.setThumbnail(message.author.avatarURL())
+.setFooter(message.author.username, message.author.avatarURL())
+.setTitle('Info server ',`__${message.guild.name}__`)
+.addField('Total Bost',`__${message.guild.memberCount}__`)
+message.channel.send(Black);
+}); 
 
-client.on("message", message => {
-  let args = message.content.split(" ").slice(1);
-  if (message.content.split(" ")[0] == PREFIX + "color") {
-    const embedd = new Discord.RichEmbed()
-      .setFooter(
-        "Requested by " + message.author.username,
-        message.author.avatarURL
-      )
-      .setDescription(`**There's No Color With This Number ** :x: `)
-      .setColor(`ff0000`);
-    if (!args[0]) return message.channel.sendEmbed(embedd);
-    if (isNaN(args[0]))
-      return message.channel.sendEmbed(
-        embedd.setDescription("Please select a number :x:")
-      );
-    if (!message.guild.roles.find("name", `${args[0]}`))
-      return message.channel.sendEmbed(embedd);
-
-    var a = message.guild.roles.find("name", `${args[0]}`);
-    if (!a) return;
-    if (a.hasPermission(8))
-      return message.channel.send(
-        embedd.setDescription("This color has administrator!")
-      );
-    const embed = new Discord.RichEmbed()
-
-      .setFooter(
-        "Requested by " + message.author.username,
-        message.author.avatarURL
-      )
-      .setDescription(`**Color Changed To Successfully** :white_check_mark: `)
-
-      .setColor(`${a.hexColor}`);
-    message.channel.sendEmbed(embed);
-    if (!args[0]) return;
-    setInterval(function() {});
-    let count = 0;
-    let ecount = 0;
-    for (let x = 1; x < 201; x++) {
-      message.member.removeRole(message.guild.roles.find("name", `${x}`));
-    }
-    message.member.addRole(message.guild.roles.find("name", `${args[0]}`));
-  }
-});
 
 client.on('message', message => {
         if(message.content.startsWith(PREFIX + 'deafen')) {
