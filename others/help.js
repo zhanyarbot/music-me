@@ -39,18 +39,22 @@ module.exports = {
  clear・kick ・channelinfo
  vkick・addrole ・ roleremove
  slowmode・invites ・createchannel
-deletechannel ・benner ・
- topinvites(tinvites)
-
+deletechannel ・benner ・ count
+deafend ・ undeafend ・rolebc
+hightRole ・ rooms ・
 
 *** <a:emoji_10:850608290308292628> | Gif Commands***
 
 boy gif ・ love gif・girl gif ・ sad gif・meme 
 
-*** <a:emoji_39:852897630605541417> | Game Commands***
+*** <a:emoji_39:852897630605541417> | Game gif Commands***
 
 
 boom ・ hug  ・ rps ・ kiss ・ slap ・slots
+
+***<a:emoji_52:853130289491476561> | Game Commands***
+
+rps・slots・stone・paper・scissors・kill
 
 *** <a:emoji_55:856848714538287125> |Text Commands***
 
