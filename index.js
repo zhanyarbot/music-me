@@ -51,15 +51,7 @@ client.on("message", message => {
   }
 });
         
- client.on("message", message => {
-  if (message.content.toLowerCase() === PREFIX + "bans") {
-    if (cooldown.has(message.author.id)) {
-      return message.channel
-        .send(`:stopwatch: | Please wait for 10 second`)
-        .then(m => {
-          m.delete({ timeout: cdtime * 600 });
-        });
-    }
+
 
      client.on("message", message => {
   if (message.content.startsWith(PREFIX + "slots")) {
