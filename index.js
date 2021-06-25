@@ -158,18 +158,27 @@ message.channel.send(`${slots1} - ${we}`)
 });
 
 client.on("message", message => {
-  //Black jack
   if (!message.channel.guild) return;
-  if (message.content == PREFIX + "count")
-    //Black jack
-    var Black = new Discord.RichEmbed()
-      .setThumbnail(message.author.avatarURL)
-      .setFooter(message.author.username, message.author.avatarURL)
-      .setTitle("🌍| Info member", `__${message.guild.name}__`)
-      .addBlankField(true) //Black jack
-      .addField("Member count", `__${message.guild.memberCount}__`);
-  message.channel.send(Black);
+  if (message.content == PREFIX + "allbots") {
+    if (message.author.bot) return;
+    let i = 1;
+    const botssize = message.guild.members
+      .filter(m => m.user.bot)
+      .map(m => `${i++} - <@${m.id}>`);
+    const embed = new Discord.RichEmbed()
+      .setAuthor(message.author.tag, message.author.avatarURL)
+      .setDescription(
+        `**Found ${
+          message.guild.members.filter(m => m.user.bot).size
+        } bots in this Server**
+${botssize.join("\n")}`
+      )
+      .setFooter(client.user.username, client.user.avatarURL)
+      .setTimestamp();
+    message.channel.send(embed);
+  }
 });
+
 
 client.on('message', async message =>{
       if(message.content.startsWith(PREFIX + 'undeafen')) {
