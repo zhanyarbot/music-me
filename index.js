@@ -76,8 +76,10 @@ client.on("message", message => {
     message.channel.send(`${slots1} | ${slots2} | ${slots3} - ${we}`);
   }
 });
+
+
  client.on('message', message => { 
-    if (!message.channel.guild) return;
+  if (!message.channel.guild) return;
 if(message.content == PREFIX + 'count') 
 var Black = new Discord.MessageEmbed()
 .setThumbnail(message.author.avatarURL())
