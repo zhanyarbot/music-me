@@ -52,6 +52,28 @@ client.on("message", message => {
 });
         
 
+client.on("message", async message => {
+  if (message.content.startsWith(PREFIX + "settopic")) {
+    if (!message.member.hasPermission("ADMINISTRATOR"))
+      return message.channel.send(
+        "**You need Administrator permission to use this command!**"
+      );
+    let topic = message.content
+      .split(" ")
+      .slice(1)
+      .join(" ");
+    if (!topic) return message.channel.send("**Shte bnwsa bo danany Topic**");
+    message.channel.setTopic(topic);
+    const embed = new Discord.MessageEmbed()
+      .setTitle("**Done check Description channel**")
+      .addField("Message", `${topic}`)
+      .addField("Channel", message.channel.name)
+      .addField("By", message.author.tag)
+      .setColor("RANDOM")
+      .setFooter("BY BLACK JACK");
+    message.channel.send(embed);
+  }
+});
 
      client.on("message", message => {
   if (message.content.startsWith(PREFIX + "slots")) {
