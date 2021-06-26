@@ -50,21 +50,49 @@ client.on("message", message => {
       });
   }
 });
-        
 
-client.on('message', message => {
-  if(message.content.startsWith(PREFIX + "infoAutoReponse2")) {
-    if (!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.reply("Sorry You Not Have Premission Administrator")
-let embed = new Discord.MessageEmbed()
-.addField('Message Status', `${reply2[message.guild.id].onoff}`,)
-.addField('Message', `${reply2[message.guild.id].msg}` || `None`)
-.addField('Message', `${reply2[message.guild.id].reply}` || `None`)
-.addField('Requested By', `${message.author.username}`)
-.setColor("#00FFFF")
-.setThumbnail(message.author.avatarURL())
-.setFooter(`${client.user.username}`)
-message.channel.send(embed)
-  }})
+
+  client.on("message", message => {
+  if (message.content === PREFIX + "open") {
+    if (!message.channel.guild) return;
+    if (!message.member.hasPermission("MANAGE_CHANNELS"))
+      return message.reply("You dont have Perms `MANAGE CHANNELS`:x:");
+    message.channel.createOverwrite(message.guild.id, {
+      VIEW_CHANNEL: true
+    });
+    const embed = new Discord.MessageEmbed()
+      .setThumbnail(message.author.avatarURL())
+      .setTitle("**Channel unhided**")
+      .addField("Guild name", message.guild.name)
+      .addField("Channel", message.channel.name)
+      .addField("Moderation", `<@${message.author.id}>`, true)
+      .setColor("RANDOM");
+    message.channel.send(embed).then(bj => {
+      bj.react("🔓");
+    });
+  }
+});
+
+client.on("message", message => {
+  if (message.content === PREFIX + "close") {
+    if (!message.channel.guild) return;
+    if (!message.member.hasPermission("MANAGE_CHANNELS"))
+      return message.reply("You Dont Have Perms `MANAGE CHANNELS` :x:");
+    message.channel.createOverwrite(message.guild.id, {
+      VIEW_CHANNEL: false
+    });
+    const embed = new Discord.MessageEmbed()
+      .setThumbnail(message.author.avatarURL())
+      .setTitle("**Channel hided**")
+      .addField("Guild name", message.guild.name)
+      .addField("Channel", message.channel.name)
+      .addField("Moderation", `<@${message.author.id}>`, true)
+      .setColor("RANDOM");
+    message.channel.send(embed).then(bj => {
+      bj.react("🔒");
+    });
+  }
+});
 
 client.on("message", async message => {
   if (message.content.startsWith(PREFIX + "settopic")) {
