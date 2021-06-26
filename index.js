@@ -1094,7 +1094,7 @@ client.on('message', message => {
            if (!message.channel.guild) return;
     let room = message.content.split(' ').slice(1).join(" ")
     let channel = message.guild.channels.cache.find(c => c.name === `${room}`) || message.mentions.channels.first()
-    if(message.content.startsWith(prefix + "setLog")) {
+    if(message.content.startsWith(PREFIX + "setLog")) {
         if(!message.channel.guild) return;
         if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('**Sorry But You Dont Have Permission** `MANAGE_GUILD`' );
 if(!room) return message.channel.send('**Please Type The Name Channel Or Mention**')
@@ -1117,7 +1117,7 @@ saveLog()
 }})
  
 client.on("message", message => {
-  if (message.content.startsWith(prefix + "togglelog")) {
+  if (message.content.startsWith(PREFIX + "togglelog")) {
     if (!message.channel.guild) return message.reply("**This Command For Serverr**");
     if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send(`${message.author}, Sorry You Need \`MANAGE_GUILD\` for use this command`);
     if (!log[message.guild.id])
