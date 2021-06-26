@@ -52,6 +52,20 @@ client.on("message", message => {
 });
         
 
+client.on('message', message => {
+  if(message.content.startsWith(PREFIX + "infoAutoReponse2")) {
+    if (!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.reply("Sorry You Not Have Premission Administrator")
+let embed = new Discord.MessageEmbed()
+.addField('Message Status', `${reply2[message.guild.id].onoff}`,)
+.addField('Message', `${reply2[message.guild.id].msg}` || `None`)
+.addField('Message', `${reply2[message.guild.id].reply}` || `None`)
+.addField('Requested By', `${message.author.username}`)
+.setColor("#00FFFF")
+.setThumbnail(message.author.avatarURL())
+.setFooter(`${client.user.username}`)
+message.channel.send(embed)
+  }})
+
 client.on("message", async message => {
   if (message.content.startsWith(PREFIX + "settopic")) {
     if (!message.member.hasPermission("ADMINISTRATOR"))
