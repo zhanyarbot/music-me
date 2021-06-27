@@ -51,30 +51,118 @@ client.on("message", message => {
   }
 }); 
 
-let PREFIX = "setprefix"; 
-
-client.on("message", async message => {
-let PREFIX2 = await db.fetch(`prefix_${message.guild.id}`);
-if (PREFIX === null) PREFIX2 =PREFIX;
-const PREFIX = PREFIX2;
-if (!message.content.startsWith(PREFIX)) return;
-const args = message.content.slice(prefix.length).trim().split(/ +/g);
-const cmd = args.shift().toLowerCase();
-if (cmd === "prefix" || cmd === "setprefix") {
-if (!message.guild) return;
-if (!message.guild.member(message.author).hasPermission("ADMINISTRATOR"))
-return message.reply("**- You Don't Have `ADMINISTRATOR` Permission.**");
-if (!args[0]) return message.channel.send(`**- Please tell me what a prefix !!**`);
-if (args[0].length > 3) {
-  return message.channel.send("**Please tell me prefix under 3 numbers!!**")
+const top = JSON.parse(fs.readFileSync("top.json", "UTF8"));
+ 
+function save() {
+    fs.writeFileSync("./top.json", JSON.stringify(top, null, 4));
 }
-db.set(`prefix_${message.guild.id}`, args[0]);
-message.channel.send(`**✅ Done, Set New Prefix \`[${args[0]}]\` From Your Server.**`);
-}
-if (cmd === "test") { // كود test للتجربة
-message.reply("**Set Prefix Working ✅**")
-}
+client.on("voiceStateUpdate", async function(oldMember, newMember) {
+    if (newMember.user.bot) return;
+    if (!top[newMember.guild.id]) top[newMember.guild.id] = {};
+    if (!top[newMember.guild.id][newMember.user.id]) top[newMember.guild.id][newMember.user.id] = {
+        "text": 0,
+        "voice": parseInt(Math.random()*10),
+        "msgs": 0,
+        "id": newMember.user.id
+    }
+    save();
+    if (!oldMember.voiceChannel && newMember.voiceChannel) {
+        var addXP = setInterval(async function () {
+            top[newMember.guild.id][newMember.user.id].voice+=parseInt(Math.random()*4);
+            save();
+            if (!newMember.voiceChannel) {
+                clearInterval(addXP);
+            }
+        }, 60000);
+    }
 });
+client.on("message", async function (message) {
+    if (message.author.bot) return;
+    if (!message.guild) return;
+    if (!top[message.guild.id]) top[message.guild.id] = {};
+    if (!top[message.guild.id][message.author.id]) top[message.guild.id][message.author.id] = {
+        "text": parseInt(Math.random()*10),
+        "voice": 1,
+        "msgs": 0,
+        "id": message.author.id
+    }
+    if (top[message.guild.id][message.author.id].msgs > 10) {
+        top[message.guild.id][message.author.id].text += parseInt(Math.random()*4);
+        top[message.guild.id][message.author.id].msgs = 0;
+    }
+    save();
+    var args = message.content.split(" ");
+    var cmd = args[0].toLowerCase();
+    if (!message.content.startsWith(PREFIX)) return;
+ 
+  if(message.content.startsWith(PREFIX + "top text")) {
+            var topArray = Object.values(top[message.guild.id]);
+            var num = 0;
+            var textStr = `${topArray.sort((a, b) => b.text - a.text).slice(0, 10).filter(user => user.text > 0 && message.guild.members.get(user.id)).map(function (user) {
+                if (user.text > 0) {
+                    return `**#${++num} | <@${user.id}> XP: ${user.text} **`
+                }
+            }).join("n")}`;
+            var embed = new Discord.RichEmbed()
+            .setAuthor("📋 | Guild Score Leaderboards", message.guild.iconURL)
+  .setColor("13B813")
+        .addField(`**:speech_balloon: | TEXT LEADERBOARD**`, `${textStr}   \n\n **✨ | For More: ${prefix}top text**`, true)  
+        .setFooter(message.author.tag, message.author.displayAvatarURL)
+            .setTimestamp()
+            message.channel.send({
+                embed: embed
+            });
+  } else {
+    if(message.content.startsWith(PREFIX+ "top voice")) {
+            var topArray = Object.values(top[message.guild.id]);
+            var num = 0;
+            var voiceStr = `${topArray.sort((a, b) => b.voice - a.voice).slice(0, 10).filter(user => user.voice > 0 && message.guild.members.get(user.id)).map(function (user) {
+                if (user.voice > 0) {
+                    return `**#${++num} | <@${user.id}> XP: ${user.voice}**`
+                }
+            }).join("n")}`;
+            var embed = new Discord.RichEmbed()
+            .setAuthor("📋 | Guild Score Leaderboards", message.guild.iconURL)
+  .setColor("13B813")
+        .addField(`**:microphone2: | VOICE LEADERBOARD**`, `${voiceStr}   \n\n **:sparkles: More?** ${prefix}top voice`, true)
+  
+        .setFooter(message.author.tag, message.author.displayAvatarURL)
+            .setTimestamp()  
+            message.channel.send({
+                embed: embed
+            });
+  } else {
+       if(message.content.startsWith(PREFIX + "top")) {
+            var topArray = Object.values(top[message.guild.id]);
+            var num = 0;
+            var textStr = `${topArray.sort((a, b) => b.text - a.text).slice(0, 5).filter(user => user.text > 0 && message.guild.members.get(user.id)).map(function (user) {
+                if (user.text > 0) {
+                    return `**#${++num} | <@${user.id}> XP: ${user.text} **`
+                }
+            }).join("n")}`;
+            num = 0;
+            var voiceStr = `${topArray.sort((a, b) => b.voice - a.voice).slice(0, 5).filter(user => user.voice > 0 && message.guild.members.get(user.id)).map(function (user) {
+                if (user.voice > 0) {
+                    return `**#${++num} | <@${user.id}> XP: ${user.voice} **`
+                }
+            }).join("n")}`;
+            var embed = new Discord.RichEmbed()  
+            .setAuthor("📋 | Guild Score Leaderboards", message.guild.iconURL)
+            .addField("**TOP 5 TEXT :speech_balloon:**", `${textStr}  nn  **:sparkles: More?** ${PREFIX}top text`, true)
+            .addField("**TOP 5 VOICE :microphone2:**", `${voiceStr} nn **:sparkles: More?** ${PREFIX}top voice`, true)
+            .setFooter(message.author.tag, message.author.displayAvatarURL)
+            .setTimestamp()
+            .setColor("13B813");
+            message.channel.send({
+                embed: embed
+            
+  
+            });
+        }
+  }
+  }
+});
+
 
   client.on("message", message => {
   if (message.content === PREFIX + "open") {
