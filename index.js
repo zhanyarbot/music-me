@@ -49,7 +49,9 @@ client.on("message", message => {
         client.log.error(e);
       });
   }
-}); const sug = JSON.parse(fs.readFileSync("./sug.json", "utf8"));
+}); 
+
+const sug = JSON.parse(fs.readFileSync("./sug.json", "utf8"));
 client.on("message", message => {
   if (!message.channel.guild) return;
   let room = message.content.split(" ").slice(1).join(" ");
@@ -82,6 +84,7 @@ client.on("message", message => {
     });
   }
 });
+
 client.on('message', message => { 
     if(message.content.startsWith(`${PREFIX}sug`)) {    
     		let args = message.content.split(' ').slice(1);
@@ -122,6 +125,7 @@ client.on('message', message => {
                   }
         
                 })
+
 client.on('message', message => {
             if(message.content.startsWith(PREFIX + "toggleSug off")) {
                 if(!message.channel.guild) return;
@@ -159,6 +163,7 @@ let embed = new Discord.MessageEmbed()
 message.channel.send(embed)
   }})
 
+}
 
   client.on("message", message => {
   if (message.content === PREFIX + "open") {
