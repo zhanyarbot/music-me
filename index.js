@@ -54,7 +54,7 @@ client.on("message", message => {
   if (!message.channel.guild) return;
   let room = message.content.split(" ").slice(1).join(" ");
   let channel = message.guild.channels.cache.find(c => c.name === `${room}`) || message.mentions.channels.first();
-  if (message.content.startsWith(prefix + "setSug")) {
+  if (message.content.startsWith(PREFIX + "setSug")) {
     if (!message.channel.guild) return;
     if (!message.member.hasPermission("MANAGE_GUILD"))
       return message.channel.send(
@@ -83,7 +83,7 @@ client.on("message", message => {
   }
 });
 client.on('message', message => { 
-    if(message.content.startsWith(`${prefix}sug`)) {    
+    if(message.content.startsWith(`${PREFIX}sug`)) {    
     		let args = message.content.split(' ').slice(1);
        let sugest = client.channels.cache.find(channel => channel.name ===  sug[message.guild.id].channel)
     if(!sugest) return message.reply(`**Dont Setup channel please Type ${prefix}setSug channel name or mention channel**`)
