@@ -51,6 +51,8 @@ client.on("message", message => {
   }
 }); 
 
+
+
 var Enmap = require("enmap");
 client.antibots = new Enmap({ name: "chat" });
 var antibots = client.antibots;
@@ -91,6 +93,7 @@ client.on("guildMemberAdd", member => {
   if (antibots.get(`${member.guild.id}`).onoff == "Off") return;
   if (member.user.bot) return member.kick();
 });
+
 
 let Prefix = "+"; 
 
