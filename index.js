@@ -51,119 +51,30 @@ client.on("message", message => {
   }
 }); 
 
-const sug = JSON.parse(fs.readFileSync("./sug.json", "utf8"));
-client.on("message", message => {
-  if (!message.channel.guild) return;
-  let room = message.content.split(" ").slice(1).join(" ");
-  let channel = message.guild.channels.cache.find(c => c.name === `${room}`) || message.mentions.channels.first();
-  if (message.content.startsWith(PREFIX + "setSug")) {
-    if (!message.channel.guild) return;
-    if (!message.member.hasPermission("MANAGE_GUILD"))
-      return message.channel.send(
-        "**Sorry But You Dont Have Permission** `MANAGE_GUILD`"
-      );
-    if (!room) return message.channel.send("**Please Type The Name Channel Or mention**");
-    if (!channel) return message.channel.send("**Cant Find This channel**");
-    let embed = new Discord.MessageEmbed()
-      .setAuthor(message.author.username, message.author.avatarURL())
-      .setThumbnail(message.author.avatarURL())
-      .setTitle("**✅Done Check The Sug Code Has Been Setup**")
-      .addField("Channel:", `${room}`)
-      .addField("Server", `${message.guild.name}`)
-      .addField("Requested By:", `${message.author}`)
-      .setColor("RANDOM")
-      .setFooter(`${client.user.username}`)
-      .setTimestamp();
-    message.channel.send(embed);
-    sug[message.guild.id] = {
-      channel: channel.name,
-      onoff: 'On',
-    };
-    fs.writeFile("./sug.json", JSON.stringify(sug), err => {
-      if (err) console.error(err);
-    });
-  }
-});
+let PREFIX = "setprefix"; 
 
-client.on('message', message => { 
-    if(message.content.startsWith(`${PREFIX}sug`)) {    
-    		let args = message.content.split(' ').slice(1);
-       let sugest = client.channels.cache.find(channel => channel.name ===  sug[message.guild.id].channel)
-    if(!sugest) return message.reply(`**Dont Setup channel please Type ${prefix}setSug channel name or mention channel**`)
-    let blacksug = new Discord.MessageEmbed()
-    .setTitle('New Suggest')
-    .addField('Suggest By', `${message.author}`)
-    .addField('Suggest', `${args}`)
-    .addField('Guild Name', message.guild.name)
-    .setFooter(`Request By ${message.author.username}#${message.author.discriminator}`, message.author.avatarURL())
-    sugest.send(blacksug).then(bj => {
-  bj.react("❌") 
-  bj.react("✅")
-    })}})
-client.on('message', message => {
-            if(message.content.startsWith(PREFIX + "toggleSug on")) {
-                if(!message.channel.guild) return;
-                if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('**Sorry But You Dont Have Permission** `MANAGE_GUILD`' );
-        sug[message.guild.id] = {
-        onoff: 'On',
-        }
-        
-       let embed = new Discord.MessageEmbed()
-                      .setTitle('**✅Done Check The Toggle sug is On**')
-                      .addField('Name Server', message.guild.name)
-                      .addField('Toggle', `${sug[message.guild.id].onoff}`)
-                      .addField('By', `${message.author.username}`)
-                      .setThumbnail(message.author.avatarURL())
-                      .setFooter(`${client.user.username}`)                  
-                     message.channel.send(embed)       
-                        fs.writeFile("./sug.json", JSON.stringify(sug), (err) => {
-            if (err) console.error(err)
-            .catch(err => {
-              console.error(err);
-          });
-            });
-                  }
-        
-                })
-
-client.on('message', message => {
-            if(message.content.startsWith(PREFIX + "toggleSug off")) {
-                if(!message.channel.guild) return;
-                if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('**Sorry But You Dont Have Permission** `MANAGE_GUILD`' );
-        sug[message.guild.id] = {
-        onoff: 'Off',
-        }
-       let embed = new Discord.MessageEmbed()
-                      .setTitle('**✅Done Check The Toggle sug is Off**')
-                      .addField('Name Server', message.guild.name)
-                      .addField('Toggle', `${sug[message.guild.id].onoff}`)
-                      .addField('By', `${message.author.username}`)
-                      .setThumbnail(message.author.avatarURL())
-                      .setFooter(`${client.user.username}`)                  
-                     message.channel.send(embed)                  
-                    fs.writeFile("./sug.json", JSON.stringify(sug), (err) => {
-            if (err) console.error(err)
-            .catch(err => {
-              console.error(err);
-          });
-            });
-                  }
-        
-                })
-client.on('message', message => {
-  if(message.content.startsWith(PREFIX + "infoSug")) {
-    if (!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.reply("Sorry You Not Have Premission Administrator")
-let embed = new Discord.MessageEmbed()
-.addField('Channel Status', `${sug[message.guild.id].onoff}`,)
-.addField('Channel', `${sug[message.guild.id].channel}` || `None`)
-.addField('Requested By', `${message.author.username}`)
-.setColor("#00FFFF")
-.setThumbnail(message.author.avatarURL())
-.setFooter(`${client.user.username}`)
-message.channel.send(embed)
-  }})
-
+client.on("message", async message => {
+let PREFIX2 = await db.fetch(`prefix_${message.guild.id}`);
+if (PREFIX === null) PREFIX2 =PREFIX;
+const PREFIX = PREFIX2;
+if (!message.content.startsWith(PREFIX)) return;
+const args = message.content.slice(prefix.length).trim().split(/ +/g);
+const cmd = args.shift().toLowerCase();
+if (cmd === "prefix" || cmd === "setprefix") {
+if (!message.guild) return;
+if (!message.guild.member(message.author).hasPermission("ADMINISTRATOR"))
+return message.reply("**- You Don't Have `ADMINISTRATOR` Permission.**");
+if (!args[0]) return message.channel.send(`**- Please tell me what a prefix !!**`);
+if (args[0].length > 3) {
+  return message.channel.send("**Please tell me prefix under 3 numbers!!**")
 }
+db.set(`prefix_${message.guild.id}`, args[0]);
+message.channel.send(`**✅ Done, Set New Prefix \`[${args[0]}]\` From Your Server.**`);
+}
+if (cmd === "test") { // كود test للتجربة
+message.reply("**Set Prefix Working ✅**")
+}
+});
 
   client.on("message", message => {
   if (message.content === PREFIX + "open") {
