@@ -51,25 +51,7 @@ client.on("message", message => {
   }
 }); 
 
-  let embed = new Discord.RichEmbed()
-    .setColor("RANDOM")
-    .setThumbnail(memberavatar)
-    .addField(":bust_in_silhouette: | name : ", `${member}`)
-    .addField(":microphone2: | Welcome!", `بەخیربی بۆ سیرڤەرکەمان, ${member}`)
-    .addField(":id: | User :", "**[" + `${member.id}` + "]**")
-    .addField(
-      ":family_mwgb: | ژمارەی میمبەری سیرڤەر",
-      `${member.guild.memberCount}`
-    )
-    .addField("Name", `<@` + `${member.id}` + `>`, true)
-    .addField("Server", `${member.guild.name}`, true)
-    .setFooter(`${member.guild.name}`)
-    .setTimestamp()
-    .setImage("https://cdn.discordapp.com/attachments/727852746618961922/727874038629662871/UTfeNPSeqH.gif");
-  member.send(embed);
-});
-///////////////لە وێلکۆم بەخێرهاتن دەکاتن
-
+  
 client.on("guildMemberAdd", member => {
   let channel = member.guild.channels.find("857172981439266816");
   let memberavatar = member.user.avatarURL;
