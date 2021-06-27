@@ -51,6 +51,64 @@ client.on("message", message => {
   }
 }); 
 
+  let embed = new Discord.RichEmbed()
+    .setColor("RANDOM")
+    .setThumbnail(memberavatar)
+    .addField(":bust_in_silhouette: | name : ", `${member}`)
+    .addField(":microphone2: | Welcome!", `بەخیربی بۆ سیرڤەرکەمان, ${member}`)
+    .addField(":id: | User :", "**[" + `${member.id}` + "]**")
+    .addField(
+      ":family_mwgb: | ژمارەی میمبەری سیرڤەر",
+      `${member.guild.memberCount}`
+    )
+    .addField("Name", `<@` + `${member.id}` + `>`, true)
+    .addField("Server", `${member.guild.name}`, true)
+    .setFooter(`${member.guild.name}`)
+    .setTimestamp()
+    .setImage("https://cdn.discordapp.com/attachments/727852746618961922/727874038629662871/UTfeNPSeqH.gif");
+  member.send(embed);
+});
+///////////////لە وێلکۆم بەخێرهاتن دەکاتن
+
+client.on("guildMemberAdd", member => {
+  let channel = member.guild.channels.find("857172981439266816");
+  let memberavatar = member.user.avatarURL;
+  if (!channel) return;
+  let embed = new Discord.RichEmbed()
+    .setColor("RANDOM")
+    .setThumbnail(memberavatar)
+    .addField(" > :bust_in_silhouette: | ناوی مێمبەر : ", `${member}`)
+    .addField(" > :hibiscus:| بەخێربێیت 😍",`, `)
+    .addField(" > :id:| ئایدی میمبەر :", "**[" + `${member.id}` + "]**")
+    .addField(" > :family_mwgb:⎮ تۆ کەسی ژمارە", `${member.guild.memberCount}`)
+    .addField(" >  ⎮ناوی سێرڤەر", `${member.guild.name}`, true)
+    .setFooter(`${member.guild.name}`)
+    .setImage("https://cdn.discordapp.com/attachments/728333268918861845/732901673550479410/image0-5.gif")
+    .setTimestamp();
+
+  channel.sendEmbed(embed);
+});
+
+
+//////////// ئەوەش بۆ لێفت کردنە
+client.on("guildMemberRemove", member => {
+  let channel = member.guild.channels.find("857172972363841556");
+  let memberavatar = member.user.avatarURL;
+  if (!channel) return;
+  let embed = new Discord.RichEmbed()
+    .setColor("RANDOM")
+    .setThumbnail(memberavatar)
+    .addField("ناوی مێمبەر:", `${member}`)
+    .addField("لێفتی کرد لە سێرڤەر")
+    .addField(" e dalo kaka lo ")
+    .addField("ژمارەی مێمبەری سێرڤەر", `${member.guild.memberCount}` + " کەس")
+    .setFooter(`${member.guild.name}`)
+    .setImage("https://cdn.discordapp.com/attachments/726345323211128863/727873771817402398/giphy.gif")
+    .setTimestamp();
+
+  channel.sendEmbed(embed);
+ 
+});
 
 
   client.on("message", message => {
