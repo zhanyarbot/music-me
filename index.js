@@ -1385,47 +1385,6 @@ client.on("guildDelete", guild => {
   channel.send(embed);
 });
 
-
-client.on("guildMemberAdd", member => {
-  const channel = member.guild.channels.cache.find(
-    channel => channel.name === "857172981439266816"
-  );
-  let black = member.user.avatarURL();
-  if (!channel) return;
-  const joinembed = new Discord.MessageEmbed()
-    .setTitle(
-      `**A new member just arrived**
-    )
-    .setColor("RANDOM")
-    .setThumbnail(black)
-    .addField(
-      " **name** : ",
-      `${member}
-    --------`
-    )
-    .addField(
-      " **Welcome**",
-      `Welcome to the server, ${member}
-     --------`
-    )
-    .addField(
-      "**User** :",
-      "**[" + `${member.id}` + "]**"
-    )
-    .addField(
-      "**Your are the member**",
-      `${member.guild.memberCount}
-      --------`
-    )
-    .addField("Server", `${member.guild.name}`, true)
-    .setFooter(`**${member.guild.name}**`)
-    .setTimestamp()
-    .setImage("")
-    .setFooter(`${member.guild.name}`)
-    .setTimestamp();
-  channel.send(joinembed);
-});
-
 function delay(delayInms) {
  return new Promise(resolve => {
    setTimeout(() => {
