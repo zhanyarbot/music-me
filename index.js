@@ -51,63 +51,50 @@ client.on("message", message => {
   }
 }); 
 
-  
-
-  client.on("guildMemberAdd", member => {
-  let m = member.user;
-  var embed = new client()
-  .setTitle("بەخێر بێی بۆ سێرفەرەکەمان")
- .addField("ناو:", member.user)
- .addField("ئایدی ئەندام:", member.id)
-.addField("تۆ کەسی ژمارە:", member.guild.memberCount)   
  
- 
- 
-  .setThumbnail(m.avatarURL)
- 
- 
- 
-  .setImage("https://media.discordapp.net/attachments/835673002079027200/835969377399996507/image0.gif")
-   .setColor("RANDOM")
-    .setFooter(`${member.user.username}`, member.user.avatarURL) 
-    .setTimestamp();
-  var channel = member.guild.channels.get("857172981439266816");
-  if (!channel) return;
-  channel.send({ embed: embed });
-});
 
-
-
-
-
-
-
-client.on("guildMemberRemove", member => {
+client.on("guildMemberAdd", member => {
   const channel = member.guild.channels.cache.find(
-    channel => channel.name === "857172972363841556"
+    channel => channel.name === "857172981439266816"
   );
-  let DarkMan = member.user.avatarURL();
+  let black = member.user.avatarURL();
   if (!channel) return;
   const joinembed = new Discord.MessageEmbed()
-    .setTitle(``)
-    .setAuthor(`Welcome Bot`, `https://cdn.discordapp.com/avatars/828218881989935105/479953e51dadf4f38c5bc72c912193c5.webp?size=1024`)
-    .setImage(
-      "https://thumbs.gfycat.com/ChiefBiodegradableAmericanalligator-size_restricted.gif"
+    .setTitle(
+      `**A new member just arrived**
     )
     .setColor("RANDOM")
-    .setThumbnail(client.author.avatarURL())
-    .addField("**name :**", `${member}`)
-    .addField("Bye Bye", `!`)
-    .addField("👋;(",   "bye bye")
+    .setThumbnail(black)
     .addField(
-      "All Memebers",
-      `${member.guild.memberCount}` + "member"
+      " **name** : ",
+      `${member}
+    --------`
     )
+    .addField(
+      " **Welcome**",
+      `Welcome to the server, ${member}
+     --------`
+    )
+    .addField(
+      "**User** :",
+      "**[" + `${member.id}` + "]**"
+    )
+    .addField(
+      "**Your are the member**",
+      `${member.guild.memberCount}
+      --------`
+    )
+    .addField("Server", `${member.guild.name}`, true)
+    .setFooter(`**${member.guild.name}**`)
+    .setTimestamp()
+    .setImage("")
     .setFooter(`${member.guild.name}`)
     .setTimestamp();
   channel.send(joinembed);
-}); 
+});
 
+
+  
   client.on("message", message => {
   if (message.content === PREFIX + "open") {
     if (!message.channel.guild) return;
