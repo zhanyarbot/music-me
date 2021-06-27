@@ -53,48 +53,6 @@ client.on("message", message => {
 
 
 
-var Enmap = require("enmap");
-client.antibots = new Enmap({ name: "chat" });
-var antibots = client.antibots;
-client.on("message", codes => {
-  if (codes.content.startsWith(PREFIX + "antibots on")) {
-    if (
-      codes.author.bot ||
-      !codes.channel.guild ||
-      codes.author.id != codes.guild.ownerID
-    )
-      return;
-    antibots.set(`${codes.guild.id}`, {
-      onoff: "On"
-    });
- 
-    codes.channel.send("ئەنتی بۆت چالاک کرا");
-  }
-  if (codes.content.startsWith(PREFIX + "antibots off")) {
-    if (
-      codes.author.bot ||
-      !codes.channel.guild ||
-      codes.author.id != codes.guild.ownerID
-    )
-      return;
-    antibots.set(`${codes.guild.id}`, {
-      onoff: "Off"
-    });
-    codes.channel.send("ئەنتی بۆت نا چالاک کرا");
-  }
-});
- 
-client.on("guildMemberAdd", member => {
-  if (!antibots.get(`${member.guild.id}`)) {
-    antibots.set(`${member.guild.id}`, {
-      onoff: "Off"
-    });
-  }
-  if (antibots.get(`${member.guild.id}`).onoff == "Off") return;
-  if (member.user.bot) return member.kick();
-});
-
-
 let Prefix = "+"; 
 
 client.on("message", async message => {
