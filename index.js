@@ -52,46 +52,61 @@ client.on("message", message => {
 }); 
 
   
-client.on("guildMemberAdd", member => {
-  let channel = member.guild.channels.find("857172981439266816");
-  let memberavatar = member.user.avatarURL;
-  if (!channel) return;
-  let embed = new Discord.RichEmbed()
-    .setColor("RANDOM")
-    .setThumbnail(memberavatar)
-    .addField(" > :bust_in_silhouette: | ناوی مێمبەر : ", `${member}`)
-    .addField(" > :hibiscus:| بەخێربێیت 😍",`, `)
-    .addField(" > :id:| ئایدی میمبەر :", "**[" + `${member.id}` + "]**")
-    .addField(" > :family_mwgb:⎮ تۆ کەسی ژمارە", `${member.guild.memberCount}`)
-    .addField(" >  ⎮ناوی سێرڤەر", `${member.guild.name}`, true)
-    .setFooter(`${member.guild.name}`)
-    .setImage("https://cdn.discordapp.com/attachments/728333268918861845/732901673550479410/image0-5.gif")
-    .setTimestamp();
 
-  channel.sendEmbed(embed);
-});
-
-
-//////////// ئەوەش بۆ لێفت کردنە
-client.on("guildMemberRemove", member => {
-  let channel = member.guild.channels.find("857172972363841556");
-  let memberavatar = member.user.avatarURL;
-  if (!channel) return;
-  let embed = new Discord.RichEmbed()
-    .setColor("RANDOM")
-    .setThumbnail(memberavatar)
-    .addField("ناوی مێمبەر:", `${member}`)
-    .addField("لێفتی کرد لە سێرڤەر")
-    .addField(" e dalo kaka lo ")
-    .addField("ژمارەی مێمبەری سێرڤەر", `${member.guild.memberCount}` + " کەس")
-    .setFooter(`${member.guild.name}`)
-    .setImage("https://cdn.discordapp.com/attachments/726345323211128863/727873771817402398/giphy.gif")
-    .setTimestamp();
-
-  channel.sendEmbed(embed);
+  client.on("guildMemberAdd", member => {
+  let m = member.user;
+  var embed = new client()
+  .setTitle("بەخێر بێی بۆ سێرفەرەکەمان")
+ .addField("ناو:", member.user)
+ .addField("ئایدی ئەندام:", member.id)
+.addField("تۆ کەسی ژمارە:", member.guild.memberCount)   
  
+ 
+ 
+  .setThumbnail(m.avatarURL)
+ 
+ 
+ 
+  .setImage("https://media.discordapp.net/attachments/835673002079027200/835969377399996507/image0.gif")
+   .setColor("RANDOM")
+    .setFooter(`${member.user.username}`, member.user.avatarURL) 
+    .setTimestamp();
+  var channel = member.guild.channels.get("857172981439266816");
+  if (!channel) return;
+  channel.send({ embed: embed });
 });
 
+
+
+
+
+
+
+client.on("guildMemberRemove", member => {
+  const channel = member.guild.channels.cache.find(
+    channel => channel.name === "857172972363841556"
+  );
+  let DarkMan = member.user.avatarURL();
+  if (!channel) return;
+  const joinembed = new Discord.MessageEmbed()
+    .setTitle(``)
+    .setAuthor(`Welcome Bot`, `https://cdn.discordapp.com/avatars/828218881989935105/479953e51dadf4f38c5bc72c912193c5.webp?size=1024`)
+    .setImage(
+      "https://thumbs.gfycat.com/ChiefBiodegradableAmericanalligator-size_restricted.gif"
+    )
+    .setColor("RANDOM")
+    .setThumbnail(client.author.avatarURL())
+    .addField("**name :**", `${member}`)
+    .addField("Bye Bye", `!`)
+    .addField("👋;(",   "bye bye")
+    .addField(
+      "All Memebers",
+      `${member.guild.memberCount}` + "member"
+    )
+    .setFooter(`${member.guild.name}`)
+    .setTimestamp();
+  channel.send(joinembed);
+}); 
 
   client.on("message", message => {
   if (message.content === PREFIX + "open") {
