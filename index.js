@@ -51,6 +51,20 @@ client.on("message", message => {
   }
 }); 
 
+client.on('message', message => {
+  if (!message.guild) return;
+  if (message.content === PREFIX + 'join') {
+    if (message.member.voiceChannel) {
+      message.member.voiceChannel.join()
+        .then(connection => {
+          message.reply('**kra. ..**!');
+        })
+        .catch(console.log);
+    } else {
+      message.reply('**- bcho zhwrekawa !**');
+    }
+  }
+});
 
 
 let Prefix = "+"; 
