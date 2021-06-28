@@ -50,37 +50,7 @@ client.on("message", message => {
       });
   }
 }); 
-   
-
-
-client.on('message', msg => {
-if(msg.content.startsWith(PREFIX + "report")){
-const reason = msg.content.split(" ").slice(2).join(" ");
-let reportschannel = msg.guild.channels.cache.find(channel => channel.name === "Report");
-if(!reportschannel) return msg.channel.send("لا استطيع العثور على روم الابلاعات");
-const user = msg.mentions.users.first();user
-if(!user) return msg.channel.send("منشن العضو");
-if(!reason) return msg.channel.send("اكتب السبب");
-  if (user.id == msg.author.id)
-        return msg.channel.send("لا تسطيع الابلاغ على نفسك")
-
-              if(user.bot) return msg.channel.send("لا تسطيع الابلاغ عن بوت")
-
-if(msg.author.bot || !msg.guild) return msg.reply("this command for server only")
-
-const embed = new Discord.MessageEmbed()
-.setTitle("ابلاغ جديد")
-.addField("العضو", `${user.username}`)
-.addField("السبب", `${reason}`)
-.addField("اسم المبلغ", `${msg.author.username}`)
-.addField("ايدي المبلغ", `${msg.author.id}`)
-.setFooter("ابلاغ جديد")
-
-reportschannel.send(embed)
-msg.channel.send ("858970866629345281")
-}
-
-})
+    
 
 
 let Prefix = "+"; 
@@ -108,7 +78,40 @@ message.reply("**Set Prefix Working ✅**")
 }
 });
 
+ client.on('message',async message => {
+  if(message.content.startsWith(PREFIX + "sug")) {
+  let args = message.content.split(" ").slice(1)
  
+    if(!args.length) {
+      return message.channel.send("Please Give the Suggestion")
+    }
+ 
+    let channel = message.guild.channels.cache.find((x) => (x.name === "suggestion" || x.name === "suggestions"))
+ 
+    if(!channel) {
+      return message.channel.send("there is no channel with name - suggestions")
+    }
+ 
+ 
+    let embed = new Discord.MessageEmbed()
+    .setAuthor("SUGGESTION: " + message.author.tag, message.author.avatarURL())
+    .setThumbnail(message.author.avatarURL())
+    .setColor("#ff2050")
+    .setDescription(args.join(" "))
+    .setTimestamp()
+ 
+ 
+    channel.send(embed).then(m => {
+      m.react("✅")
+      m.react("❌")
+    })
+ 
+ 
+ 
+    message.channel.send("Sended Your Suggestion to  Suggestions Channel")
+ 
+  }
+})
 
 client.on('message', msg => {
  if (msg.content.startsWith(PREFIX + 'senddm')) {
