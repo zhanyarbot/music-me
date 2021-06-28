@@ -110,24 +110,24 @@ client.on("message", message => {
     if (!sabotage)
       return message.channel.send(`Please Mention A Member to Kill :warning:`);
     message.channel.send(" ${sabotage").then(msg => {
-      msg.edit('```🍒❤️🍆  ``` ');
+      msg.edit('    **`___SLOTS___  `**                                                  🍒🍒💰                                                                                                        `|         ||         |`  ');
       setTimeout(function() {
-        msg.edit('``` 💰❤️❤️   ``` ');
+        msg.edit('   **`___SLOTS___  `**                                                   💰❤️🍒                                                                                                     `|         ||         |`     ');
       }, 1000);
       setTimeout(function() {
-        msg.edit('```  🍒💶🍆   ```');
+        msg.edit('   **`___SLOTS___  `**                                                    ❤️🍒🍒                                                                                                     `|         ||         |`    ');
       }, 2000);
       setTimeout(function() {
-        msg.edit('``` 💶❤️🍆  ```');
+        msg.edit('   **`___SLOTS___  `**                                                     ❤️🍆🍒                                                                                                    `|         ||         |`   ');
       }, 3000);
       setTimeout(function() {
-        msg.edit('``` 🍒💰🍒 ```');
+        msg.edit('   **`___SLOTS___  `**                                                     🍒💰🍒                                                                                                     `|         ||         |`   ');
       }, 4000);
       setTimeout(function() {
-        msg.edit('```  🍒💰❤️   ```');
+        msg.edit('   **`___SLOTS___  `**                                                      🍒💰❤️                                                                                                    `|         ||         |`   ');
       }, 5000);
     setTimeout(function() {
-        msg.edit('   **`___SLOTS___  `**                                                     💰💰💰                                                                                                     `|         |``|         |` ');
+        msg.edit('   **`___SLOTS___  `**                                                     💰💰💰                                                                                                     `|         ||         |` ');
       }, 6000);
 
       msg.delete(7000);
