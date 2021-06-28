@@ -97,7 +97,6 @@ client.on("message", message => {
   let command = message.content.split(" ")[0];
   command = command.slice(PREFIX.length);
   if (command === "game") {
-    var sabotage = message.mentions.users.first();
     if (sabotage == message.author)
     if (sabotage < 1) {
       return message.channel.sendMessage(
