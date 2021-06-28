@@ -127,7 +127,7 @@ client.on("message", message => {
         msg.edit('```  🍒💰❤️   ```');
       }, 5000);
     setTimeout(function() {
-        msg.edit('   **`___SLOTS___  `**                                            💰💰💰                                                                             `|         |``|         |` ');
+        msg.edit('   **`___SLOTS___  `**                                            💰💰💰                                                                                                    `|         |``|         |` ');
       }, 6000);
 
       msg.delete(7000);
