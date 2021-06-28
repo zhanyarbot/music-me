@@ -58,6 +58,13 @@ client.on('message', function(message) {
         let messageReason = message.content.split(" ").slice(2).join(" ");
         if(!messageReason) return message.reply("**# Specify a reason!**");
    let mUser = message.mentions.members.first();
+
+   let channel = message.guild.channels.cache.find((x) => (x.name === "report" || x.name === "report"))
+ 
+    if(!channel) {
+      return message.channel.send("there is no channel with name -report")
+    }
+
     if(!mUser) return message.channel.send("Couldn't find user.");
     let Rembed = new Discord.MessageEmbed()
     .setTitle("`New Report!`")
