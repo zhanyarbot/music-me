@@ -97,7 +97,7 @@ client.on("message", message => {
   let command = message.content.split(" ")[0];
   command = command.slice(PREFIX.length);
   if (command === "game") {
-    var sabotage = message.channel.send.first();
+    var sabotage = message.metions.users.first();
     if (sabotage == message.author)
       return message.reply(`**No please menition user**`);
     if (sabotage === client.user) return message.reply(`**Why?**`);
