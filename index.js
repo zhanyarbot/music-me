@@ -51,21 +51,23 @@ client.on("message", message => {
   }
 }); 
 
-client.on('message', message => {
-  if (!message.guild) return;
-  if (message.content === PREFIX + 'join') {
-    if (message.member.voiceChannel) {
-      message.member.voiceChannel.join()
-        .then(connection => {
-          message.reply('**kra. ..**!');
-        })
-        .catch(console.log);
-    } else {
-      message.reply('**- bcho zhwrekawa !**');
-    }
-  }
+client.on("message", async niro =>{
+  if(niro.content.startsWith(PREFIX + "credits")){
+ let user = niro.mentions.users.first() || niro.author;
+    let bal = db.fetch(`money_${user.id}`)
+    if (bal === null) bal = 0;
+      {
+                              if (cooldown_command.has(niro.author.id)) {
+            niro.reply(new Discord.MessageEmbed().setDescription(`**${niro.author.username},  Cooldown : 5 seconds**`))
+        } else {
+       niro.channel.send(`:bank: | **${user.username} , your account balance is** \`\`$${bal}\`\`.`)
+                                    cooldown_command.add(niro.author.id);
+            setTimeout(() => {
+                cooldown_command.delete(niro.author.id);
+            }, 5000)
+        }
+}}
 });
-
 
 let Prefix = "+"; 
 
