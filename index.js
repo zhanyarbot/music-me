@@ -121,10 +121,10 @@ client.on("message", message => {
         msg.edit('  **`___SLOTS___  `**                                                    <a:emoji_56:859017377261420554> <a:emoji_56:859017377261420554> <a:emoji_56:859017377261420554>                                                                      `|         ||         |` ');
       }, 3000);
       setTimeout(function() {
-        msg.edit(`▄︻̷̿┻̿═━一 :fire:`);
+        msg.edit('  **`___SLOTS___  `**                                                    <a:emoji_56:859017377261420554> <a:emoji_56:859017377261420554> <a:emoji_56:859017377261420554>                                                                      `|         ||         |` ');
       }, 4000);
       setTimeout(function() {
-        msg.edit(`▄︻̷̿┻̿═━一 :skull:`);
+        msg.edit('  **`___SLOTS___  `**                                                    <:slots2:421472583347732511> <:slots1:421472583410515969> <:slots3:421472582924238869>                                                                               `|         ||         |` ');
       }, 5000);
       msg.delete(6000);
       message.delete();
