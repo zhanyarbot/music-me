@@ -1,0 +1,15 @@
+[
+    {
+        "name": "kd",
+        "nativeName": "kurd",
+        "moment": "kd",
+        "defaultMomentFormat": "MMMM Do YYYY",
+        "default": true,
+        "aliases": [
+            "Kurd",
+            "en",
+            "K-D",
+            "KD",
+            "K-D"
+        ]
+    },
