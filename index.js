@@ -110,24 +110,24 @@ client.on("message", message => {
     if (!sabotage)
       return message.channel.send(`Please Mention A Member to Kill :warning:`);
     message.channel.send(" ${sabotage").then(msg => {
-      msg.edit(’```  ❤️🍆🍒 ``` ’);
+      msg.edit(’```  ❤️🍆🍒 ${sabotage} ``` ’);
       setTimeout(function() {
-        msg.edit('``` 💰❤️❤️  ``` ');
+        msg.edit('``` 💰❤️❤️  ${sabotage} ``` ');
       }, 1000);
       setTimeout(function() {
-        msg.edit('```  🍒💶🍆  ```');
+        msg.edit('```  🍒💶🍆  ${sabotage} ```');
       }, 2000);
       setTimeout(function() {
-        msg.edit('``` 💶❤️🍆 ```');
+        msg.edit('``` 💶❤️🍆 ${sabotage} ```');
       }, 3000);
       setTimeout(function() {
-        msg.edit('``` 🍒💰🍒  ```');
+        msg.edit('``` 🍒💰🍒 ${sabotage} ```');
       }, 4000);
       setTimeout(function() {
-        msg.edit('```  🍒💰❤️  ```');
+        msg.edit('```  🍒💰❤️  ${sabotage} ```');
       }, 5000);
     setTimeout(function() {
-        msg.edit('```  💰💰💰  ``` ');
+        msg.edit('```  💰💰💰 ${sabotage} ``` ');
       }, 6000);
 
       msg.delete(7000);
