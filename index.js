@@ -100,9 +100,7 @@ client.on("message", message => {
     var sabotage = message.mentions.users.first();
     if (sabotage == message.author)
       return message.reply(`**No please menition user**`);
-    if (sabotage === client.user) return message.reply(`**Why?**`);
     if (sabotage < 1) {
-      message.delete();
       return message.channel.sendMessage(
         "Put something to kill like mention your username or use an emoji"
       );
@@ -110,7 +108,7 @@ client.on("message", message => {
     if (!sabotage)
       return message.channel.send(`Please Mention A Member to Kill :warning:`);
     message.channel.send(" ${sabotage").then(msg => {
-      msg.edit('    **`___SLOTS___  `**                                                                                                                                                                 `|         ||         |`  ');
+      msg.edit('    **`___SLOTS___  `**                                                                                                                                                                                               `|         ||         |`  ');
       setTimeout(function() {
         msg.edit('   **`___SLOTS___  `**                                                    <a:emoji_56:859017377261420554><a:emoji_56:859017377261420554><a:emoji_56:859017377261420554>                                             `|         ||         |`     ');
       }, 1000);
