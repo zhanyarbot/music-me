@@ -90,14 +90,13 @@ reaction2.on("collect", r => {
 }
 });
 
-
 client.on("message", message => {
   if (!message.content.startsWith(PREFIX)) return;
   if (!message.channel.guild)
     return 
   let command = message.content.split(" ")[0];
   command = command.slice(PREFIX.length);
-  if (command === "game") {
+  if (command === "g") {
     var sabotage = message.mentions.users.first();
     if (sabotage == message.author)
       return message.reply(`**No please menition user**`);
@@ -111,10 +110,22 @@ client.on("message", message => {
     if (!sabotage)
       return message.channel.send(`Please Mention A Member to Kill :warning:`);
     message.channel.send("▄︻̷̿┻̿═━一 ${sabotage").then(msg => {
-      msg.edit(`   **`___SLOTS___  `**                                                                                                `|         ||         |`     '); `);
+      msg.edit(`▄︻̷̿┻̿═━一 ${sabotage} :three:`);
       setTimeout(function() {
-        msg.edit('   **`___SLOTS___  `**                                                    <a:emoji_56:859017377261420554><a:emoji_56:859017377261420554><a:emoji_56:859017377261420554>                                             `|         ||         |`     ');
+        msg.edit(`▄︻̷̿┻̿═━一 ${sabotage} :two:`);
       }, 1000);
+      setTimeout(function() {
+        msg.edit(`▄︻̷̿┻̿═━一 ${sabotage} :one:`);
+      }, 2000);
+      setTimeout(function() {
+        msg.edit(`▄︻̷̿┻̿═━一 :boom:`);
+      }, 3000);
+      setTimeout(function() {
+        msg.edit(`▄︻̷̿┻̿═━一 :fire:`);
+      }, 4000);
+      setTimeout(function() {
+        msg.edit(`▄︻̷̿┻̿═━一 :skull:`);
+      }, 5000);
       msg.delete(6000);
       message.delete();
     });
