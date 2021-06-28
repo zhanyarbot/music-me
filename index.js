@@ -50,7 +50,30 @@ client.on("message", message => {
       });
   }
 }); 
+    client.on("message" , message => {
+
+if(message.channel.type === 'dm') {
+
+if (message.content.startsWith("k")) {
     
+  message.author.send(` CALMS IS ONE`) // لینکی سێرڤەری خۆت لیرە دابنی بە هەتا هەتای بێت
+    
+  client.channels.get("857172972363841556").send(
+`> <:ARBELE_UPUP:791411050238836766> By: <@${message.author.id}> ✅ 
+${message.content}`)
+}
+    }
+        })
+
+
+
+
+client.on('ready', () => {
+console.log(`ON ${client.guilds.size} Servers`);
+console.log(`Logged in as ${client.user.tag}!`);
+client.user.setGame(`ok`) 
+});
+
 
 client.on('message', function(message) {
     if(message.content.startsWith(PREFIX  + "report")) {
