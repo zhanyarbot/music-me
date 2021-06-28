@@ -105,7 +105,7 @@ client.on("message", message => {
       );
     }
     if (!sabotage)
-      return message.channel.send(`Please Mention A Member to Kill :warning:`);
+      return message.channel.send(`Pleas`);
     message.channel.send(" ${sabotage").then(msg => {
       msg.edit('    **`___SLOTS___  `**                                                                                                                                                                                               `|         ||         |`  ');
       setTimeout(function() {
