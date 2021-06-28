@@ -77,7 +77,7 @@ const embed = new Discord.MessageEmbed()
 .setFooter("ابلاغ جديد")
 
 reportschannel.send(embed)
-msg.channel.send("تم ارسال ابلاغك بنجاح")
+msg.channel.send ("858970866629345281")
 }
 
 })
