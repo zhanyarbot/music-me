@@ -50,83 +50,37 @@ client.on("message", message => {
       });
   }
 }); 
+   
 
 
-const inlinereply = require('discord-reply');
-
-const error = "❎"
-const done = "✅"
 client.on('message', msg => {
-    if(msg.content.startsWith(PREFIX + "report")){
-    const reason = msg.content.split(" ").slice(2).join(" ");
- let reportschannel = msg.guild.channels.cache.find(channel => channel.name === "report");
-    
-    const user = msg.mentions.users.first();user
-   
- if(!user) return msg.lineReply(` يرجئ ان تمنشن العضو ${error}`)
+if(msg.content.startsWith(PREFIX + "report")){
+const reason = msg.content.split(" ").slice(2).join(" ");
+let reportschannel = msg.guild.channels.cache.find(channel => channel.name === "Report");
+if(!reportschannel) return msg.channel.send("لا استطيع العثور على روم الابلاعات");
+const user = msg.mentions.users.first();user
+if(!user) return msg.channel.send("منشن العضو");
+if(!reason) return msg.channel.send("اكتب السبب");
+  if (user.id == msg.author.id)
+        return msg.channel.send("لا تسطيع الابلاغ على نفسك")
 
- 
-  if(!reason) return msg.lineReply(` اكتب القصة ${error}`)
-             if(user.bot) return msg.lineReply(`لا يمكنك${error} الابلاغ عن بوت`)
+              if(user.bot) return msg.channel.send("لا تسطيع الابلاغ عن بوت")
 
-             
-               if (user.id == msg.author.id)
-        
-return msg.lineReply(`لا يمكنك الابلاغ على نفسك ${error}`)
+if(msg.author.bot || !msg.guild) return msg.reply("this command for server only")
 
-    const embed = new Discord.MessageEmbed()
-    .setColor('0fb50f')
-      .addField(`ابلاغ جديد`,
-      `**-----------------**`)
-    
+const embed = new Discord.MessageEmbed()
+.setTitle("ابلاغ جديد")
+.addField("العضو", `${user.username}`)
+.addField("السبب", `${reason}`)
+.addField("اسم المبلغ", `${msg.author.username}`)
+.addField("ايدي المبلغ", `${msg.author.id}`)
+.setFooter("ابلاغ جديد")
 
+reportschannel.send(embed)
+msg.channel.send("تم ارسال ابلاغك بنجاح")
+}
 
-
-
-
-  .addField(` اسم العضو المبلغ علية`,
-` ${user.username}`)
-    
-
-    
-    
-    .addField(` ايدي العضو المبلغ علية`,
- 
-   `${user.id}`)
-    
-
-    
-    
-    .addField(`القصه`,
-
-    `${reason}`)
-    
-
-    
-    
-    .addField(`اسم المبلغ `,
- 
-   `${msg.author.username}`)
-    
-
-    
-    .addField(`ايدي المبلغ`,
-    ` ${msg.author.id}`)
-
-
-
-
-    .setTimestamp()
-    
-    reportschannel.send(embed)
-    msg.channel.send(`Done ${done}`)
-    
-    }
-    
-    });
-
-
-   
+})
 
 
 let Prefix = "+"; 
