@@ -110,7 +110,7 @@ client.on("message", message => {
     if (!sabotage)
       return message.channel.send(`Please Mention A Member to Kill :warning:`);
     message.channel.send(" ${sabotage").then(msg => {
-      msg.edit(’```  ❤️🍆🍒 ${sabotage} ``` ’);
+      msg.edit('```  ❤️🍆🍒 ${sabotage} ``` ');
       setTimeout(function() {
         msg.edit('``` 💰❤️❤️  ${sabotage} ``` ');
       }, 1000);
