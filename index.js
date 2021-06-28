@@ -117,9 +117,6 @@ client.on("message", message => {
       setTimeout(function() {
         msg.edit('   **`___SLOTS___  `**                                                    <:emoji_58:859017555036078142><:emoji_59:859017575735099392><:emoji_60:859017602009530409>                                                                                                      `|         ||         |`    ');
       }, 2000);
-      setTimeout(function() {
-        msg.edit('   **`___SLOTS___  `**                                                                                                                                                    
-       }, 2000);
       msg.delete(7000);
       message.delete();
     });
