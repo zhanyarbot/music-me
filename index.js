@@ -110,26 +110,16 @@ client.on("message", message => {
     if (!sabotage)
       return message.channel.send(`Please Mention A Member to Kill :warning:`);
     message.channel.send(" ${sabotage").then(msg => {
-      msg.edit('    **`___SLOTS___  `**                                                  🍒🍒💰                                                                                                        `|         ||         |`  ');
+      msg.edit('    **`___SLOTS___  `**                                                                                                                                                                 `|         ||         |`  ');
       setTimeout(function() {
-        msg.edit('   **`___SLOTS___  `**                                                   💰❤️🍒                                                                                                     `|         ||         |`     ');
+        msg.edit('   **`___SLOTS___  `**                                                    <a:emoji_56:859017377261420554><a:emoji_56:859017377261420554><a:emoji_56:859017377261420554>                                             `|         ||         |`     ');
       }, 1000);
       setTimeout(function() {
-        msg.edit('   **`___SLOTS___  `**                                                    ❤️🍒🍒                                                                                                     `|         ||         |`    ');
+        msg.edit('   **`___SLOTS___  `**                                                    <:emoji_58:859017555036078142><:emoji_59:859017575735099392><:emoji_60:859017602009530409>                                                                                                      `|         ||         |`    ');
       }, 2000);
       setTimeout(function() {
-        msg.edit('   **`___SLOTS___  `**                                                     ❤️🍆🍒                                                                                                    `|         ||         |`   ');
-      }, 3000);
-      setTimeout(function() {
-        msg.edit('   **`___SLOTS___  `**                                                     🍒💰🍒                                                                                                     `|         ||         |`   ');
-      }, 4000);
-      setTimeout(function() {
-        msg.edit('   **`___SLOTS___  `**                                                      🍒💰❤️                                                                                                    `|         ||         |`   ');
-      }, 5000);
-    setTimeout(function() {
-        msg.edit('   **`___SLOTS___  `**                                                     💰💰💰                                                                                                     `|         ||         |` ');
-      }, 6000);
-
+        msg.edit('   **`___SLOTS___  `**                                                                                                                                                    
+       }, 2000);
       msg.delete(7000);
       message.delete();
     });
