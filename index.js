@@ -69,7 +69,7 @@ client.on('message', function(message) {
     .addField("**# - Time:**",message.createdAt,true)
     .setFooter("If the reporting was a joke, the person reporting would be subject to penalties")
 message.channel.send(Rembed)
-message.channel.send("__Are you sure you want to send this to the Server owner??__").then(msg => {
+message.channel.send("Sended Your report to  report Channel").then(msg => {
     msg.react("✅")
     msg.react("❌")
 .then(() => msg.react('❌'))
