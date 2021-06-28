@@ -51,7 +51,7 @@ client.on("message", message => {
   }
 }); 
 
-```js
+
 const inlinereply = require('discord-reply');
 
 const error = "❎"
