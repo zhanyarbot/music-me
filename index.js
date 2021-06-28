@@ -90,41 +90,6 @@ reaction2.on("collect", r => {
 }
 });
 
-client.on("message", message => {
-  if (!message.content.startsWith(PREFIX)) return;
-  if (!message.channel.guild)
-    return 
-  let command = message.content.split(" ")[0];
-  command = command.slice(PREFIX.length);
-  if (command === "game") {
-    var sabotage = message.metions.users.first();
-    if (sabotage == message.author)
-      return message.reply(`**No please menition user**`);
-    if (sabotage === client.user) return message.reply(`**Why?**`);
-    if (sabotage < 1) {
-      message.delete();
-      return message.channel.sendMessage(
-        "Put something to kill like mention your username or use an emoji"
-      );
-    }
-    if (!sabotage)
-      return message.channel.send(`Pleas`);
-    message.channel.send(" ${sabotage").then(msg => {
-      msg.edit('    **`___SLOTS___  `**                                                                                                                                                                                              
-      setTimeout(function() {
-        msg.edit('   **`___SLOTS___  `**                                                    <a:emoji_56:859017377261420554><a:emoji_56:859017377261420554><a:emoji_56:859017377261420554>                                             `|         ||         |`     ');
-      }, 1000); 
-      setTimeout(function() {
-        msg.edit('   **`___SLOTS___  `**                                                    <:emoji_58:859017555036078142><:emoji_59:859017575735099392><:emoji_60:859017602009530409>                                                                                                      `|         ||         |`    ');
-      }, 2000);
-      msg.delete(7000);
-      message.delete();
-    });
-    message.channel
-      .send("**** The crime has been successfully hidden 🕳 **")
-      .then(msg => msg.delete(7000));
-  }
-});
 
 client.on("message", message => {
   if (!message.content.startsWith(PREFIX)) return;
@@ -132,7 +97,7 @@ client.on("message", message => {
     return 
   let command = message.content.split(" ")[0];
   command = command.slice(PREFIX.length);
-  if (command === "kill") {
+  if (command === "game") {
     var sabotage = message.mentions.users.first();
     if (sabotage == message.author)
       return message.reply(`**No please menition user**`);
