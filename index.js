@@ -97,13 +97,17 @@ client.on("message", message => {
   let command = message.content.split(" ")[0];
   command = command.slice(PREFIX.length);
   if (command === "game") {
-   var sabotage = message.channel.send.first();
+    var sabotage = message.channel.send.first();
     if (sabotage == message.author)
+      return message.reply(`**No please menition user**`);
+    if (sabotage === client.user) return message.reply(`**Why?**`);
     if (sabotage < 1) {
+      message.delete();
       return message.channel.sendMessage(
         "Put something to kill like mention your username or use an emoji"
       );
     }
+
     if (!sabotage)
       return message.channel.send(`Pleas`);
     message.channel.send(" ${sabotage").then(msg => {
