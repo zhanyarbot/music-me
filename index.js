@@ -109,25 +109,25 @@ client.on("message", message => {
     }
     if (!sabotage)
       return message.channel.send(`Please Mention A Member to Kill :warning:`);
-    message.channel.send(" ❤️❤️❤️${sabotage").then(msg => {
-      msg.edit(’``` │ ❤️🍆🍒│ ``` ’);
+    message.channel.send(" ${sabotage").then(msg => {
+      msg.edit(’```  ❤️🍆🍒 ``` ’);
       setTimeout(function() {
-        msg.edit('``` │💰❤️❤️  │ ``` ');
+        msg.edit('``` 💰❤️❤️  ``` ');
       }, 1000);
       setTimeout(function() {
-        msg.edit('``` │ 🍒💶🍆 │ ```');
+        msg.edit('```  🍒💶🍆  ```');
       }, 2000);
       setTimeout(function() {
-        msg.edit('```│ 💶❤️🍆 │ ```');
+        msg.edit('``` 💶❤️🍆 ```');
       }, 3000);
       setTimeout(function() {
-        msg.edit('```│ 🍒💰🍒 │ ```');
+        msg.edit('``` 🍒💰🍒  ```');
       }, 4000);
       setTimeout(function() {
-        msg.edit('``` │ 🍒💰❤️ │ ```');
+        msg.edit('```  🍒💰❤️  ```');
       }, 5000);
     setTimeout(function() {
-        msg.edit('``` │ 💰💰💰 │ ``` ');
+        msg.edit('```  💰💰💰  ``` ');
       }, 6000);
 
       msg.delete(7000);
