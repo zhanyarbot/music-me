@@ -110,15 +110,15 @@ client.on("message", message => {
     if (!sabotage)
       return message.channel.send(`Please Mention A Member to Kill :warning:`);
     message.channel.send("▄︻̷̿┻̿═━一 ${sabotage").then(msg => {
-      msg.edit(`▄︻̷̿┻̿═━一 ${sabotage} :three:`);
+      msg.edit('    **`___SLOTS___  `**                                                    <a:emoji_56:859017377261420554> <a:emoji_56:859017377261420554> <a:emoji_56:859017377261420554>                                                                      `|         ||         |` ');
       setTimeout(function() {
-        msg.edit(`▄︻̷̿┻̿═━一 ${sabotage} :two:`);
+        msg.edit('  **`___SLOTS___  `**                                                    <a:emoji_56:859017377261420554> <a:emoji_56:859017377261420554> <a:emoji_56:859017377261420554>                                                                      `|         ||         |` ');
       }, 1000);
       setTimeout(function() {
-        msg.edit(`▄︻̷̿┻̿═━一 ${sabotage} :one:`);
+        msg.edit('  **`___SLOTS___  `**                                                    <a:emoji_56:859017377261420554> <a:emoji_56:859017377261420554> <a:emoji_56:859017377261420554>                                                                      `|         ||         |` ');
       }, 2000);
       setTimeout(function() {
-        msg.edit(`▄︻̷̿┻̿═━一 :boom:`);
+        msg.edit('  **`___SLOTS___  `**                                                    <a:emoji_56:859017377261420554> <a:emoji_56:859017377261420554> <a:emoji_56:859017377261420554>                                                                      `|         ||         |` ');
       }, 3000);
       setTimeout(function() {
         msg.edit(`▄︻̷̿┻̿═━一 :fire:`);
