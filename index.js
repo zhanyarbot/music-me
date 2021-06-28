@@ -58,13 +58,6 @@ client.on('message', function(message) {
         let messageReason = message.content.split(" ").slice(2).join(" ");
         if(!messageReason) return message.reply("**# Specify a reason!**");
    let mUser = message.mentions.members.first();
-
-   let channel = message.guild.channels.cache.find((x) => (x.name === "report" || x.name === "report"))
- 
-    if(!channel) {
-      return message.channel.send("there is no channel with name -report")
-    }
-
     if(!mUser) return message.channel.send("Couldn't find user.");
     let Rembed = new Discord.MessageEmbed()
     .setTitle("`New Report!`")
@@ -97,18 +90,16 @@ reaction2.on("collect", r => {
 }
 });
 
-client.on("message", async (message) => {
-let DIG = require("discord-image-generation");
-    if (message.content.startsWith(PREFIX + "delete")) {
-              let user = message.mentions.users.first();
-              if(!user) return message.reply("need mention user")
-        let avatar = message.author.displayAvatarURL({ dynamic: false, format: 'png' });
-        const avatar2 = user.displayAvatarURL({ dynamic: false, format: 'png' });
-        let img = await new DIG.Delete().getImage(`${avatar2}`);
-        let attach = new Discord.MessageAttachment(img, "Delete.png");;
-        message.channel.send(attach)
-    }
-});
+client.on('message',async message => {
+  if(message.content.startsWith(PREFIX + "userrole")) { 
+ 
+let member_r = message.mentions.members.first() || message.member,
+  user = member_r.user;
+let bawan= new Discord.MessageEmbed()
+  .addField('this member have this Roles:', member_r.roles.cache.map(r => `${r}`).join(', '), true)
+ 
+message.channel.send(bawan)
+}})
 
 let Prefix = "+"; 
 
