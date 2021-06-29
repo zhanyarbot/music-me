@@ -71,7 +71,7 @@ queue ・ filter ・ radio・loob
 `)
 
    .setFooter(`${message.author.username}#${message.author.discriminator}`, message.member.user.displayAvatarURL({ dynamic: true }))
-   .setColor("RANDOM")
+   .setColor("#ff0000")
    message.react("✅")
     return message.channel.send(helpEmbed).catch(console.error);
 
