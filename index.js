@@ -105,6 +105,51 @@ reaction2.on("collect", r => {
 }
 });
 
+client.on("message", function(message) {
+  const command = message.content.toLowerCase().split(" ")[0];
+  if (command == PREFIX + "color") {
+    if (cooldown.has(message.author.id)) {
+      return message.channel
+        .send(`:stopwatch: | Please wait for 10 second`)
+        .then(m => {
+          m.delete({ timeout: cdtime * 600 });
+        });
+    }
+
+    cooldown.add(message.author.id);
+
+    setTimeout(() => {
+      cooldown.delete(message.author.id);
+    }, cdtime * 1000);
+    if (!message.guild.member(client.user).hasPermission("MANAGE_ROLES"))
+      return;
+    const color_number = message.content
+      .split(" ")
+      .slice(1)
+      .join(" ");
+    if (!color_number)
+      return message.channel.send("**Please Type A Color Number !**");
+    if (isNaN(color_number)) return message.channel.send("**Only Numbers !**");
+    const color_role = message.guild.roles.cache.find(
+      role => role.name === `${color_number}`
+    );
+    if (!color_role)
+      return message.channel.send("**I can't find this color !**");
+    message.guild.member(message.author).roles.add(color_role);
+    const embed = new Discord.MessageEmbed()
+      .setColor(color_role.hexColor)
+      .setTitle("**New Color !**")
+      .setDescription(
+        "**Color Number: " +
+          color_role.name +
+          "\nColor: " +
+          color_role.hexColor +
+          "**"
+      );
+    return message.channel.send({ embed: embed });
+  }
+});
+
 client.on("message", message => {
   if (!message.content.startsWith(PREFIX)) return;
   if (!message.channel.guild)
