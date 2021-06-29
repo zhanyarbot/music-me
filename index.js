@@ -50,7 +50,21 @@ client.on("message", message => {
       });
   }
 }); 
-   
+  
+client.on("message", serverdevelopment => {
+  if (!serverdevelopment.content.startsWith(PREFIX) || serverdevelopment.author.bot) return;
+  const args = serverdevelopment.content.slice(PREFIX.length).trim().split(' ');
+  const command = args.shift().toLowerCase();
+if(command === "trans"){
+    serverdevelopment.channel.send(
+      new Discord.MessageEmbed()
+      .setThumbnail(client.user.avatarURL())
+.setColor("RANDOM")
+      .setTitle('Your Translation Search!')
+      .setURL(`https://translate.google.iq/?hl=ar&sl=ar&tl=en&text=${args}&op=translate`)
+    );
+  }
+});
 
 
 client.on('message', function(message) {
