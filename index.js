@@ -53,7 +53,7 @@ client.on("message", message => {
 
 let anti = JSON.parse(fs.readFileSync("./antigreff.json", "UTF8"));
 let config = JSON.parse(fs.readFileSync("./configg.json", "UTF8"));
-calli.on("message", message => {
+Client.on("message", message => {
   if (!message.channel.guild) return;
   let user = anti[message.guild.id + message.author.id];
   let num = message.content
@@ -75,7 +75,7 @@ calli.on("message", message => {
       time: 0.1
     };
 
-  if (message.content.startsWith(prefix + "anti")) {
+  if (message.content.startsWith(PREFIX + "anti")) {
       if (message.author.id !== message.guild.ownerID) {
       let anti = new Discord.MessageEmbed()
         .setDescription("You must have a higher role use this command")
@@ -94,7 +94,7 @@ calli.on("message", message => {
           .setDescription("type a number")
           .setColor(callicolor);
         ///////
-        if (message.content.startsWith(prefix + "anti ban")) {
+        if (message.content.startsWith(PREFIX + "anti ban")) {
           if (!num) return message.channel.send(typeanum);
           if (isNaN(num)) return message.channel.send(onlyanum);
           config[message.guild.id].banLimit = num;
@@ -114,7 +114,7 @@ Punish at: ${config[message.guild.id].banLimit} ${calliban}
            
           }
         }
-        if (message.content.startsWith(prefix + "anti kick")) {
+        if (message.content.startsWith(PREFIX + "anti kick")) {
           if (!num) return message.channel.send(typeanum);
           if (isNaN(num)) return message.channel.send(onlyanum);
           config[message.guild.id].kickLimits = num;
@@ -131,7 +131,7 @@ Punish at: ${config[message.guild.id].kickLimits} ${calliban}
            
           }
         }
-        if (message.content.startsWith(prefix + "anti roleD")) {
+        if (message.content.startsWith(PREFIX + "anti roleD")) {
           if (!num) return message.channel.send(typeanum);
           if (isNaN(num)) return message.channel.send(onlyanum);
           config[message.guild.id].roleDelLimit = num;
@@ -147,7 +147,7 @@ Punish at: ${config[message.guild.id].roleDelLimit} ${calliban} `);
            
           }
         }
-        if (message.content.startsWith(prefix + "anti roleC")) {
+        if (message.content.startsWith(PREFIX + "anti roleC")) {
           if (!num) return message.channel.send(typeanum);
           if (isNaN(num)) return message.channel.send(onlyanum);
           config[message.guild.id].roleCrLimits = num;
@@ -163,7 +163,7 @@ Punish at: ${config[message.guild.id].roleCrLimits} ${calliban} `);
            
           }
         }
-        if (message.content.startsWith(prefix + "anti channelD")) {
+        if (message.content.startsWith(PREFIX + "anti channelD")) {
           if (!num) return message.channel.send(typeanum);
           if (isNaN(num)) return message.channel.send(onlyanum);
           config[message.guild.id].chaDelLimit = num;
@@ -179,7 +179,7 @@ Punish at: ${config[message.guild.id].chaDelLimit} ${calliban} `);
            
           }
         }
-        if (message.content.startsWith(prefix + "anti channelC")) {
+        if (message.content.startsWith(PREFIX + "anti channelC")) {
           if (!num) return message.channel.send(typeanum);
           if (isNaN(num)) return message.channel.send(onlyanum);
           config[message.guild.id].chaCrLimit = num;
@@ -195,7 +195,7 @@ Punish at: ${config[message.guild.id].chaCrLimit} ${calliban} `);
            
           }
         }
-        if (message.content.startsWith(prefix + "anti time")) {
+        if (message.content.startsWith(PREFIX + "anti time")) {
           if (!num) return message.channel.send(typeanum);
           if (isNaN(num)) return message.channel.send(onlyanum);
           config[message.guild.id].time = num;
@@ -232,7 +232,7 @@ Punish at: ${config[message.guild.id].time} ${calliban} `
   }
 });
 
-calli.on("channelCreate", async channel => {
+client.on("channelCreate", async channel => {
   const entry1 = await channel.guild
     .fetchAuditLogs({
       type: "CHANNEL_CREATE"
@@ -309,7 +309,7 @@ channel-create Members
   });
 });
 
-calli.on("channelDelete", async channel => {
+client.on("channelDelete", async channel => {
   const entry1 = await channel.guild
     .fetchAuditLogs({
       type: "CHANNEL_DELETE"
@@ -386,7 +386,7 @@ channel-delete Members
   });
 });
 
-calli.on("roleDelete", async channel => {
+client.on("roleDelete", async channel => {
   const entry1 = await channel.guild
     .fetchAuditLogs({
       type: "ROLE_DELETE"
@@ -462,8 +462,7 @@ role-delete Members
     if (e) throw e;
   });
 });
-
-calli.on("roleCreate", async channel => {
+client.on("roleCreate", async channel => {
   const entry1 = await channel.guild
     .fetchAuditLogs({
       type: "ROLE_CREATE"
@@ -540,7 +539,7 @@ role-create Members
   });
 });
 
-calli.on("guildBanAdd", async (guild, user) => {
+client.on("guildBanAdd", async (guild, user) => {
   const entry1 = await guild
     .fetchAuditLogs({
       type: "MEMBER_BAN_ADD"
@@ -614,7 +613,7 @@ banning Members
   });
 });
 
-calli.on("guildKickAdd", async (guild, user) => {
+client.on("guildKickAdd", async (guild, user) => {
   const entry1 = await guild
     .fetchAuditLogs({
       type: "MEMBER_KICK"
@@ -687,7 +686,7 @@ kicking Members
     if (e) throw e;
   });
 });
-calli.on("guildMemberRemove", async member => {
+client.on("guildMemberRemove", async member => {
   const entry1 = await member.guild
     .fetchAuditLogs()
     .then(audit => audit.entries.first());
@@ -768,8 +767,8 @@ banning Members
   }
 });
 ///////////////////////////////////////////////////////////////////////////////
-calli.on("message", message => {
-  if (message.content === prefix + "settings") {
+client.on("message", message => {
+  if (message.content === PREFIX + "settings") {
     if (cooldown.has(message.author.id)) {
       return message.channel.send(`You have to wait 5 seconds`).then(m => {
         m.delete({ timeout: cdtime * 600 });
