@@ -53,7 +53,7 @@ client.on("message", message => {
 
 client.on("message", async Epic => {
   var prefix = "=";
-  if (Epic.content.startsWith(prefix + "vonline")) {
+  if (Epic.content.startsWith(PREFIX + "vonline")) {
     if (!Epic.guild.member(Epic.author).hasPermission("MANAGE_CHANNELS"))
       return Epic.reply(":x: **I Dont Have Permissions**");
     if (
