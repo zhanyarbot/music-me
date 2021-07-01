@@ -52,41 +52,7 @@ client.on("message", message => {
 }); 
 
 
-     client.on("message", async Epic => {
-  var prefix = "+";
-  if (Epic.content.startsWith(PREFIX + "vonline")) {
-    if (!Epic.guild.member(Epic.author).hasPermission("MANAGE_CHANNELS"))
-      return Epic.reply(":x: **I Dont Have Permissions**");
-    if (
-      !Epic.guild
-        .member(client.user)
-        .hasPermission(["MANAGE_CHANNELS", "MANAGE_ROLES_OR_PERMISSIONS"])
-    )
-      return Epic.reply(":x: **You Dont Have Permissions**");
-    Epic.guild
-      .createChannel(
-        `Voice Online : [ ${
-          Epic.guild.members.filter(m => m.voiceChannel).size
-        } ]`,
-        "voice"
-      )
-      .then(c => {
-        console.log(`Voice Online Is Activation In ${Epic.guild.name}`);
-        c.overwritePermissions(Epic.guild.id, {
-          CONNECT: false,
-          SPEAK: false
-        });
-        setInterval(() => {
-          c.setName(
-            `Voice Online :  ${
-              Epic.guild.members.filter(m => m.voiceChannel).size
-            } .`
-          );
-        }, 1000);
-      });
-  }
-});            
-
+     
 client.on("message", async msg => {
   if (msg.channel.type === "dm") return;
   if (msg.author.bot) return;
@@ -150,60 +116,6 @@ client.on("message", async msg => {
         });
       });
     });
-  }
-});
-
-///////////////////////////////////////////////////////////////////////////////
-client.on("message", message => {
-  if (message.content === PREFIX + "settings") {
-    if (cooldown.has(message.author.id)) {
-      return message.channel.send(`You have to wait 5 seconds`).then(m => {
-        m.delete({ timeout: cdtime * 600 });
-      });
-    }
-    cooldown.add(message.author.id);
-    setTimeout(() => {
-      cooldown.delete(message.author.id);
-    }, cdtime * 1000);
-    if (message.author.id !== message.guild.ownerID)
-      return message.channel.send(
-        "**You must have a higher role use this command**"
-      );
-    let embed = new Discord.MessageEmbed()
-      .setThumbnail(message.member.user.displayAvatarURL({ dynamic: true }))
-      .setColor(callicolor)
-      .setAuthor("Security Settings", "")
-      .setDescription(`
-      
-**Anti Ban**
-Enabled: ${callienabled}
-Warn at: ${config[message.guild.id].banLimit} ${calliwarn} 
-Punish at: ${config[message.guild.id].banLimit} ${calliban}
-**Anti Kick**
-Enabled: ${callienabled}
-Warn at: ${config[message.guild.id].kickLimits} ${calliwarn} 
-Punish at: ${config[message.guild.id].kickLimits} ${calliban}
-**Anti Role-Create**
-Enabled: ${callienabled}
-Warn at: ${config[message.guild.id].roleCrLimits} ${calliwarn} 
-Punish at: ${config[message.guild.id].roleCrLimits} ${calliban}
-**Anti Role-Delete**
-Enabled: ${callienabled}
-Warn at: ${config[message.guild.id].roleDelLimit} ${calliwarn} 
-Punish at: ${config[message.guild.id].roleDelLimit} ${calliban}
-**Anti Channel-Create**
-Enabled: ${callienabled}
-Warn at: ${config[message.guild.id].chaCrLimit} ${calliwarn} 
-Punish at: ${config[message.guild.id].chaCrLimit} ${calliban}
-**Anti Channel-Delete**
-Enabled: ${callienabled}
-Warn at: ${config[message.guild.id].chaDelLimit} ${calliwarn} 
-Punish at: ${config[message.guild.id].chaDelLimit} ${calliban}
-**Punishment:**
-Ban: ${calliban}
-      
-      `);
-    message.channel.send({ embed });
   }
 });
 
