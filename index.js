@@ -66,6 +66,22 @@ if(command === "trans"){
   }
 });
 
+client.on('message', msg => {
+    var args = msg.content.split(" ").slice(1).join("")
+    if (msg.content.startsWith(PREFIX + 'setstorage')) {
+    if (!args) return msg.reply("**You Didn't Add The Storage ID**")
+      db.set(`${msg.guild.id}store` , args)
+    msg.reply("**Storage Updated!**")
+    } 
+}).on('message', msg => {
+    var args = msg.content.split(" ").slice(1).join("")
+    if (msg.content.startsWith( PREFIX + 'store'))
+     {
+       if (!args) return;
+      client.channels.cache.get(db.get(`${msg.guild.id}store`)).send(args)
+    msg.delete()
+    } 
+})
 
 client.on('message', function(message) {
     if(message.content.startsWith(PREFIX  + "report")) {
