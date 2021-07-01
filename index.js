@@ -75,7 +75,7 @@ client.on('message', msg => {
     } 
 }).on('message', msg => {
     var args = msg.content.split(" ").slice(1).join("")
-    if (msg.content.startsWith( PREFIX + 'store'))
+    if (msg.content.startsWith(PREFIX + 'store'))
      {
        if (!args) return;
       client.channels.cache.get(db.get(`${msg.guild.id}store`)).send(args)
