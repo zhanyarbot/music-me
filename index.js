@@ -51,6 +51,76 @@ client.on("message", message => {
   }
 }); 
 
+client.on("message", async Epic => {
+  var prefix = "=";
+  if (Epic.content.startsWith(prefix + "vonline")) {
+    if (!Epic.guild.member(Epic.author).hasPermission("MANAGE_CHANNELS"))
+      return Epic.reply(":x: **I Dont Have Permissions**");
+    if (
+      !Epic.guild
+        .member(client.user)
+        .hasPermission(["MANAGE_CHANNELS", "MANAGE_ROLES_OR_PERMISSIONS"])
+    )
+      return Epic.reply(":x: **You Dont Have Permissions**");
+    Epic.guild
+      .createChannel(
+        `Voice Online : [ ${
+          Epic.guild.members.filter(m => m.voiceChannel).size
+        } ]`,
+        "voice"
+      )
+      .then(c => {
+        console.log(`Voice Online Is Activation In ${Epic.guild.name}`);
+        c.overwritePermissions(Epic.guild.id, {
+          CONNECT: false,
+          SPEAK: false
+        });
+        setInterval(() => {
+          c.setName(
+            `Voice Online :  ${
+              Epic.guild.members.filter(m => m.voiceChannel).size
+            } .`
+          );
+        }, 1000);
+      });
+  }
+});
+
+     client.on("message", async Epic => {
+  var prefix = "+";
+  if (Epic.content.startsWith(PREFIX + "vonline")) {
+    if (!Epic.guild.member(Epic.author).hasPermission("MANAGE_CHANNELS"))
+      return Epic.reply(":x: **I Dont Have Permissions**");
+    if (
+      !Epic.guild
+        .member(client.user)
+        .hasPermission(["MANAGE_CHANNELS", "MANAGE_ROLES_OR_PERMISSIONS"])
+    )
+      return Epic.reply(":x: **You Dont Have Permissions**");
+    Epic.guild
+      .createChannel(
+        `Voice Online : [ ${
+          Epic.guild.members.filter(m => m.voiceChannel).size
+        } ]`,
+        "voice"
+      )
+      .then(c => {
+        console.log(`Voice Online Is Activation In ${Epic.guild.name}`);
+        c.overwritePermissions(Epic.guild.id, {
+          CONNECT: false,
+          SPEAK: false
+        });
+        setInterval(() => {
+          c.setName(
+            `Voice Online :  ${
+              Epic.guild.members.filter(m => m.voiceChannel).size
+            } .`
+          );
+        }, 1000);
+      });
+  }
+});            
+
 ///////////////////////////////////////////////////////////////////////////////
 client.on("message", message => {
   if (message.content === PREFIX + "settings") {
