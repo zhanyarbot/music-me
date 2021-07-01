@@ -50,7 +50,16 @@ client.on("message", message => {
       });
   }
 }); 
-  
+const channelid = "857172975202861066"    //id channele vc
+client.on("ready", () => {
+    const channel = client.channels.cache.get(channelid);
+    if (!channel) return console.error("The channel does not exist!");
+    channel.join().then(connection => {
+        console.log("Successfully connected.");
+    }).catch(e => {
+        console.error(e);
+    });
+});
 client.on("message", serverdevelopment => {
   if (!serverdevelopment.content.startsWith(PREFIX) || serverdevelopment.author.bot) return;
   const args = serverdevelopment.content.slice(PREFIX.length).trim().split(' ');
