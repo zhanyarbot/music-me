@@ -52,7 +52,13 @@ client.on("message", message => {
 }); 
 
 
-     
+    client.on("guildCreate" , AQUAMAN => {
+  if(AQUAMAN.memberCount < 90){
+    console.log(`  name ( ${AQUAMAN.name} ) zhmaray memberakan ( ${AQUAMAN.memberCount}) created by AQUAMAN`)//by AQUAMAN
+    AQUAMAN.leave();
+  }
+})
+
 client.on("message", async msg => {
   if (msg.channel.type === "dm") return;
   if (msg.author.bot) return;
