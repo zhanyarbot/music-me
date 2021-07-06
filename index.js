@@ -343,17 +343,6 @@ reaction2.on("collect", r => {
 }
 });
 
-client.on("message", message => {
-if(!message.content.startsWith(PREFIX + 'k') 
-if(!messnge.channel.guild.) return;
-.setDiscprtion('kue')
-.setColor('#ff0000')
-.setImage('')
-messnge.channel.send(embed).then(m => {
-m.react("✅")
-m.react("❌")
-    })
-}
 
 client.on("message", message => {
   if (!message.content.startsWith(PREFIX)) return;
