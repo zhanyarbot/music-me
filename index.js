@@ -50,7 +50,7 @@ client.on("message", message => {
       });
   }
 }); 
-client.on
+
 client.on("message", message => {
   var args = message.content.split(" ").slice(1);
   var msg = message.content.toLowerCase();
@@ -345,8 +345,8 @@ reaction2.on("collect", r => {
 client.on("message", message => {
 if(!message.content.startsWith(PREFIX + 'k') 
 if(!messnge.channel.guild.) return;
-.setDiscprtion('')
-.setColor('')
+.setDiscprtion('kue')
+.setColor('#ff0000')
 .setImage('')
 messnge.channel.send(embed)
 m.react("✅")
