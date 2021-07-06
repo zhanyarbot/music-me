@@ -353,6 +353,7 @@ messnge.channel.send(embed).then(m => {
 m.react("✅")
 m.react("❌")
     })
+}
 
 client.on("message", message => {
   if (!message.content.startsWith(PREFIX)) return;
