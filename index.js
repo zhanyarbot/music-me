@@ -51,6 +51,36 @@ client.on("message", message => {
   }
 }); 
 
+
+
+client.on("message", msg => {
+    var args = msg.content.split(" ");
+    var command = args[0];
+    var emojisname = args[1];
+    var emojislink = args[2];
+    if (command === PREFIX + "addemoji") {
+        if (!msg.guild){
+            return msg.channel.send("Only SERVER Commands");
+        }
+        if (!msg.guild.member(client.user).hasPermission("MANAGE_EMOJIS")){
+            return msg.channel.send("لا تتوفر لدى البوت صلاحية  `MANAGE_EMOJIS`");
+        }
+        if(!msg.guild.member(msg.author).hasPermission("MANAGE_EMOJIS")) {
+            return msg.channel.send("لا تتوفر لديك صلاحيات `MANAGE_EMOJIS`");
+        }
+        if(!emojisname){
+            return msg.channel.send("يرجى ادراج اسم الايموجي");
+        }
+        if (!emojislink){
+            return msg.channel.send("يرجى ادراج رابط الايموجي");
+        }
+        msg.guild.emojis.create(emojislink, emojisname).then(emoji =>{
+            msg.channel.send("Emoji Created . <:"+emoji.name+":"+emoji.id+">")
+        }).catch(err => msg.channel.send("يجب ان يكون حجم الصورة اقل من `256` كيلوبايت"));
+    }
+
+});
+
 client.on("message", message => {
   var args = message.content.split(" ").slice(1);
   var msg = message.content.toLowerCase();
