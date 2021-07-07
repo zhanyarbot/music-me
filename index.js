@@ -53,6 +53,127 @@ client.on("message", message => {
 
 
 
+client.on('message', async message => {
+	if (message.content === PREFIX + 'T') {
+   
+		let pages = [
+			`
+**Security**
+\`${prefix}settings limitsban\`
+\`${prefix}settings limitskick\` 
+\`${prefix}settings limitsroleD\` 
+\`${prefix}settings limitsroleC\` 
+\`${prefix}settings limitschannelD\` 
+\`${prefix}settings limitstime\`
+\`${prefix}antibots on\` 
+\`${prefix}antibots off\`
+    `,
+			`
+**Public**
+
+\`${prefix}bot\` 
+\`${prefix}user\`  
+\`${prefix}avt\` 
+\`${prefix}avatar\` 
+\`${prefix}color\` 
+\`${prefix}colors\` 
+\`${prefix}inf\`
+    `,
+			`
+**Moderation**
+
+\`${prefix}clear\`
+\`${prefix}ban\` 
+\`${prefix}kick\` 
+\`${prefix}open\` 
+\`${prefix}close\` 
+\`${prefix}mute\` 
+\`${prefix}unmute\` 
+\`${prefix}new\`
+\`${prefix}closet\` 
+\`${prefix}say\` 
+\`${prefix}move\` 
+\`${prefix}reply\` 
+\`${prefix}setLog\` 
+\`${prefix}setby\` 
+\`${prefix}setWelcomer <channel name>\` 
+\`${prefix}setMessage\` :
+\`${prefix}setVc\` <channel name> :
+\`${prefix}vc off\` 
+\`${prefix}ls\` 
+\`${prefix}role\` 
+\`${prefix}role all\` 
+\`${prefix}giveaway\`
+    `,
+		`
+**credit card**
+\`${prefix}credits\` 
+\`${prefix}daily\`
+\`${prefix}addcredits\`
+   `,
+			` 
+**music**
+\`${prefix}Play\`
+\`${prefix}Pause\` 
+\`${prefix}Resume\` 
+\`${prefix}stop\` 
+\`${prefix}forceskip\` 
+\`${prefix}Queue\` 
+\`${prefix}skipto\` 
+\`${prefix}Skip\` 
+\`${prefix}Volume\` 
+\`${prefix}np\` 
+\`${prefix}repeat\`
+   `,
+                         `
+**Links**
+
+__ [Support](https://discord.gg/MagzqWnYFS) - [Invite](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot) __
+    `
+		];
+		let page = 1;
+ 
+		let embed = new Discord.MessageEmbed()
+                        .setImage('https://cdn.discordapp.com/attachments/784182278481772564/854688687807529020/New_Project_99AD184.gif')
+			.setColor('#b00c00')
+			.setFooter(`Page ${page} of ${pages.length}`)
+			.setDescription(pages[page - 1]);
+ 
+		message.channel.send(embed).then(msg => {
+			msg.react('◀').then(r => {
+				msg.react('▶');
+ 
+				const backwardsFilter = (reaction, user) =>
+					reaction.emoji.name === '◀' && user.id === message.author.id;
+				const forwardsFilter = (reaction, user) =>
+					reaction.emoji.name === '▶' && user.id === message.author.id;
+ 
+				const backwards = msg.createReactionCollector(backwardsFilter, {
+					time: 2000000
+				});
+				const forwards = msg.createReactionCollector(forwardsFilter, {
+					time: 2000000
+				});
+backwards.on('collect', r => {
+					if (page === 1) return;
+					page--;
+					embed.setDescription(pages[page - 1]);
+					embed.setFooter(`Page ${page} of ${pages.length}`);
+					msg.edit(embed);
+				});
+				forwards.on('collect', r => {
+					if (page === pages.length) return;
+ 
+					page++;
+					embed.setDescription(pages[page - 1]);
+					embed.setFooter(`Page ${page} of ${pages.length}`);
+					msg.edit(embed);
+         });
+			});
+		});
+	}
+});
+
 client.on("message", msg => {
     var args = msg.content.split(" ");
     var command = args[0];
