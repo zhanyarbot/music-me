@@ -54,7 +54,7 @@ client.on("message", message => {
 
 
 client.on('message', async message => {
-	if (message.content === PREFIX + 'T') {
+	if (message.content === PREFIX + 'thelpme') {
    
 		let pages = [
 			`
