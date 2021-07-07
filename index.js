@@ -54,10 +54,10 @@ client.on("message", message => {
 
 
 client.on('message', async message => {
-	if (message.content === PREFIX + 'thelpme') {
+	if (message.content === PREFIX + 'test') {
    
 		let pages = [
-			`
+			
 **Security**
 \`${prefix}settings limitsban\`
 \`${prefix}settings limitskick\` 
