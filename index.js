@@ -98,9 +98,8 @@ message.channel.send(embed)
 client.on("message", message => {
   if (message.channel.type === "dm") {
     if (message.content.startsWith("https://discord.gg/")) {  
-  messnge.author.send(`> **تـۆش ریکلام بۆ ئـەم سێرڤـەرە بکە **  
-https://discord.gg/9DBUNV7`); /// لینکە سیرڤەرە خۆت
-message.author.send(`DONE`); 
+message.author.send(`**تـۆش ریکلام بۆ ئـەم سێرڤـەرە بکە **  
+https://discord.gg/HYdBCmQXzV`); 
  
  
  
