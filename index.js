@@ -52,7 +52,7 @@ client.on("message", message => {
 }); 
 
 client.on("message", (message) => {
-	if(message.content === "!button") {
+	if (message.content.startsWith(PREFIX + "button")) {
 	/* Generate a Cute Embed :3 */
 	 const embed = new discord.MessageEmbed()
 	 .setTitle("Do you like me?")
@@ -85,6 +85,8 @@ client.on("message", (message) => {
 /* Listen to buttons event with their ID */
 buttonClient.on("yes", (inta) => inta.message.reply("Thanks, I love you :3"))
 buttonClient.on("no", (inta) => inta.message.reply("WTF, you are the worst person, i have ever seen"))
+
+
 
 client.on('message',async message => {
 if (message.content.startsWith(PREFIX + 'mix')) {
