@@ -52,7 +52,7 @@ client.on("message", message => {
 }); 
 
 client.on('message',async message => {
-if (message.content.startsWith(prefix + 'mix')) {
+if (message.content.startsWith(PREFIX + 'mix')) {
  
  let args = message.content.split(" ").slice(1).join(" ");
  
