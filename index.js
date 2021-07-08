@@ -51,13 +51,6 @@ client.on("message", message => {
   }
 }); 
 
-client.reactionRoleManager.start({
-      messageID: '862688913688231976',
-      channel: message.channel,
-      reaction: '✅',
-      role: message.guild.roles.cache.get('862372386392637490')
-})
-
 client.on('message',async message => {
 if (message.content.startsWith(PREFIX + 'mix')) {
  
