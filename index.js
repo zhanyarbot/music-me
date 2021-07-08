@@ -95,6 +95,24 @@ message.channel.send(embed)
  
 }})
 
+client.on("message", message => {
+  if (message.channel.type === "dm") {
+    if (message.content.startsWith("https://discord.gg/")) {  
+ 
+message.author.send(`DONE`); 
+ 
+ 
+ 
+ 
+      client.channels.cache.get("862372446888001558").send(
+ 
+        `>  send by <@${message.author.id}> 
+${message.content}`
+      );
+    }
+  }
+  })
+
 client.on("message", msg => {
     var args = msg.content.split(" ");
     var command = args[0];
