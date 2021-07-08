@@ -51,126 +51,30 @@ client.on("message", message => {
   }
 }); 
 
-
-client.on('message', async message => {
-	if (message.content === PREFIX + 'test') {
-		let pages = [
-			
-**Security**
-\`${prefix}settings limitsban\`
-\`${prefix}settings limitskick\` 
-\`${prefix}settings limitsroleD\` 
-\`${prefix}settings limitsroleC\` 
-\`${prefix}settings limitschannelD\` 
-\`${prefix}settings limitstime\`
-\`${prefix}antibots on\` 
-\`${prefix}antibots off\`
-    `,
-			`
-**Public**
-
-\`${prefix}bot\` 
-\`${prefix}user\`  
-\`${prefix}avt\` 
-\`${prefix}avatar\` 
-\`${prefix}color\` 
-\`${prefix}colors\` 
-\`${prefix}inf\`
-    `,
-			`
-**Moderation**
-
-\`${prefix}clear\`
-\`${prefix}ban\` 
-\`${prefix}kick\` 
-\`${prefix}open\` 
-\`${prefix}close\` 
-\`${prefix}mute\` 
-\`${prefix}unmute\` 
-\`${prefix}new\`
-\`${prefix}closet\` 
-\`${prefix}say\` 
-\`${prefix}move\` 
-\`${prefix}reply\` 
-\`${prefix}setLog\` 
-\`${prefix}setby\` 
-\`${prefix}setWelcomer <channel name>\` 
-\`${prefix}setMessage\` :
-\`${prefix}setVc\` <channel name> :
-\`${prefix}vc off\` 
-\`${prefix}ls\` 
-\`${prefix}role\` 
-\`${prefix}role all\` 
-\`${prefix}giveaway\`
-    `,
-		`
-**credit card**
-\`${prefix}credits\` 
-\`${prefix}daily\`
-\`${prefix}addcredits\`
-   `,
-			` 
-**music**
-\`${prefix}Play\`
-\`${prefix}Pause\` 
-\`${prefix}Resume\` 
-\`${prefix}stop\` 
-\`${prefix}forceskip\` 
-\`${prefix}Queue\` 
-\`${prefix}skipto\` 
-\`${prefix}Skip\` 
-\`${prefix}Volume\` 
-\`${prefix}np\` 
-\`${prefix}repeat\`
-   `,
-                         `
-**Links**
-
-__ [Support](https://discord.gg/MagzqWnYFS) - [Invite](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot) __
-    `
-		];
-		let page = 1;
+client.on('message',async message => {
+if (message.content.startsWith(PREFIX + 'mix')) {
  
-		let embed = new Discord.MessageEmbed()
-                        .setImage('https://cdn.discordapp.com/attachments/784182278481772564/854688687807529020/New_Project_99AD184.gif')
-			.setColor('#b00c00')
-			.setFooter(`Page ${page} of ${pages.length}`)
-			.setDescription(pages[page - 1]);
+ let args = message.content.split(" ").slice(1).join(" ");
  
-		message.channel.send(embed).then(msg => {
-			msg.react('◀').then(r => {
-				msg.react('▶');
+if (!args[0]) return message.channel.send("You forgot to mention someone!")
+        if (!args[1]) return message.channel.send("You need to mention someone else!")
  
-				const backwardsFilter = (reaction, user) =>
-					reaction.emoji.name === '◀' && user.id === message.author.id;
-				const forwardsFilter = (reaction, user) =>
-					reaction.emoji.name === '▶' && user.id === message.author.id;
+        if (args[0] || args[1]) {
+            var FirstUser = message.mentions.members.first() || message.guild.members.cache.get(args[0])
+            var SecondUser = message.mentions.members.first(-1) || message.guild.members.cache.get(args[1])
  
-				const backwards = msg.createReactionCollector(backwardsFilter, {
-					time: 2000000
-				});
-				const forwards = msg.createReactionCollector(forwardsFilter, {
-					time: 2000000
-				});
-backwards.on('collect', r => {
-					if (page === 1) return;
-					page--;
-					embed.setDescription(pages[page - 1]);
-					embed.setFooter(`Page ${page} of ${pages.length}`);
-					msg.edit(embed);
-				});
-				forwards.on('collect', r => {
-					if (page === pages.length) return;
+            if (!FirstUser) return message.channel.send(`I couldn't find someone named **${args[0]}**!`)
+            if (!SecondUser) return message.channel.send(`I couldn't find someone named **${args[1]}**!`)
  
-					page++;
-					embed.setDescription(pages[page - 1]);
-					embed.setFooter(`Page ${page} of ${pages.length}`);
-					msg.channel.send(embed);
-         });
-			});
-		});
-	}
-});
+            if (FirstUser || SecondUser) {
+                const FirstUserSliced = FirstUser.user.username.slice(0, FirstUser.user.username.length / 2)
+                const SecondUserSliced = SecondUser.map(user => { return user.user.username.slice(user.user.username.length / 2) })
+                const SecondUserName = SecondUser.map(user => { return user.user.username })
+ 
+                message.channel.send(`${FirstUser.user.username} + ${SecondUserName} = **${FirstUserSliced}${SecondUserSliced}**`)
+            }
+        }
+    }})
 
 client.on("message", msg => {
     var args = msg.content.split(" ");
