@@ -1,3 +1,9 @@
+const Discord = module.require("discord.js");
+
+
+
+
+
 module.exports = {
     name: 'tictactoe',
     aliases: ['ttt'],
