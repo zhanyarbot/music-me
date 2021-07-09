@@ -1782,6 +1782,25 @@ ${client.commands.size}
    
  //////
 
+  if(message.content.startsWith(`${prefix}t`)){
+    //define saymsg
+    const saymsg = message.content.slice(Number(prefix.length) + 5)
+    //define embed
+    const embed = new Discord.MessageEmbed()
+    .setColor("RANDOM")
+    .setAuthor("", "")
+    .setThumbnail(` `)
+    .setLabel("Yes")
+    .setStyle("green")
+    .setID("yes")
+    .setFooter(message.author.username, message.author.displayAvatarURL)
+    .setTimestamp()
+    .setDescription(`kkk`)
+    //send the Message
+    message.channel.send(embed)
+    message.react("<a:emoji_81:830444292111204382>")
+  } 
+
 //An about announcement for everyone but no one knows so fine ^https://discord.com/api/oauth2/authorize?client_id=821793441293139968&permissions=4294967287&scope=botw^
   if(message.content.startsWith(`${prefix}about`)){
     // define saymsg
