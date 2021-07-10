@@ -1,7 +1,7 @@
 {
   "TOKEN": "",
   "PREFIX": "+",
-  "approveemoji": "✅",
-  "denyemoji": "❌",
-  "erroremoji": "🚫"
+  "approveemoji": "<:2_:863362568801222656>",
+  "denyemoji": "<a:emoji_21:863365193937059871>",
+  "erroremoji": "<a:emoji_24:863366903693836318>"
 }
