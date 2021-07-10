@@ -20,10 +20,10 @@ module.exports = {
     if(prefix === null) prefix = PREFIX;
 
     //react with approve emoji
-    message.react("<a:emoji_81:830444292111204382>");
+    message.react("<:emoji_25:862752960261783612>");
 
     if(!args[0]) return message.channel.send(new MessageEmbed()
-    .setColor("YELLOW")
+    .setColor("#ff0000")
     .setTitle(`Current Prefix: \`${prefix}\``)
     .setFooter('Please provide a new prefix')
     );
