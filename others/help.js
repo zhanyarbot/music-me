@@ -72,7 +72,7 @@ queue ・ filter ・ radio・loob
 
    .setFooter(`${message.author.username}#${message.author.discriminator}`, message.member.user.displayAvatarURL({ dynamic: true }))
    .setColor("#ff0000")
-   message.react("✅")
+   message.react("<:2_:863362568801222656>")
     return message.channel.send(helpEmbed).catch(console.error);
 
   }
