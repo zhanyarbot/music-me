@@ -20,7 +20,7 @@ module.exports = {
     if(prefix === null) prefix = PREFIX;
 
     //react with approve emoji
-    message.react("<:emoji_25:862752960261783612>");
+    message.react("<:2_:863362568801222656>");
 
     if(!args[0]) return message.channel.send(new MessageEmbed()
     .setColor("#ff0000")
@@ -33,13 +33,13 @@ module.exports = {
     );
 
     if(args[1]) return message.channel.send(new MessageEmbed()
-    .setColor("YELLOW")
+    .setColor("#ff0000")
     .setTitle(`'The prefix can\'t have two spaces'`));
 
     db.set(`prefix_${message.guild.id}`, args[0])
 
     message.channel.send(new MessageEmbed()
-    .setColor("YELLOW")
+    .setColor("#ff0000")
     .setTitle(`Successfully set new prefix to **${args[0]}**`))
   }
 }
