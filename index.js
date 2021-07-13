@@ -6,7 +6,7 @@ const db = require('quick.db');
 const { TOKEN, PREFIX, AVATARURL, BOTNAME, } = require(`./config.json`);
 const figlet = require("figlet");
 const client = new Client({ disableMentions: `` , partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
-client.login('ODI4OTIxNDYzMzQ4MjY0OTgy.YGwnRQ.NHpVypgUB0cUrelMRFKF-CXVm1c');
+client.login('Nzg0MzAzNzU2OTI1NDY4NzEz.X8nVyw.eSrDPfzRnwffCXIT3UbiV_DQKTc');
 client.commands = new Collection();
 client.setMaxListeners(0);
 client.prefix = PREFIX;
@@ -51,22 +51,6 @@ client.on("message", message => {
   }
 }); 
 
-client.on("message", (message) => {
-  if (message.content.startsWith(PREFIX + "create logs")) {
-    if (message.author.id !== message.guild.owner.user.id)
-      return message.channel.send(
-        "Tanha bo owner ship~"
-      );
-      message.guild.id.createChannel("Logs.", "category").then(catg =>{
-      message.guild.id.createChannel("log-pic", "text").then(chat => { chat.setParent(catg.id) })
-      message.guild.id.createChannel("log-message", "text").then(chat => { chat.setParent(catg.id) })
-      message.guild.id.createChannel("log-ban", "text").then(chat => { chat.setParent(catg.id) })
-      message.guild.id.createChannel("log-join", "text").then(chat => { chat.setParent(catg.id) })
-      message.guild.id.createChannel("log-leave", "text").then(chat => { chat.setParent(catg.id) })
-  message.channel.sendMessage(':white_check_mark: **Done Create.**')
-      })
-  }
-  });
 
 client.on('message', async abdo => {
     if (abdo.content.startsWith(PREFIX + "delete channel")) {
