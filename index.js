@@ -166,18 +166,7 @@ client.on("message", message => {
       "https://cdn.discordapp.com/attachments/825478733657407508/830064695766941737/D3.gif",
       "https://cdn.discordapp.com/attachments/825478733657407508/830064611155116062/O1.gif",
       "https://cdn.discordapp.com/attachments/825478733657407508/830064202034446416/Q3.gif",
-      "https://cdn.discordapp.com/attachments/825478733657407508/830064168987394138/L3.gif",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
+      "https://cdn.discordapp.com/attachments/825478733657407508/830064168987394138/L3.gif"
     ];
     message.channel
       .send({
@@ -216,13 +205,7 @@ client.on("message", message => {
       "https://cdn.discordapp.com/attachments/830066947290300476/830067318113173504/794a66c01ee0797f3dc90d0f307100f7.jpg",
       "https://cdn.discordapp.com/attachments/830066947290300476/830067248613031976/ff9859ccbaca1d1d75806588c216a5d6.jpg",
       "https://cdn.discordapp.com/attachments/830884935258734595/838133843507544064/M1.gif",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
+      
     ];
     message.channel
       .send({
