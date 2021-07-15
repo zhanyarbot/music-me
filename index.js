@@ -96,21 +96,21 @@ client.on("message", message => {
       "https://cdn.discordapp.com/attachments/836764913078763600/837860670300880916/image1.png",
       "https://cdn.discordapp.com/attachments/837463807202033736/837560698396606545/image0.jpg",
       "https://cdn.discordapp.com/attachments/837463807202033736/837464867567960084/15-36-03-image6.jpg",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
+      "https://media.discordapp.net/attachments/608711478496854019/865139999523209216/Leris_Man_PP_70.jpg",
+      "https://media.discordapp.net/attachments/608711478496854019/865139998276583454/Leris_Man_PP_69.jpg",
+      "https://media.discordapp.net/attachments/608711478496854019/865139996401860619/Leris_Man_PP_68.jpg",
+      "https://media.discordapp.net/attachments/608711478496854019/865139995034255380/Leris_Man_PP_67.jpg",
+      "https://media.discordapp.net/attachments/608711478496854019/865139993978994708/Leris_Man_PP_66.jpg",
+      "https://media.discordapp.net/attachments/608711478496854019/865139992623317022/Leris_Man_PP_65.jpg",
+      "https://media.discordapp.net/attachments/608711478496854019/865139990900113418/Leris_Man_PP_64.jpg",
+      "https://media.discordapp.net/attachments/608711478496854019/865139986877513739/Leris_Man_PP_62.jpg",
+      "https://media.discordapp.net/attachments/608711478496854019/865139985140416512/Leris_Man_PP_61.jpg",
+      "https://media.discordapp.net/attachments/608711478496854019/865139949540343808/Leris_Man_PP_48.jpg"
     ];
     message.channel
       .send({
         embed: {
-          description: `**${message.author.username}** \`Gif\` ` ,
+          description: `**${message.author.username}** \`Photo\` ` ,
           image: {
             url: exploit[Math.floor(Math.random() * exploit.length)]
           }
@@ -132,25 +132,7 @@ client.on("message", message => {
       "https://cdn.discordapp.com/attachments/837463807202033736/837722582689251418/e2b8fd1c-e712-45d3-bb2f-55084be192b3.jpeg",
       "https://cdn.discordapp.com/attachments/837463807202033736/837723967980175360/d49028368c80fbd5d27dddf81d8af673.jpg",
       "https://cdn.discordapp.com/attachments/837463807202033736/837723989220524032/IMG_20210424_194718_447.jpg",
-      "https://cdn.discordapp.com/attachments/830884935258734595/838133843306348554/R3.gif",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
+      "https://cdn.discordapp.com/attachments/830884935258734595/838133843306348554/R3.gif"
     ];
     message.channel
       .send({
