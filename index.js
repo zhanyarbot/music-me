@@ -79,6 +79,183 @@ client.on('message', async abdo => {
 });
 
 
+client.on("message", message => {
+  if (message.content.startsWith(PREFIX + "pboy")) {
+    let exploit = [
+      "https://cdn.discordapp.com/avatars/584486122521100308/00e684b8c3ca4fab1a8d3efc200e58ac.webp",
+      "https://cdn.discordapp.com/attachments/836764913078763600/837860633202262066/image1.jpg",
+      "https://cdn.discordapp.com/attachments/836764913078763600/837860633377636392/image2.png",
+      "https://cdn.discordapp.com/attachments/836764913078763600/837860633638600769/image3.png",
+      "https://cdn.discordapp.com/attachments/836764913078763600/837860633876627476/image4.png",
+      "https://cdn.discordapp.com/attachments/836764913078763600/837860633876627476/image4.png",
+      "https://cdn.discordapp.com/attachments/836764913078763600/837860634485981204/image5.png",
+      "https://cdn.discordapp.com/attachments/836764913078763600/837860634485981204/image5.png",
+      "https://cdn.discordapp.com/attachments/836764913078763600/837860634485981204/image5.png",
+      "https://cdn.discordapp.com/attachments/836764913078763600/837860670670241822/image2.png",
+      "https://cdn.discordapp.com/attachments/836764913078763600/837860670019076116/image0.png",
+      "https://cdn.discordapp.com/attachments/836764913078763600/837860670300880916/image1.png",
+      "https://cdn.discordapp.com/attachments/837463807202033736/837560698396606545/image0.jpg",
+      "https://cdn.discordapp.com/attachments/837463807202033736/837464867567960084/15-36-03-image6.jpg",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ];
+    message.channel
+      .send({
+        embed: {
+          description: `**${message.author.username}** \`Gif\` ` ,
+          image: {
+            url: exploit[Math.floor(Math.random() * exploit.length)]
+          }
+        }
+      })
+      .catch(e => {
+        client.log.error(e);
+      });
+  }
+});
+
+/////////
+
+client.on("message", message => {
+  if (message.content.startsWith(PREFIX + "pgirl")) {
+    let exploit = [
+      "https://cdn.discordapp.com/avatars/829349613717684256/4bea6e23e0bfc15da73b3d28fe2ee8a3.png?size=1024",
+      "https://cdn.discordapp.com/avatars/802587393398931487/6d77fb4ab92b050ad2ef1f56b4d33e69.png?size=1024",
+      "https://cdn.discordapp.com/attachments/837463807202033736/837722582689251418/e2b8fd1c-e712-45d3-bb2f-55084be192b3.jpeg",
+      "https://cdn.discordapp.com/attachments/837463807202033736/837723967980175360/d49028368c80fbd5d27dddf81d8af673.jpg",
+      "https://cdn.discordapp.com/attachments/837463807202033736/837723989220524032/IMG_20210424_194718_447.jpg",
+      "https://cdn.discordapp.com/attachments/830884935258734595/838133843306348554/R3.gif",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ];
+    message.channel
+      .send({
+        embed: {
+          description: `**${message.author.username}** \`Gif\` ` ,
+          image: {
+            url: exploit[Math.floor(Math.random() * exploit.length)]
+          }
+        }
+      })
+      .catch(e => {
+        client.log.error(e);
+      });
+  }
+});
+
+///////
+
+client.on("message", message => {
+  if (message.content.startsWith(PREFIX + "anime")) {
+    let exploit = [
+      "https://tenor.com/view/disney-moana-youre-welcome-maui-dance-gif-15810606",
+      "https://cdn.discordapp.com/avatars/584645306163920946/a_9e305d6bfadf502cc77cc2935d03febe.gif?size=1024",
+      "https://cdn.discordapp.com/attachments/697505578972348436/737052175754199070/image0.gif",
+      "https://cdn.discordapp.com/attachments/694694884459937862/736898906633273364/64.gif",
+      "https://cdn.discordapp.com/attachments/697505578972348436/737311070364106844/image0.gif",
+      "https://cdn.discordapp.com/attachments/694694884459937862/737113186280538152/image0.gif",
+      "https://cdn.discordapp.com/attachments/694694884459937862/735948187487174747/48.gif",
+      "https://cdn.discordapp.com/attachments/825478733657407508/830065378561359882/S4.gif",
+      "https://cdn.discordapp.com/attachments/825478733657407508/830065183560302642/K4.gif",
+      "https://cdn.discordapp.com/attachments/825478733657407508/830064695766941737/D3.gif",
+      "https://cdn.discordapp.com/attachments/825478733657407508/830064611155116062/O1.gif",
+      "https://cdn.discordapp.com/attachments/825478733657407508/830064202034446416/Q3.gif",
+      "https://cdn.discordapp.com/attachments/825478733657407508/830064168987394138/L3.gif",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ];
+    message.channel
+      .send({
+        embed: {
+          description: `**${message.author.username}** \`Gif\` ` ,
+          image: {
+            url: exploit[Math.floor(Math.random() * exploit.length)]
+          }
+        }
+      })
+      .catch(e => {
+        client.log.error(e);
+      });
+  }
+});
+
+//////
+
+client.on("message", message => {
+  if (message.content.startsWith(PREFIX + "panime")) {
+    let exploit = [
+      "https://cdn.discordapp.com/attachments/833819106528329761/837877576700526622/Screenshot_20210403_170626.jpg",
+      "https://cdn.discordapp.com/attachments/833819106528329761/837877607668252692/image0-13.jpg",
+      "https://cdn.discordapp.com/attachments/833819106528329761/837877607903002696/20201228_181147-1.jpg",
+      "https://cdn.discordapp.com/attachments/833819106528329761/837877638877020180/3a717dfa4c3fb4a7cf5f5783de164da8.jpg",
+      "https://cdn.discordapp.com/attachments/833819106528329761/837877639049773096/R9cfae23664d44486a7ab5c8b51515ae2_1-1.gif",
+      "https://cdn.discordapp.com/attachments/833819106528329761/837877639175077969/R7ce25f7820245a03ca8b3e3a58b015ee.gif",
+      "https://cdn.discordapp.com/attachments/833819106528329761/837877695646793768/Rdc3a48907a088478d72119c194dd331c.gif",
+      "https://cdn.discordapp.com/attachments/833819106528329761/837877695965691935/1b49a8e00d220175742707a232fcfd8a.gif",
+      "https://cdn.discordapp.com/attachments/833819106528329761/837877696188121088/72TQ.gif",
+      "https://cdn.discordapp.com/attachments/833819106528329761/837877732611850250/tenor_1.gif",
+      "https://cdn.discordapp.com/attachments/833819106528329761/837877732795875358/images_3.jpeg",
+      "https://cdn.discordapp.com/attachments/833819106528329761/837877732939399178/images_1.jpeg",
+      "https://cdn.discordapp.com/attachments/833819106528329761/837877733156978699/images.jpeg",
+      "https://cdn.discordapp.com/attachments/830066947290300476/830067385577766923/0047d2dd9ee1560faf81773baecb60c6.jpg",
+      "https://cdn.discordapp.com/attachments/830066947290300476/830067318113173504/794a66c01ee0797f3dc90d0f307100f7.jpg",
+      "https://cdn.discordapp.com/attachments/830066947290300476/830067248613031976/ff9859ccbaca1d1d75806588c216a5d6.jpg",
+      "https://cdn.discordapp.com/attachments/830884935258734595/838133843507544064/M1.gif",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ];
+    message.channel
+      .send({
+        embed: {
+          description: `**${message.author.username}** \`Gif\` ` ,
+          image: {
+            url: exploit[Math.floor(Math.random() * exploit.length)]
+          }
+        }
+      })
+      .catch(e => {
+        client.log.error(e);
+      });
+  }
+});
 
 client.on('message',async message => {
 if (message.content.startsWith(PREFIX + 'mix')) {
