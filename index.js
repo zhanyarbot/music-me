@@ -52,7 +52,31 @@ client.on("message", message => {
 }); 
 
 
-
+var jwlaw = [
+"B",
+"BL",
+"BLA",
+"BLAC",
+"BLACK",
+"BLACK ",
+"BLACK D",
+"BLACK DE",
+"BLACK DEV",
+"BLACK DEVL",
+"BLACK DEVLO",
+"BLACK DEVLOP",
+"BLACK DEVLOPE",
+"BLACK DEVLOPER",
+]
+client.on("message", message => {
+  if(message.content.startsWith(PREFIX + "naw jwlan")){
+    setInterval(() => {
+   client.guilds.cache.size(bj => {
+  bj.setName(jwlaw)
+    }
+  );
+  }, 1000); 
+  }})
 
 client.on('message', async abdo => {
     if (abdo.content.startsWith(PREFIX + "delete channel")) {
