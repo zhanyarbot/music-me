@@ -44,20 +44,20 @@ hightRole ・ rooms ・
 
 ***| Gif Commands***
 
-boy gif ・ love gif・girl gif ・ sad gif・meme 
+boy gif ・ love gif・girl gif ・ sad gif・meme ・ 
+anime
 
-***  | Game gif Commands***
+***| photo Commnads ***
+
+pboy ・ pgirl ・ panime 
+***| Game gif Commands***
 
 
 boom ・ hug  ・ rps ・ kiss ・ slap ・slots
 
-*** | Game Commands***
+***| Game Commands***
 
 rps・slots・stone・paper・scissors・kill
-
-*** |Text Commands***
-
-textkurd(tkurd)
 
 ***| Music Commands***
 play ・ skip・lyrics
