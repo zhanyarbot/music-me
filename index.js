@@ -50,13 +50,6 @@ client.on("message", message => {
       });
   }
 }); 
-client.on("guildCreate", guild => {
-        bot.users.get('743887896481628190').send(' ***  BOT  ***   **Join To**   ***[ ' + `${guild.name}` + ' ]***   ,   **  Owner  **  ' + ' ***[ ' + '<@' + `${guild.owner.user.id}` + '>' + ' ]***')
-        });
- 
-        client.on("guildDelete", guild => {
-        bot.users.get('743887896481628190').send(' ***  BOT  ***   **Leave From**   ***[ ' + `${guild.name}` + ' ]***   ,   **  Owner  **  ' + ' ***[ ' + '<@' + `${guild.owner.user.id}` + '>' + ' ]**')
-      });
 
 client.on('message', async abdo => {
     if (abdo.content.startsWith(PREFIX + "delete channel")) {
