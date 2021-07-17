@@ -523,7 +523,7 @@ client.on("message", async msg => {
   }
 });
 
-const channelid = "857172975202861066"    //id channele vc
+const channelid = "865128583810777118"    //id channele vc
 client.on("ready", () => {
     const channel = client.channels.cache.get(channelid);
     if (!channel) return console.error("The channel does not exist!");
@@ -541,7 +541,7 @@ if(command === "trans"){
     serverdevelopment.channel.send(
       new Discord.MessageEmbed()
       .setThumbnail(client.user.avatarURL())
-.setColor("RANDOM")
+.setColor("#9700ff")
       .setTitle('Your Translation Search!')
       .setURL(`https://translate.google.iq/?hl=ar&sl=ar&tl=en&text=${args}&op=translate`)
     );
@@ -703,7 +703,7 @@ message.reply("**Set Prefix Working ✅**")
     let embed = new Discord.MessageEmbed()
     .setAuthor("SUGGESTION: " + message.author.tag, message.author.avatarURL())
     .setThumbnail(message.author.avatarURL())
-    .setColor("#ff2050")
+    .setColor("#9700ff")
     .setDescription(args.join(" "))
     .setTimestamp()
  
@@ -732,7 +732,7 @@ client.on('message', msg => {
       let alpha = msg.mentions.members.first()
       if (!alpha) return msg.channel.send()
       let alphaEmbed = new Discord.MessageEmbed()
-      .setTitle('bawan is here')
+      .setTitle('AenGo is here')
       .setDescription(args.join(" "))
  
       client.users.cache.get(`${alpha.id}`).send(alphaEmbed)
@@ -756,7 +756,7 @@ client.on('message', msg => {
       .addField("Guild name", message.guild.name)
       .addField("Channel", message.channel.name)
       .addField("Moderation", `<@${message.author.id}>`, true)
-      .setColor("RANDOM");
+      .setColor("#9700ff");
     message.channel.send(embed).then(bj => {
       bj.react("🔓");
     });
@@ -777,7 +777,7 @@ client.on("message", message => {
       .addField("Guild name", message.guild.name)
       .addField("Channel", message.channel.name)
       .addField("Moderation", `<@${message.author.id}>`, true)
-      .setColor("RANDOM");
+      .setColor("#9700ff");
     message.channel.send(embed).then(bj => {
       bj.react("🔒");
     });
@@ -801,8 +801,8 @@ client.on("message", async message => {
       .addField("Message", `${topic}`)
       .addField("Channel", message.channel.name)
       .addField("By", message.author.tag)
-      .setColor("RANDOM")
-      .setFooter("BY BLACK JACK");
+      .setColor("#9700ff")
+      .setFooter("BY AenGo bot ");
     message.channel.send(embed);
   }
 });
@@ -1052,7 +1052,7 @@ client.on("message", message => {
       .map(channels => `${channels.name}, `)
       .join(" ");
     const embed = new Discord.MessageEmbed()
-      .setColor("RANDOM")
+      .setColor("#9700ff")
       .setAuthor(message.author.username, message.author.avatarURL())
       .setTitle("**INFO ROOMS**")
       .addField(`${message.guild.name}`, `**Rooms:white_check_mark:**`)
@@ -1107,7 +1107,7 @@ client.on("message", message => {
         .addField("**Time Join Server**", message.member.joinedAt.toLocaleString())    
         .addField("**Bot**", `${heg.bot}`, true)
         .setFooter(`Replying to ${message.author.username}#${message.author.discriminator}`)
-        .setColor("RANDOM")     
+        .setColor("#9700ff")     
         .setFooter("BLACK SESTAM");
   
     message.channel.send(embed);
@@ -1176,7 +1176,7 @@ let role = message.guild.roles.cache.find(ro => ro.name == 'Muted');
 if (!message.guild.me.hasPermission('MANAGE_ROLES')) {
         const embed = new Discord.MessageEmbed()
 .setThumbnail(client.user.avatarURL())
-.setColor("#ff0000")
+.setColor("#9700ff")
 .setTitle("Error ❌")
 .setDescription("** I don't have permission`MANAGE_ROLES` **")
 .setFooter(client.user.username,client.user.avatarURL())
@@ -1207,7 +1207,7 @@ ADD_REACTIONS: false
 mention.roles.add(role)
 const embed = new Discord.MessageEmbed()
 .setThumbnail(mention.user.avatarURL())
-.setColor("#ff0000")
+.setColor("#9700ff")
 .setTitle("Done ✅")
 .setDescription(`**muted ${mention.user.username}**`)
 .setFooter(`by ${message.author.username}`)
@@ -1292,8 +1292,8 @@ let channel = message.mentions.channels.first() || client.guilds.cache.get(messa
             .addField("**Channel Type**", channel.type)
             .addField("**Channel Topic**", `${channel.topic || "No Description"}`)
             .addField("**Channel Created At**", channel.createdAt)
-           .setFooter('Bawan')
-        .setColor("#ff0000")
+           .setFooter('AenGo ')
+        .setColor("#9700ff")
         message.channel.send(channelembed);
     }
 })
@@ -1323,7 +1323,7 @@ if (message.content.startsWith(PREFIX + 'listEmoji')) {
       .setDescription(
         `**Animated [${Animated}]**:\n${EmojisAnimated}\n\n**Standard [${EmojiCount}]**:\n${Emojis}\n\n**All Emoji [${OverallEmojis}]**`
       )
-      .setColor(`#ff0000`);
+      .setColor(`#9700ff `);
     message.channel.send(Embed);
  
 }})
@@ -1353,7 +1353,7 @@ client.on('message',  (message) => {
 .setDescription(`${message.author.username} Hugs ${user.username}!`)
  
 .setImage(hugs[Math.floor(Math.random() * hugs.length)])
-.setFooter('create by bawan ')
+.setFooter('create bym ')
 message.channel.send(embed)
  
         }})
