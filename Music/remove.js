@@ -31,11 +31,11 @@ execute(message, args) {
     //get the song
     const song = queue.songs.splice(args[0], 1);
     //react with approve
-    message.react("<a:emoji_81:830444292111204382>")
+    message.react("<:2_:863362568801222656>")
     //send approve
     queue.textChannel.send(new MessageEmbed()
     .setDescription(`${message.author} removed **${song[0].title}** from the Queue`)
-    .setColor("YELLOW")
+    .setColor("#ff0000")
     );
   }
 };
