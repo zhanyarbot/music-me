@@ -45,8 +45,8 @@ module.exports = {
 <:emoji_61:863458308219731978> ***| Gif Commands***
 
 
-> boy gif ・ love gif・girl gif ・ sad gif・meme ・ 
->anime
+> boy gif ・ love gif・girl gif ・ sad gif ・ meme ・ 
+> anime
 
 ***| photo Commnads ***
 
