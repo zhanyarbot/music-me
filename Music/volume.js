@@ -13,7 +13,7 @@ module.exports = {
   aliases: ["v"],
   description: "(v)Change volume0/200",
   cooldown: 5,
-  edesc: `Type the Command, to change the volume of the current song.\nUsage: ${PREFIX}volume <0-200>`,
+  edesc: `Type the Command, to change the volume of the current song.\nUsage: ${PREFIX}volume <0-300>`,
 
 execute(message, args) {
     //if not a guild return
@@ -33,9 +33,9 @@ execute(message, args) {
     //if no args return info embed
     if (!args[0]) return message.channel.send(volinfoembed).catch(console.error);
     //if args is not a number return error
-    if (isNaN(args[0])) return attentionembed(message,"That's not a Number between **0 & 200**");
+    if (isNaN(args[0])) return attentionembed(message,"That's not a Number between **0 & 300**");
     //if args is not a Number between 150 and 0 return error
-    if (parseInt(args[0]) < 0 || parseInt(args[0]) > 200)
+    if (parseInt(args[0]) < 0 || parseInt(args[0]) > 300)
       return attentionembed(message,"That's not a Number between **0 & 200**");
     //set queue volume to args
     queue.volume = args[0];
@@ -43,7 +43,7 @@ execute(message, args) {
     queue.connection.dispatcher.setVolumeLogarithmic(args[0] / 100);
     //define approve embed
     const volinfosetembed = new MessageEmbed()
-    .setColor("YELLOW")
+    .setColor("#ff0000")
     .setTitle(` Volume changed to: \`${args[0]}%\`!`)
     //Send approve message
     return queue.textChannel.send(volinfosetembed).catch(console.error);
