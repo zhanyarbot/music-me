@@ -6,7 +6,7 @@ const db = require('quick.db');
 const { TOKEN, PREFIX, AVATARURL, BOTNAME, } = require(`./config.json`);
 const figlet = require("figlet");
 const client = new Client({ disableMentions: `` , partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
-client.login('Nzg0MzAzNzU2OTI1NDY4NzEz.X8nVyw.eSrDPfzRnwffCXIT3UbiV_DQKTc');
+client.login('ODA3MzUwNTM0OTAxMDcxOTMy.YB2txw.jj_T8b2emvDLArSnwOp_k9UVyd4');
 client.commands = new Collection();
 client.setMaxListeners(0);
 client.prefix = PREFIX;
@@ -18,7 +18,7 @@ const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, `\\$&`);
 //this fires when the BOT STARTS DO NOT TOUCH
 
 client.on("message", message => {
-  if (message.content.startsWith(PREFIX + "boy gif")) {
+  if (message.content.startsWith(PREFIX + "boy")) {
     let man = [
       "https://media.discordapp.net/attachments/786897044483604490/803870769313480714/Enes_Acar_GIF_70.gif",
       "https://media.discordapp.net/attachments/786897044483604490/803870793716858880/a_57a7f6c875e3a329b170edf177392911.gif",
@@ -1383,7 +1383,7 @@ client.on("message", message => {
 });
 
 client.on("message", message => {
-  if (message.content.startsWith(PREFIX+ "girl gif")) {
+  if (message.content.startsWith(PREFIX+ "girl")) {
     let girl = [
       "https://media.discordapp.net/attachments/786897045436366849/804968189892755456/image2-1.gif",
       "https://media.discordapp.net/attachments/786897045436366849/804968223577604126/gif472.gif",
@@ -1416,7 +1416,7 @@ client.on("message", message => {
 
 
 client.on("message", message => {
-  if (message.content.startsWith(PREFIX + "love gif")) {
+  if (message.content.startsWith(PREFIX + "couple")) {
     let loves = [
       "https://media.discordapp.net/attachments/608711480346542102/782233713538498600/hit_gif_5.gif",
       "https://media.discordapp.net/attachments/608711480346542102/782286421020508170/image0_1.gif",
@@ -1985,7 +1985,7 @@ ${client.commands.size}
     .setDescription(`
 
 ** <a:s_:849928845750698004> Developers Bot**
- <@743887896481628190>
+ <@701546840063082601>
 
 ** <a:emoji_31:851033224293384203>ping bot**
 ${client.ws.ping}
@@ -2062,7 +2062,7 @@ ${process.version}
 
 });
  client.on("guildCreate", guild => {
-  let channel = client.channels.cache.get("865989096027586580");
+  let channel = client.channels.cache.get("850779924352466984");
   let embed = new MessageEmbed().setColor("#ff0000")
   .setAuthor(client.user.username, client.user.avatarURL())
   .setTitle( `✅ Join Server`)
@@ -2075,7 +2075,7 @@ ${process.version}
 });
 
 client.on("guildDelete", guild => {
-  let channel = client.channels.cache.get("865989215161942016");
+  let channel = client.channels.cache.get("850779924352466984");
   let embed = new MessageEmbed()
   .setColor("RANDOM")
   .setAuthor(client.user.username, client.user.avatarURL())
