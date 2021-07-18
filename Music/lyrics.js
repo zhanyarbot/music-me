@@ -11,7 +11,7 @@ const { PREFIX } = require(`../config.json`);
 ////////////////////////////
 module.exports = {
   name: "lyrics",
-  aliases: ["ly", "text"],
+  aliases: ["ly", "lyri"],
   description: "(ly)Get lyrics for the currently playing song",
   cooldown: 7.5,
   edesc: `Type the Command while listening to a song, to get the lyrics from!\nUsage: ${PREFIX}lyrics`,
@@ -32,7 +32,7 @@ async execute(message) {
     //define the temporary Embed
     let temEmbed = new MessageEmbed()
     .setAuthor("Searching...", "https://cdn.discordapp.com/attachments/822637229297238026/833218301542924308/20210418_084342.png").setFooter("Lyrics")
-    .setColor("83c0ff")
+    .setColor("#ff0000")
     //send it and safe it in a variable
     let result = await message.channel.send(temEmbed)
     //try to find lyrics
@@ -50,7 +50,7 @@ async execute(message) {
     let lyricsEmbed = new MessageEmbed()
       .setTitle(" Lyrics")
       .setDescription(lyrics)
-      .setColor("YELLOW")
+      .setColor("#ff0000")
     //if to long make slice it
     if (lyricsEmbed.description.length >= 2048)
       //slice the embed description and redefine it
