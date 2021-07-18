@@ -23,48 +23,54 @@ module.exports = {
 *** | Prefix bot*** 
 ***__>__***
 
-*** | User Commands***
+<a:emoji_7:859099940499750912> ***| User Commands***
 
 
- invite ・ support(supp)・ uptime ・ prefix
- ping ・ invites・avatar ・ se
- listEmoji ・user
+> invite ・ support(supp)・ uptime ・ prefix
+> ping ・ invites・avatar ・ se ・ 
+> listEmoji ・ user
 
- ***|Fun commnads***
+ <a:Work:852558706708054056> ***|Fun commnads***
 
 
- topinvites(tinvites)・ setnick
- lock ・ unlock ban ・ unban
- clear・kick ・channelinfo
- vkick・addrole ・ roleremove
- slowmode・invites ・createchannel
-deletechannel ・benner ・ count
-deafend ・ undeafend ・rolebc
-hightRole ・ rooms ・
+> topinvites(tinvites)・ setnick
+> lock ・ unlock ban ・ unban
+> clear・kick ・channelinfo
+> vkick・addrole ・ roleremove
+> slowmode・invites ・createchannel
+> deletechannel ・benner ・ count
+> deafend ・ undeafend ・rolebc
+> hightRole ・ rooms ・
 
-***| Gif Commands***
+<:emoji_61:863458308219731978> ***| Gif Commands***
 
-boy gif ・ love gif・girl gif ・ sad gif・meme ・ 
-anime
+
+> boy gif ・ love gif・girl gif ・ sad gif・meme ・ 
+>anime
 
 ***| photo Commnads ***
 
-pboy ・ pgirl ・ panime 
+
+> pboy ・ pgirl ・ panime 
+
 ***| Game gif Commands***
 
 
-boom ・ hug  ・ rps ・ kiss ・ slap ・slots
+> boom ・ hug  ・ rps ・ kiss ・ slap ・slots
 
-***| Game Commands***
+<a:emoji_20:856127714804105216> ***| Game Commands***
 
-rps・slots・stone・paper・scissors・kill
 
-***| Music Commands***
-play ・ skip・lyrics
-nowplaying・skipto・ stop
-volume・nowplaying ・ resume
-shuffle ・ search ・remove
-queue ・ filter ・ radio・loob
+> rps ・ slots・stone ・ paper ・ scissors ・ kill
+
+<a:music:852559405718175744> ***| Music Commands***
+
+
+> play ・ skip・lyrics
+> nowplaying・skipto・ stop
+> volume・nowplaying ・ resume
+> shuffle ・ search ・remove
+> queue ・ filter ・ radio・loob
 
 **Links**
 [SUPPORT](https://discord.gg/BCHan3ZxZr)       [INVITE](https://discord.com/api/oauth2/authorize?client_id=784303756925468713&permissions=8&scope=bot) [  website  ](https://calms-web-site.glitch.me/)
