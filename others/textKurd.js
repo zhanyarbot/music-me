@@ -3,14 +3,13 @@ const Discord = require("discord.js");
 const { MessageEmbed } = require("discord.js");
 
 module.exports = {
-  name: "text",
-  aliases: [],
-  description: "Show text",
-  usage: "text",
+   name: "textKurd",
+   aliases: [],
+   description: "Show text-kurdish",
   run: async (client, message, args) => {
     
     
-    let replies = ["ghh","","","","","","","","","",""];
+    let replies = ["ghh","vh","ugc","hv","yv","ihv","8u","uh","hvyu","sbhjshs","jjbsgshsh"];
 
     let Member =
       message.mentions.members.first() ||
