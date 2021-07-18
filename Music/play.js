@@ -32,7 +32,7 @@ async execute(message, args, client) {
     //If no args return
     if (!args.length)
       return attentionembed(message, `Usage: ${message.client.prefix}play <YouTube URL | Video Name | Soundcloud URL>`);
-    message.react("<a:emoji_81:830444292111204382>").catch(console.error);
+    message.react("<:2_:863362568801222656>").catch(console.error);
     const permissions = channel.permissionsFor(message.client.user);
     if (!permissions.has("CONNECT"))
       return attentionembed(message, "I need permissions to join your channel!");
@@ -138,7 +138,7 @@ serverQueue.songs.push(song);
        message.react("<a:emoji_81:830444292111204382>")
         .setTitle("<a:emoji_40:823437442895314945> "+song.title)
         .setURL(song.url)
-        .setColor("YELLOW")
+        .setColor("#ff0000")
         .setImage(thumb)
         .setThumbnail(`https://media.discordapp.net/attachments/815252825012568085/815266512414703656/image0.png`)
          .addField("<a:emoji_86:833222624220938250> Requested by:", `\`${message.author.username}#${message.author.discriminator}\``, true)
