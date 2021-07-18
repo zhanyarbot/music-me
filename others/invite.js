@@ -18,11 +18,11 @@ module.exports = {
     .setThumbnail(``)
     .setTitle(`Invite`)
     .setDescription(`
-[click here]()
+[click here](https://discord.com/api/oauth2/authorize?client_id=807350534901071932&permissions=8&scope=bot)
 `)
 
   
-   .setColor("YELLOW");
+   .setColor("RANDOM");
    message.react("<a:emoji_81:830444292111204382>")
     return message.channel.send(helpEmbed).catch(console.error);
 
