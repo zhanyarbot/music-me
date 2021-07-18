@@ -27,10 +27,10 @@ async execute(message) {
     queue.loop = !queue.loop;
     //Define the Loop embed
     const loopembed = new MessageEmbed()
-    .setColor(queue.loop ? "YELLOW" : "YELLOW")
+    .setColor(queue.loop ? "Red" : "red")
     .setAuthor(`Loop is now ${queue.loop ? " enabled" : " disabled"}`, "https://cdn.discordapp.com/attachments/822637229297238026/833218301542924308/20210418_084342.png")
     //react with approve emoji
-    message.react("<a:emoji_81:830444292111204382>");
+    message.react("<:2_:863362568801222656>");
     //send message into the Queue chat
     return queue.textChannel
       .send(loopembed)
