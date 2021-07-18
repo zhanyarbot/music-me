@@ -25,10 +25,10 @@ module.exports = {
       //pause the music
       queue.connection.dispatcher.pause(true);
       //define the pause embed
-      const pausemebed = new MessageEmbed().setColor("YELLOW")
+      const pausemebed = new MessageEmbed().setColor("#ff0000")
       .setAuthor(`${message.author.username} paused the music.`, "https://cdn.discordapp.com/attachments/822637229297238026/833218301542924308/20210418_084342.png")
       //react with approve emoji
-      message.react("<a:emoji_81:830444292111204382>")
+      message.react("<:2_:863362568801222656>")
       //return message
       return queue.textChannel.send(pausemebed).catch(console.error);
     }
