@@ -9,7 +9,7 @@ module.exports = {
     
     let replies = ["ghh","vh","ugc","hv","yv","ihv","8u","uh","hvyu","sbhjshs","jjbsgshsh"];
 
-    let Math =
+    let result =
       message.mentions.members.first() ||
       message.guild.members.cache.get(args[0]) ||
       message.member;
