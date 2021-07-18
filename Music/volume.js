@@ -11,7 +11,7 @@ const { PREFIX } = require(`../config.json`);
 module.exports = {
   name: "volume",
   aliases: ["v"],
-  description: "(v)Change volume0/200",
+  description: "(v)Change volume0/300",
   cooldown: 5,
   edesc: `Type the Command, to change the volume of the current song.\nUsage: ${PREFIX}volume <0-300>`,
 
@@ -19,7 +19,7 @@ execute(message, args) {
     //if not a guild return
     if(!message.guild) return;
     //react with approve emoji
-    message.react("<:emoji_74:815251307635015731>");
+    message.react("<:2_:863362568801222656>");
     //get the current queue
     const queue = message.client.queue.get(message.guild.id);
     //if no queue return error
@@ -28,8 +28,8 @@ execute(message, args) {
     if (!canModifyQueue(message.member)) return;
     //define Info Embed
     const volinfoembed = new MessageEmbed()
-    .setColor("YELLOW")
-    .setTitle(`<:emoji_72:815251305874194482> Volume is: \`${queue.volume}%\``)
+    .setColor("#ff0000")
+    .setTitle(`<:2_:863362568801222656> Volume is: \`${queue.volume}%\``)
     //if no args return info embed
     if (!args[0]) return message.channel.send(volinfoembed).catch(console.error);
     //if args is not a number return error
