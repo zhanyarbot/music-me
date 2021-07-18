@@ -73,7 +73,7 @@ module.exports = {
 > queue ・ filter ・ radio・loob
 
 **Links**
-[SUPPORT](https://discord.gg/BCHan3ZxZr)       [INVITE](https://discord.com/api/oauth2/authorize?client_id=784303756925468713&permissions=8&scope=bot) [  website  ](https://calms-web-site.glitch.me/)
+[SUPPORT](https://discord.gg/progresshome)       [INVITE](https://discord.com/api/oauth2/authorize?client_id=807350534901071932&permissions=8&scope=bot) [website](comming soom)
 `)
 
    .setFooter(`${message.author.username}#${message.author.discriminator}`, message.member.user.displayAvatarURL({ dynamic: true }))
