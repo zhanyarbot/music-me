@@ -21,7 +21,7 @@ module.exports = {
     .setTitle(`Evil Bot Commands`)
     .setDescription(`
 *** | Prefix bot*** 
-***__>__***
+***__!__***
 
 <:emoji_94:870360873816981535> ***| User Commands***
 > invite ・ support(supp)・ uptime ・ prefix
