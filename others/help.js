@@ -45,10 +45,10 @@ module.exports = {
 <:emoji_79:870361413644873798> ***| photo Commnads ***
 > pboy ・ pgirl ・ panime 
 
-<a:emoji_90:842129191301677107> ***| Game Commands***
+<a:emoji_90:870361065786069012> ***| Game Commands***
 > stone ・ scissors ・ kill ・ slots ・ rps
 
-<:emoji_96:870360776291012659> ***| Funny Commands***
+<:emoji_78:870361473107517471> ***| Funny Commands***
 > boom ・ hug ・ paper ・ kiss ・ slap
 
 <a:emoji_23:870361554049204264> ***| Music Commands***
