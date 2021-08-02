@@ -23,11 +23,11 @@ module.exports = {
 <a:emoji_16:850611586921398283>
 <a:emoji_29:850653075055050772>[YOUTUBE](https://youtube.com/channel/UC4kuqkXtiELDsM9HZDpr-CQ)
 <a:emoji_16:850611586921398283>
-<:g_:850633528697159710> [GITHUB](https://github.com/SHVANx69)
+<:g_:850633528697159710> [GITHUB](https://github.com/xBlackMan69)
 <a:emoji_16:850611586921398283>
-[SERVER SUPPORT](https://discord.gg/progresshome)
+[SERVER SUPPORT](https://discord.gg/vYEN2WDH9s)
 <a:emoji_16:850611586921398283>
-[INVITE](https://discord.com/api/oauth2/authorize?client_id=807350534901071932&permissions=8&scope=bot)`)
+[INVITE](https://discord.com/api/oauth2/authorize?client_id=871657014982508574&permissions=8&scope=bot)`)
 
    .setFooter(`${message.author.username}#${message.author.discriminator}`, message.member.user.displayAvatarURL({ dynamic: true }))
    .setColor("RANDOM")
