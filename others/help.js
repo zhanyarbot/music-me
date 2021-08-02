@@ -58,7 +58,7 @@ module.exports = {
 > shuffle ・ search ・ remove
 > queue ・ filter ・ radio ・ loob
 
-**Links**
+<:emoji_91:870360971825254470> **Links**
 [SUPPORT](https://discord.gg/DcP6vw3CRw)       [INVITE](https://discord.com/api/oauth2/authorize?client_id=871657014982508574&permissions=8&scope=bot) [website](comming soom)
 `)
 
