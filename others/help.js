@@ -23,12 +23,12 @@ module.exports = {
 *** | Prefix bot*** 
 ***__>__***
 
-<:emoji_94:852672917031616522> ***| User Commands***
+<:emoji_94:870360873816981535> ***| User Commands***
 > invite ・ support(supp)・ uptime ・ prefix
 > ping ・ invites・avatar ・ se ・ 
 > listEmoji ・ user
 
-<:emoji_80:852672550155976754> ***|Moderation Commands***
+<:emoji_80:870361373895454800> ***|Moderation Commands***
 > topinvites(tinvites) ・ setnick
 > lock ・ unlock ・ ban ・ unban
 > clear ・ kick ・ channelinfo
@@ -38,20 +38,20 @@ module.exports = {
 > deafend ・ undeafend ・ rolebc
 > hightRole ・ rooms ・
 
-<:emoji_61:863458308219731978> ***| Gif Commands***
+<:emoji_61:870357017657753661> ***| Gif Commands***
 > boy gif ・ love gif・girl gif ・ sad gif ・ meme ・ 
 > anime
 
-<:emoji_79:852672528466968578> ***| photo Commnads ***
+<:emoji_79:870361413644873798> ***| photo Commnads ***
 > pboy ・ pgirl ・ panime 
 
 <a:emoji_90:842129191301677107> ***| Game Commands***
 > stone ・ scissors ・ kill ・ slots ・ rps
 
-<:emoji_78:870361473107517471> ***| Funny Commands***
+<:emoji_96:870360776291012659> ***| Funny Commands***
 > boom ・ hug ・ paper ・ kiss ・ slap
 
-<:emoji_85:852672706881388564> ***| Music Commands***
+<a:emoji_23:870361554049204264> ***| Music Commands***
 > play ・ skip ・ lyrics
 > nowplaying ・ skipto ・ stop
 > volume ・ nowplaying ・ resume
