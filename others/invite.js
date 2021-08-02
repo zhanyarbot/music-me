@@ -18,7 +18,7 @@ module.exports = {
     .setThumbnail(``)
     .setTitle(`Invite`)
     .setDescription(`
-[click here](https://discord.com/api/oauth2/authorize?client_id=807350534901071932&permissions=8&scope=bot)
+[click here](https://discord.com/api/oauth2/authorize?client_id=871657014982508574&permissions=8&scope=bot)
 `)
 
   
