@@ -46,7 +46,7 @@ module.exports = {
 > pboy ・ pgirl ・ panime 
 
 <a:emoji_90:870361065786069012> ***| Game Commands***
-> stone ・ scissors ・ kill ・ slots ・ rps
+> stone ・ scissors ・ slots ・ rps
 
 <:emoji_78:870361473107517471> ***| Funny Commands***
 > boom ・ hug ・ paper ・ kiss ・ slap
