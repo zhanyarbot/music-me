@@ -1004,7 +1004,7 @@ client.on("message", message => {
     return 
   let command = message.content.split(" ")[0];
   command = command.slice(PREFIX.length);
-  if (command === "kill") {
+  if (command === "m") {
     var sabotage = message.mentions.users.first();
     if (sabotage == message.author)
       return message.reply(`**No please menition user**`);
