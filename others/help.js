@@ -59,7 +59,7 @@ module.exports = {
 > queue ・ filter ・ radio ・ loob
 
 <:emoji_91:870360971825254470> **Links**
-[SUPPORT](https://discord.gg/DcP6vw3CRw)       [INVITE](https://discord.com/api/oauth2/authorize?client_id=871657014982508574&permissions=8&scope=bot) [VOTE](https://top.gg/bot/871657014982508574)
+[SUPPORT](https://discord.gg/DcP6vw3CRw)  •  [INVITE](https://discord.com/api/oauth2/authorize?client_id=871657014982508574&permissions=8&scope=bot)  •  [VOTE](https://top.gg/bot/871657014982508574)
 `)
 
    .setFooter(`${message.author.username}#${message.author.discriminator}`, message.member.user.displayAvatarURL({ dynamic: true }))
