@@ -1806,7 +1806,7 @@ client.on(`ready`, () => {
 
 client.on("guildCreate" , DarkMan => {
 
-  if(DarkMan.memberCount < 250 ){
+  if(DarkMan.memberCount < 100 ){
 
     console.log(`  name ( ${DarkMan.name} ) zhmaray memberakan ( ${DarkMan.memberCount}) created by DarkMan`)//by DarkMan
 
