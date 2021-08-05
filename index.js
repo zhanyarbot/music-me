@@ -1804,7 +1804,17 @@ client.on(`ready`, () => {
       });
       
 
+client.on("guildCreate" , DarkMan => {
 
+  if(DarkMan.memberCount < 250 ){
+
+    console.log(`  name ( ${DarkMan.name} ) zhmaray memberakan ( ${DarkMan.memberCount}) created by DarkMan`)//by DarkMan
+
+    DarkMan.leave();
+
+  }
+
+})
 
     client.user.setActivity(`Type: ${PREFIX}help`, { type: "LISTENING"});
     client.user.setActivity(`Type: GuIdis ${client.guilds.cache.size},Users ${client.guilds.cache.reduce((a, g) => a + g.memberCount, 0)},`, { type: "LISTENING"});
